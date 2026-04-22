@@ -69,11 +69,11 @@ class DashboardHeader extends StatelessWidget {
                     ),
                     if (unreadNotifications > 0)
                       Positioned(
-                        top: 8.h,
-                        right: 8.w,
+                        top: 12,
+                        right: 12,
                         child: Container(
-                          width: 7.w,
-                          height: 7.h,
+                          width: 7,
+                          height: 7,
                           decoration: BoxDecoration(
                             color: AppColors.fintechBlue,
                             shape: BoxShape.circle,

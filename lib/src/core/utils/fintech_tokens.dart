@@ -16,7 +16,7 @@ class FintechSpacing {
 
 class FintechRadius {
   static const double pill = 999;
-  static const double button = 14;
+  static const double button = 3;
   static const double card = 22;
   static const double panel = 20;
   static const double drawer = 26;
@@ -44,9 +44,8 @@ class FintechColors {
       ? AppColors.fintechDarkSurfaceMuted
       : AppColors.fintechLightSurfaceMuted;
 
-  static Color card(BuildContext context) => isDark(context)
-      ? AppColors.fintechDarkCard
-      : AppColors.fintechLightCard;
+  static Color card(BuildContext context) =>
+      isDark(context) ? AppColors.fintechDarkCard : AppColors.fintechLightCard;
 
   static Color border(BuildContext context) => isDark(context)
       ? AppColors.fintechDarkBorder
@@ -65,6 +64,8 @@ class FintechColors {
       : AppColors.fintechLightTextMuted;
 
   static Color scrim(BuildContext context) =>
-      (isDark(context) ? AppColors.fintechDarkScrim : AppColors.fintechLightScrim)
+      (isDark(context)
+              ? AppColors.fintechDarkScrim
+              : AppColors.fintechLightScrim)
           .withValues(alpha: 0.72);
 }

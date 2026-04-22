@@ -159,6 +159,10 @@ class AppColors {
   static Color fintechDarkTextSecondary = _fromHex('#B6B7C0');
   static Color fintechDarkTextMuted = _fromHex('#8B8D97');
   static Color fintechDarkScrim = _fromHex('#131316');
+  static Color fintechBalanceOverviewDark = _fromHex('#272729');
+  static Color fintechBalanceOverviewBorderStart = _fromHex('#80E5E4E4');
+  static Color fintechBalanceOverviewBorderEnd = _fromHex('#3C000000');
+  static Color fintechBalanceOverviewBadgeDark = _fromHex('#343437');
 
   static Color fintechLightBackground = _fromHex('#F5F6FA');
   static Color fintechLightSurface = _fromHex('#FFFFFF');
@@ -169,6 +173,10 @@ class AppColors {
   static Color fintechLightTextSecondary = _fromHex('#5B6473');
   static Color fintechLightTextMuted = _fromHex('#8590A3');
   static Color fintechLightScrim = _fromHex('#12151D');
+  static Color fintechBalanceOverviewLight = _fromHex('#FCFCFF');
+  static Color fintechBalanceOverviewBorderLightStart = _fromHex('#CCFFFFFF');
+  static Color fintechBalanceOverviewBorderLightEnd = _fromHex('#266F7A8F');
+  static Color fintechBalanceOverviewBadgeLight = _fromHex('#EEF1F7');
 
   static Color fintechBlue = _fromHex('#1463FF');
   static Color fintechBlueSoft = _fromHex('#3F86FF');
@@ -179,6 +187,7 @@ class AppColors {
   static Color fintechWarning = _fromHex('#FFB020');
   static Color fintechPeach = _fromHex('#FFD29A');
   static Color fintechPeachDark = _fromHex('#FFB86A');
+  static Color blue100 = _fromHex('#6BA6FF');
 }
 
 Color _fromHex(String hexString) {

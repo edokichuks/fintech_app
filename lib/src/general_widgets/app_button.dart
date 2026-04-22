@@ -116,9 +116,9 @@ class _AppButton extends State<AppButton> {
                         widget.text,
                         style:
                             (_buttonStyle.textStyle ??
-                                    context.textTheme.s16w500)
+                                    context.textTheme.s16w700)
                                 .copyWith(
-                                  fontSize: 16.sp,
+                                  fontSize: 17.sp,
                                   color: widget.isEnabled
                                       ? _buttonStyle.textColor
                                       : _buttonStyle.disabledTextColor,

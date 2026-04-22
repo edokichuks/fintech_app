@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 // Project imports:
+import 'package:fintech_app/gen/assets.gen.dart';
 import 'package:fintech_app/src/application/model/fintech_dashboard_snapshot.dart';
 import 'package:fintech_app/src/core/utils/app_utils_exports.dart';
 import 'package:fintech_app/src/general_widgets/general_widget_exports.dart';
@@ -55,6 +55,8 @@ class _QuickActionItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final iconSize = _iconSizeFor(action.type);
+
     return PressableScale(
       onTap: () => showSuccessToast(message: '${action.title} coming soon'),
       child: Column(
@@ -67,10 +69,14 @@ class _QuickActionItem extends StatelessWidget {
               shape: BoxShape.circle,
               color: FintechColors.mutedSurface(context),
             ),
-            child: Icon(
-              _iconFor(action.type),
-              color: FintechColors.textPrimary(context),
-              size: 20.r,
+            child: Center(
+              child: AppImageView(
+                svgPath: _iconAssetFor(action.type),
+                width: iconSize.width.w,
+                height: iconSize.height.h,
+                fit: BoxFit.contain,
+                color: FintechColors.textPrimary(context),
+              ),
             ),
           ),
           SizedBox(height: FintechSpacing.sm.h),
@@ -87,16 +93,29 @@ class _QuickActionItem extends StatelessWidget {
     );
   }
 
-  IconData _iconFor(FintechQuickActionType type) {
+  String _iconAssetFor(FintechQuickActionType type) {
     switch (type) {
       case FintechQuickActionType.billPay:
-        return LucideIcons.badgeDollarSign400;
+        return Assets.images.svg.billsPay;
       case FintechQuickActionType.donations:
-        return LucideIcons.heartHandshake400;
+        return Assets.images.svg.donations;
       case FintechQuickActionType.deposit:
-        return LucideIcons.landmark400;
+        return Assets.images.svg.deposit;
       case FintechQuickActionType.more:
-        return LucideIcons.layoutGrid400;
+        return Assets.images.svg.more;
+    }
+  }
+
+  Size _iconSizeFor(FintechQuickActionType type) {
+    switch (type) {
+      case FintechQuickActionType.billPay:
+        return const Size(20, 20);
+      case FintechQuickActionType.donations:
+        return const Size(23, 22);
+      case FintechQuickActionType.deposit:
+        return const Size(20, 20);
+      case FintechQuickActionType.more:
+        return const Size(18, 18);
     }
   }
 }

@@ -37,11 +37,17 @@ class $AssetsAudioGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/.gitkeep
+  String get aGitkeep => 'assets/images/.gitkeep';
+
   /// Directory path: assets/images/png
   $AssetsImagesPngGen get png => const $AssetsImagesPngGen();
 
   /// Directory path: assets/images/svg
   $AssetsImagesSvgGen get svg => const $AssetsImagesSvgGen();
+
+  /// List of all assets
+  List<String> get values => [aGitkeep];
 }
 
 class $AssetsJsonGen {
@@ -60,16 +66,16 @@ class $AssetsImagesPngGen {
   /// File path: assets/images/png/.gitkeep
   String get aGitkeep => 'assets/images/png/.gitkeep';
 
-  /// File path: assets/images/png/onboard1.png
-  AssetGenImage get onboard1 =>
-      const AssetGenImage('assets/images/png/onboard1.png');
+  /// File path: assets/images/png/home_background.png
+  AssetGenImage get homeBackground =>
+      const AssetGenImage('assets/images/png/home_background.png');
 
   /// File path: assets/images/png/profileimg.png
   AssetGenImage get profileimg =>
       const AssetGenImage('assets/images/png/profileimg.png');
 
   /// List of all assets
-  List<dynamic> get values => [aGitkeep, onboard1, profileimg];
+  List<dynamic> get values => [aGitkeep, homeBackground, profileimg];
 }
 
 class $AssetsImagesSvgGen {
@@ -78,8 +84,14 @@ class $AssetsImagesSvgGen {
   /// File path: assets/images/svg/.gitkeep
   String get aGitkeep => 'assets/images/svg/.gitkeep';
 
-  /// File path: assets/images/svg/bank.svg
-  String get bank => 'assets/images/svg/bank.svg';
+  /// File path: assets/images/svg/bankingFee.svg
+  String get bankingFee => 'assets/images/svg/bankingFee.svg';
+
+  /// File path: assets/images/svg/barcode.svg
+  String get barcode => 'assets/images/svg/barcode.svg';
+
+  /// File path: assets/images/svg/billsPay.svg
+  String get billsPay => 'assets/images/svg/billsPay.svg';
 
   /// File path: assets/images/svg/card_active.svg
   String get cardActive => 'assets/images/svg/card_active.svg';
@@ -89,6 +101,9 @@ class $AssetsImagesSvgGen {
 
   /// File path: assets/images/svg/delete.svg
   String get delete => 'assets/images/svg/delete.svg';
+
+  /// File path: assets/images/svg/deposit.svg
+  String get deposit => 'assets/images/svg/deposit.svg';
 
   /// File path: assets/images/svg/discard.svg
   String get discard => 'assets/images/svg/discard.svg';
@@ -101,6 +116,12 @@ class $AssetsImagesSvgGen {
 
   /// File path: assets/images/svg/disprofile.svg
   String get disprofile => 'assets/images/svg/disprofile.svg';
+
+  /// File path: assets/images/svg/donations.svg
+  String get donations => 'assets/images/svg/donations.svg';
+
+  /// File path: assets/images/svg/eWallet.svg
+  String get eWallet => 'assets/images/svg/eWallet.svg';
 
   /// File path: assets/images/svg/encard.svg
   String get encard => 'assets/images/svg/encard.svg';
@@ -120,6 +141,15 @@ class $AssetsImagesSvgGen {
   /// File path: assets/images/svg/home_inactive.svg
   String get homeInactive => 'assets/images/svg/home_inactive.svg';
 
+  /// File path: assets/images/svg/master.svg
+  String get master => 'assets/images/svg/master.svg';
+
+  /// File path: assets/images/svg/more.svg
+  String get more => 'assets/images/svg/more.svg';
+
+  /// File path: assets/images/svg/onlineShopping.svg
+  String get onlineShopping => 'assets/images/svg/onlineShopping.svg';
+
   /// File path: assets/images/svg/padlock.svg
   String get padlock => 'assets/images/svg/padlock.svg';
 
@@ -135,20 +165,28 @@ class $AssetsImagesSvgGen {
   /// List of all assets
   List<String> get values => [
     aGitkeep,
-    bank,
+    bankingFee,
+    barcode,
+    billsPay,
     cardActive,
     cardInactive,
     delete,
+    deposit,
     discard,
     dishistory,
     dishome,
     disprofile,
+    donations,
+    eWallet,
     encard,
     hintIcon,
     historyActive,
     historyInactive,
     homeActive,
     homeInactive,
+    master,
+    more,
+    onlineShopping,
     padlock,
     profileActive,
     profileInactive,

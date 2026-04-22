@@ -14,6 +14,7 @@ class AnimatedCurrencyText extends StatefulWidget {
     this.suffix = '',
     this.decimalPlaces = 0,
     this.textAlign,
+    this.useGrouping = true,
   });
 
   final double value;
@@ -22,6 +23,7 @@ class AnimatedCurrencyText extends StatefulWidget {
   final String suffix;
   final int decimalPlaces;
   final TextAlign? textAlign;
+  final bool useGrouping;
 
   @override
   State<AnimatedCurrencyText> createState() => _AnimatedCurrencyTextState();
@@ -51,10 +53,12 @@ class _AnimatedCurrencyTextState extends State<AnimatedCurrencyText> {
       curve: Curves.easeOutCubic,
       tween: Tween<double>(begin: _previousValue, end: widget.value),
       builder: (context, value, _) {
-        final formattedValue = HelperFunctions.formatAmount(
-          amount: value,
-          decimalPlaces: widget.decimalPlaces,
-        );
+        final formattedValue = widget.useGrouping
+            ? HelperFunctions.formatAmount(
+                amount: value,
+                decimalPlaces: widget.decimalPlaces,
+              )
+            : value.toStringAsFixed(widget.decimalPlaces);
 
         return AppText(
           text: '${widget.prefix}$formattedValue${widget.suffix}',

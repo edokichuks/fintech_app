@@ -103,7 +103,7 @@ class _DashboardContent extends ConsumerWidget {
                               balance: snapshot.totalBalance,
                             ),
                           ),
-                          SizedBox(height: FintechSpacing.xl.h),
+                          SizedBox(height: FintechSpacing.xxl.h),
                           FintechStaggeredReveal(
                             delay: FintechDurations.stagger,
                             child: QuickActionsPanel(

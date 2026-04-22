@@ -38,12 +38,12 @@ class TransactionHistorySection extends StatelessWidget {
               ),
             ),
             PressableScale(
-              onTap: () => showSuccessToast(message: 'Full history coming soon'),
+              onTap: () =>
+                  showSuccessToast(message: 'Full history coming soon'),
               child: AppText(
                 text: 'See all',
                 style: AppTextStyle.bodySmall.copyWith(
-                  color: AppColors.fintechBlue,
-                  fontWeight: FontWeight.w700,
+                  color: AppColors.blue100,
                 ),
               ),
             ),
@@ -88,7 +88,9 @@ class TransactionHistorySection extends StatelessWidget {
           ),
         ),
         SizedBox(height: FintechSpacing.md.h),
-        ...transactions.map((transaction) => FintechTransactionRow(transaction: transaction)),
+        ...transactions.map(
+          (transaction) => FintechTransactionRow(transaction: transaction),
+        ),
       ],
     );
   }

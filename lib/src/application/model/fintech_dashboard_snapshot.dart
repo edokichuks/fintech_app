@@ -131,7 +131,14 @@ class FintechBankCard extends Equatable {
   };
 
   @override
-  List<Object?> get props => [id, cardNumber, holderName, expiryLabel, cvv, variant];
+  List<Object?> get props => [
+    id,
+    cardNumber,
+    holderName,
+    expiryLabel,
+    cvv,
+    variant,
+  ];
 }
 
 class FintechSpendPoint extends Equatable {
@@ -145,11 +152,7 @@ class FintechSpendPoint extends Equatable {
   final double y;
   final String label;
 
-  FintechSpendPoint copyWith({
-    double? x,
-    double? y,
-    String? label,
-  }) {
+  FintechSpendPoint copyWith({double? x, double? y, String? label}) {
     return FintechSpendPoint(
       x: x ?? this.x,
       y: y ?? this.y,
@@ -165,11 +168,7 @@ class FintechSpendPoint extends Equatable {
     );
   }
 
-  Map<String, dynamic> toJson() => {
-    'x': x,
-    'y': y,
-    'label': label,
-  };
+  Map<String, dynamic> toJson() => {'x': x, 'y': y, 'label': label};
 
   @override
   List<Object?> get props => [x, y, label];
@@ -222,7 +221,8 @@ class FintechTransactionRecord extends Equatable {
     return FintechTransactionRecord(
       id: json['id'] as String? ?? '',
       title: json['title'] as String? ?? '',
-      occurredAt: DateTime.tryParse(json['occurredAt'] as String? ?? '') ??
+      occurredAt:
+          DateTime.tryParse(json['occurredAt'] as String? ?? '') ??
           DateTime.fromMillisecondsSinceEpoch(0),
       amount: (json['amount'] as num?)?.toDouble() ?? 0,
       isCredit: json['isCredit'] as bool? ?? true,
@@ -250,22 +250,25 @@ class FintechTransactionRecord extends Equatable {
   };
 
   @override
-  List<Object?> get props => [id, title, occurredAt, amount, isCredit, icon, filter, cardId];
+  List<Object?> get props => [
+    id,
+    title,
+    occurredAt,
+    amount,
+    isCredit,
+    icon,
+    filter,
+    cardId,
+  ];
 }
 
 class FintechQuickAction extends Equatable {
-  const FintechQuickAction({
-    required this.title,
-    required this.type,
-  });
+  const FintechQuickAction({required this.title, required this.type});
 
   final String title;
   final FintechQuickActionType type;
 
-  FintechQuickAction copyWith({
-    String? title,
-    FintechQuickActionType? type,
-  }) {
+  FintechQuickAction copyWith({String? title, FintechQuickActionType? type}) {
     return FintechQuickAction(
       title: title ?? this.title,
       type: type ?? this.type,
@@ -282,10 +285,7 @@ class FintechQuickAction extends Equatable {
     );
   }
 
-  Map<String, dynamic> toJson() => {
-    'title': title,
-    'type': type.name,
-  };
+  Map<String, dynamic> toJson() => {'title': title, 'type': type.name};
 
   @override
   List<Object?> get props => [title, type];
@@ -346,7 +346,9 @@ class FintechDashboardSnapshot extends Equatable {
     DateTime? generatedAt,
   }) {
     final currentRandom = random ?? Random(1200 + tick);
-    final baseTime = generatedAt ?? DateTime(2024, 12, 12, 12, 10).add(Duration(minutes: tick));
+    final baseTime =
+        generatedAt ??
+        DateTime(2024, 12, 12, 12, 10).add(Duration(minutes: tick));
     final cards = [
       const FintechBankCard(
         id: 'physical-primary',
@@ -378,9 +380,7 @@ class FintechDashboardSnapshot extends Equatable {
     final totalSpend = 30 + currentRandom.nextInt(6);
 
     return FintechDashboardSnapshot(
-      user: FintechUserSummary.mock(
-        unreadNotifications: tick.isEven ? 1 : 2,
-      ),
+      user: FintechUserSummary.mock(unreadNotifications: tick.isEven ? 0 : 2),
       totalBalance: totalBalance.toDouble(),
       totalSpend: totalSpend.toDouble(),
       cards: cards,
@@ -452,12 +452,36 @@ class FintechDashboardSnapshot extends Equatable {
         ),
       ],
       spendPoints: [
-        FintechSpendPoint(x: 0, y: 2.0 + currentRandom.nextDouble(), label: 'Jan'),
-        FintechSpendPoint(x: 1, y: 4.2 + currentRandom.nextDouble(), label: 'Feb'),
-        FintechSpendPoint(x: 2, y: 3.8 + currentRandom.nextDouble(), label: 'Mar'),
-        FintechSpendPoint(x: 3, y: 5.8 + currentRandom.nextDouble(), label: 'Apr'),
-        FintechSpendPoint(x: 4, y: 5.1 + currentRandom.nextDouble(), label: 'May'),
-        FintechSpendPoint(x: 5, y: 6.6 + currentRandom.nextDouble(), label: 'Jun'),
+        FintechSpendPoint(
+          x: 0,
+          y: 2.0 + currentRandom.nextDouble(),
+          label: 'Jan',
+        ),
+        FintechSpendPoint(
+          x: 1,
+          y: 4.2 + currentRandom.nextDouble(),
+          label: 'Feb',
+        ),
+        FintechSpendPoint(
+          x: 2,
+          y: 3.8 + currentRandom.nextDouble(),
+          label: 'Mar',
+        ),
+        FintechSpendPoint(
+          x: 3,
+          y: 5.8 + currentRandom.nextDouble(),
+          label: 'Apr',
+        ),
+        FintechSpendPoint(
+          x: 4,
+          y: 5.1 + currentRandom.nextDouble(),
+          label: 'May',
+        ),
+        FintechSpendPoint(
+          x: 5,
+          y: 6.6 + currentRandom.nextDouble(),
+          label: 'Jun',
+        ),
       ],
       generatedAt: baseTime,
     );
@@ -465,26 +489,32 @@ class FintechDashboardSnapshot extends Equatable {
 
   factory FintechDashboardSnapshot.fromJson(Map<String, dynamic> json) {
     return FintechDashboardSnapshot(
-      user: FintechUserSummary.fromJson(json['user'] as Map<String, dynamic>? ?? {}),
+      user: FintechUserSummary.fromJson(
+        json['user'] as Map<String, dynamic>? ?? {},
+      ),
       totalBalance: (json['totalBalance'] as num?)?.toDouble() ?? 0,
       totalSpend: (json['totalSpend'] as num?)?.toDouble() ?? 0,
       cards: (json['cards'] as List<dynamic>? ?? [])
           .map((item) => FintechBankCard.fromJson(item as Map<String, dynamic>))
           .toList(),
       quickActions: (json['quickActions'] as List<dynamic>? ?? [])
-          .map((item) => FintechQuickAction.fromJson(item as Map<String, dynamic>))
+          .map(
+            (item) => FintechQuickAction.fromJson(item as Map<String, dynamic>),
+          )
           .toList(),
       transactions: (json['transactions'] as List<dynamic>? ?? [])
           .map(
-            (item) => FintechTransactionRecord.fromJson(
-              item as Map<String, dynamic>,
-            ),
+            (item) =>
+                FintechTransactionRecord.fromJson(item as Map<String, dynamic>),
           )
           .toList(),
       spendPoints: (json['spendPoints'] as List<dynamic>? ?? [])
-          .map((item) => FintechSpendPoint.fromJson(item as Map<String, dynamic>))
+          .map(
+            (item) => FintechSpendPoint.fromJson(item as Map<String, dynamic>),
+          )
           .toList(),
-      generatedAt: DateTime.tryParse(json['generatedAt'] as String? ?? '') ??
+      generatedAt:
+          DateTime.tryParse(json['generatedAt'] as String? ?? '') ??
           DateTime.fromMillisecondsSinceEpoch(0),
     );
   }

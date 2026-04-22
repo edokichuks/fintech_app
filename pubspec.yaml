@@ -80,6 +80,7 @@ flutter:
     - assets/animations/
     - assets/audio/
     - assets/json/
+    - assets/images/
     - assets/images/png/
     - assets/images/svg/
 
