@@ -14,7 +14,6 @@ export 'custom_app_bar.dart';
 export 'custom_pin_code_text_field.dart';
 export 'location_error_modal.dart';
 export 'profile_avatar.dart';
-export 'remember_me_widget.dart';
 export 'shimmer.dart';
 export 'terms_widget.dart';
 export 'carsols_widget.dart';

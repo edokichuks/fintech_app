@@ -1,5 +1,5 @@
 // Flutter imports:
-import 'package:fintech_app/src/features/start_up/views/onboarding.dart';
+import 'package:fintech_app/src/features/home/views/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 
 // Project imports:
@@ -8,17 +8,15 @@ import 'package:fintech_app/src/features/cards/views/card_transaction_screen.dar
 import 'package:fintech_app/src/features/cards/views/cards_screen.dart';
 
 class AppRouter {
-  static const String splashScreen = '/';
-
+  static const String home = '/';
   static const String bottomNavBar = '/bottomNavBar';
   static const String cardsScreen = '/cardsScreen';
   static const String cardTransactionScreen = '/cardTransactionScreen';
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
-      //SPLASHSCREEN
-      case splashScreen:
-        return _trasnsitionRouter(screenWidget: const OnboardingScreen());
+      case home:
+        return _trasnsitionRouter(screenWidget: const HomeScreen());
 
       //BOTTOM NAV BAR
       case bottomNavBar:

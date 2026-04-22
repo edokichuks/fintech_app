@@ -6,34 +6,19 @@ import 'package:dio/dio.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import 'package:fintech_app/src/application/repositories/user/user_repository.dart';
 import 'package:fintech_app/src/core/config/dio_utils/auth_strings.dart';
 import 'package:fintech_app/src/core/utils/app_loggers.dart';
 
 class HeaderInterceptor extends Interceptor {
-  HeaderInterceptor({
-    required this.dio,
-    required this.userRepository,
-    required this.ref,
-  });
+  HeaderInterceptor({required this.dio, required this.ref});
   final Dio dio;
   final Ref ref;
-  final UserRepository userRepository;
 
   @override
   FutureOr<dynamic> onRequest(
     RequestOptions options,
     RequestInterceptorHandler handler,
   ) {
-    try {
-      final token = userRepository.getToken();
-      if (token.isNotEmpty) {
-        options.headers['Authorization'] = 'Bearer $token';
-        debugLog('[TOKEN]$token');
-      }
-    } catch (e) {
-      debugLog(e);
-    }
     debugLog('[URL]${options.uri}');
     debugLog('[BODY] ${options.data}');
     debugLog('[METHOD] ${options.method}');
@@ -55,7 +40,7 @@ class HeaderInterceptor extends Interceptor {
       return err;
     }
     if (err.response != null && err.response!.statusCode == 401) {
-      await refreshToken(err, handler, dio, userRepository, ref);
+      await refreshToken(err, handler, dio, ref);
       return;
     }
     debugLog('[ERROR] ${err.requestOptions.uri}');
@@ -81,10 +66,9 @@ Future<void> refreshToken(
   DioException error,
   ErrorInterceptorHandler handler,
   Dio dio,
-  UserRepository userRepository,
+
   Ref ref,
 ) async {
-  final refreshToken = userRepository.getRefreshToken();
   try {
     final r = await Dio().post(
       '${AuthStrings.baseUrl}/auth/refresh-token',
@@ -92,8 +76,6 @@ Future<void> refreshToken(
     );
 
     if (r.statusCode == 200 || r.statusCode == 201) {
-      userRepository.saveToken(r.data['data']['accessToken']);
-      userRepository.saveRefreshToken(r.data['data']['refreshToken']);
       debugLog("Access Token gotten and saved");
     }
     return handleError(handler, error, dio);
