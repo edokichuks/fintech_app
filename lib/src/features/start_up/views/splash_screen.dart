@@ -1,6 +1,5 @@
 // Flutter imports:
 import 'package:fintech_app/src/application/repositories/user/user_repository_impl.dart';
-import 'package:fintech_app/src/core/device_features/device_feature_exports.dart';
 import 'package:fintech_app/src/core/services/device_info_service.dart';
 import 'package:fintech_app/src/core/utils/app_utils_exports.dart';
 import 'package:fintech_app/src/general_widgets/general_widget_exports.dart';
@@ -25,8 +24,6 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
   void initState() {
     super.initState();
     _init();
-    DeviceNotification.instance.firebaseInit();
-    DeviceNotification.instance.initForgroundMessage();
   }
 
   void _init() async {
@@ -35,7 +32,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
     if (!mounted) {
       return;
     }
-    Navigator.pushReplacementNamed(context, AppRouter.homeContainerScreen);
+    Navigator.pushReplacementNamed(context, AppRouter.bottomNavBar);
   }
 
   Future<void> _initializeDeviceToken() async {

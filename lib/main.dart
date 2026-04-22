@@ -3,7 +3,6 @@
 // Flutter imports:
 import 'dart:io';
 
-import 'package:fintech_app/src/core/device_features/device_feature_exports.dart';
 import 'package:fintech_app/src/core/helpers/helper_functions.dart';
 import 'package:fintech_app/src/core/router/router.dart';
 import 'package:fintech_app/src/core/services/google_auto_updater.dart';
@@ -15,8 +14,6 @@ import 'package:fintech_app/src/general_widgets/general_widget_exports.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -27,14 +24,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Add a navigator key to access navigation state globally
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
-
-@pragma("vm:entry-point")
-Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-  await Firebase.initializeApp();
-  DeviceNotification.instance.firebaseInit();
-  // If you're going to use other Firebase services in the background, such as Firestore,
-  // make sure you call `initializeApp` before using other Firebase services.
-}
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

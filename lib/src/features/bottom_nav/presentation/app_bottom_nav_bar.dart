@@ -2,7 +2,6 @@
 import 'dart:io';
 
 import 'package:fintech_app/main.dart';
-import 'package:fintech_app/src/core/device_features/device_feature_exports.dart';
 import 'package:fintech_app/src/features/cards/views/cards_screen.dart';
 import 'package:fintech_app/src/features/home/views/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -135,20 +134,8 @@ class _AppBottomNavScreenState extends ConsumerState<AppBottomNavScreen> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
-      await _handleNotification();
       await _checkVersion();
     });
-  }
-
-  Future<void> _handleNotification() async {
-    await DeviceNotification.instance.handleMesssage(
-      onMessageReceived: (message, isInit) async {
-        if (isInit ?? false) {
-        } else {
-          debugLog('IN APP BOTTOM NAV TYPE ==> ${message.data['type']}');
-        }
-      },
-    );
   }
 
   void _onItemTapped(int index) {
