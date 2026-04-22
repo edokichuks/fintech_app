@@ -3,13 +3,11 @@ import 'package:fintech_app/src/features/home/views/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 
 // Project imports:
-import 'package:fintech_app/src/features/bottom_nav/presentation/app_bottom_nav_bar.dart';
 import 'package:fintech_app/src/features/cards/views/card_transaction_screen.dart';
 import 'package:fintech_app/src/features/cards/views/cards_screen.dart';
 
 class AppRouter {
   static const String home = '/';
-  static const String bottomNavBar = '/bottomNavBar';
   static const String cardsScreen = '/cardsScreen';
   static const String cardTransactionScreen = '/cardTransactionScreen';
 
@@ -17,10 +15,6 @@ class AppRouter {
     switch (settings.name) {
       case home:
         return _trasnsitionRouter(screenWidget: const HomeScreen());
-
-      //BOTTOM NAV BAR
-      case bottomNavBar:
-        return _trasnsitionRouter(screenWidget: const AppBottomNavScreen());
 
       case cardsScreen:
         return _trasnsitionRouter(screenWidget: const CardsScreen());

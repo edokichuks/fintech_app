@@ -1,4 +1,6 @@
 // Flutter imports:
+import 'package:fintech_app/src/core/extensions/extension_exports.dart';
+import 'package:fintech_app/src/core/router/router.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -10,7 +12,6 @@ import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:fintech_app/gen/assets.gen.dart';
 import 'package:fintech_app/src/application/model/fintech_dashboard_snapshot.dart';
 import 'package:fintech_app/src/core/utils/app_utils_exports.dart';
-import 'package:fintech_app/src/features/bottom_nav/domain/notifier/app_bottom_nav_notifier.dart';
 import 'package:fintech_app/src/features/home/domain/notifiers/profile_drawer_ui_notifier.dart';
 import 'package:fintech_app/src/general_widgets/general_widget_exports.dart';
 
@@ -97,9 +98,7 @@ class FintechProfileDrawer extends ConsumerWidget {
                           icon: LucideIcons.creditCard400,
                           onTap: () {
                             ref.read(profileDrawerUiProvider.notifier).close();
-                            ref
-                                .read(appBottomNavProdivder.notifier)
-                                .moveToTab(index: 1);
+                            context.pushNamed(AppRouter.cardsScreen);
                           },
                         ),
                         SizedBox(height: FintechSpacing.md.h),

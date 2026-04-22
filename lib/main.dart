@@ -20,9 +20,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-// Project imports:
-
-// Add a navigator key to access navigation state globally
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 void main() async {
@@ -85,7 +82,7 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
           onPointerDown: (event) {},
           child: MaterialApp(
             navigatorKey: navigatorKey,
-            title: 'Clean Flutter App',
+            title: 'FinTech App',
             debugShowCheckedModeBanner: false,
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
@@ -93,8 +90,7 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
             scrollBehavior: const ScrollBehavior().copyWith(
               physics: const BouncingScrollPhysics(),
             ),
-            initialRoute: AppRouter.bottomNavBar,
-            // initialRoute: AppRouter.createAccountScreen,
+            initialRoute: AppRouter.home,
             onGenerateRoute: AppRouter.onGenerateRoute,
           ),
         );
