@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 // Project imports:
+import 'package:fintech_app/gen/assets.gen.dart';
 import 'package:fintech_app/src/core/utils/app_utils_exports.dart';
 import 'package:fintech_app/src/features/cards/domain/notifiers/cards_ui_notifier.dart';
 import 'package:fintech_app/src/general_widgets/general_widget_exports.dart';
@@ -43,7 +44,8 @@ class CardSettingsSection extends StatelessWidget {
         SizedBox(height: FintechSpacing.lg.h),
         _SettingTile(
           title: 'Change Pin',
-          icon: LucideIcons.walletCards400,
+          svgPath: Assets.images.svg.changePin,
+          svgSize: const Size(28, 28),
           trailing: AppSwitch(
             value: controls.changePinEnabled,
             onChanged: onChangePin,
@@ -52,7 +54,8 @@ class CardSettingsSection extends StatelessWidget {
         SizedBox(height: FintechSpacing.md.h),
         _SettingTile(
           title: 'QR Payment',
-          icon: LucideIcons.qrCode400,
+          svgPath: Assets.images.svg.qrPayment,
+          svgSize: const Size(28, 28),
           trailing: AppSwitch(
             value: controls.qrPaymentEnabled,
             onChanged: onQrPayment,
@@ -70,7 +73,8 @@ class CardSettingsSection extends StatelessWidget {
         SizedBox(height: FintechSpacing.md.h),
         _SettingTile(
           title: 'Card Transactions',
-          icon: LucideIcons.creditCard400,
+          svgPath: Assets.images.svg.cardTransactions,
+          svgSize: const Size(27, 21),
           onTap: onTransactionsTap,
           trailing: Icon(
             LucideIcons.chevronRight400,
@@ -81,7 +85,8 @@ class CardSettingsSection extends StatelessWidget {
         SizedBox(height: FintechSpacing.md.h),
         _SettingTile(
           title: 'Tap Pay',
-          icon: LucideIcons.nfc400,
+          svgPath: Assets.images.svg.contactless,
+          svgSize: const Size(25, 29),
           trailing: AppSwitch(
             value: controls.tapPayEnabled,
             onChanged: onTapPay,
@@ -95,13 +100,17 @@ class CardSettingsSection extends StatelessWidget {
 class _SettingTile extends StatelessWidget {
   const _SettingTile({
     required this.title,
-    required this.icon,
     required this.trailing,
+    this.icon,
+    this.svgPath,
+    this.svgSize,
     this.onTap,
   });
 
   final String title;
-  final IconData icon;
+  final IconData? icon;
+  final String? svgPath;
+  final Size? svgSize;
   final Widget trailing;
   final VoidCallback? onTap;
 
@@ -116,11 +125,20 @@ class _SettingTile extends StatelessWidget {
         ),
         decoration: BoxDecoration(
           color: FintechColors.surface(context),
-          borderRadius: BorderRadius.circular(FintechRadius.button.r),
+          borderRadius: BorderRadius.circular(8.r),
         ),
         child: Row(
           children: <Widget>[
-            Icon(icon, color: FintechColors.textPrimary(context), size: 20.r),
+            if (svgPath != null)
+              AppImageView(
+                svgPath: svgPath,
+                width: svgSize!.width.w,
+                height: svgSize!.height.h,
+                fit: BoxFit.scaleDown,
+                color: FintechColors.textPrimary(context),
+              )
+            else
+              Icon(icon, color: FintechColors.textPrimary(context), size: 20.r),
             SizedBox(width: FintechSpacing.md.w),
             Expanded(
               child: AppText(

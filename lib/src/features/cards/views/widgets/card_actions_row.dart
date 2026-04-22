@@ -28,6 +28,7 @@ class CardActionsRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         _ActionButton(
           label: controls.isFrozen ? 'Unfreeze' : 'Freeze Card',
@@ -83,7 +84,7 @@ class _ActionButton extends StatelessWidget {
           ),
           SizedBox(height: FintechSpacing.sm.h),
           SizedBox(
-            width: 78.w,
+            width: 100.w,
             child: AppText(
               text: label,
               style: AppTextStyle.bodySmall.copyWith(

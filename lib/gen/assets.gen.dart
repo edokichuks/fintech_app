@@ -96,14 +96,23 @@ class $AssetsImagesSvgGen {
   /// File path: assets/images/svg/card.svg
   String get card => 'assets/images/svg/card.svg';
 
+  /// File path: assets/images/svg/cardTransactions.svg
+  String get cardTransactions => 'assets/images/svg/cardTransactions.svg';
+
   /// File path: assets/images/svg/card_active.svg
   String get cardActive => 'assets/images/svg/card_active.svg';
 
   /// File path: assets/images/svg/card_inactive.svg
   String get cardInactive => 'assets/images/svg/card_inactive.svg';
 
+  /// File path: assets/images/svg/changePin.svg
+  String get changePin => 'assets/images/svg/changePin.svg';
+
   /// File path: assets/images/svg/chip.svg
   String get chip => 'assets/images/svg/chip.svg';
+
+  /// File path: assets/images/svg/contactless.svg
+  String get contactless => 'assets/images/svg/contactless.svg';
 
   /// File path: assets/images/svg/country.svg
   String get country => 'assets/images/svg/country.svg';
@@ -177,6 +186,9 @@ class $AssetsImagesSvgGen {
   /// File path: assets/images/svg/profile_inactive.svg
   String get profileInactive => 'assets/images/svg/profile_inactive.svg';
 
+  /// File path: assets/images/svg/qrPayment.svg
+  String get qrPayment => 'assets/images/svg/qrPayment.svg';
+
   /// File path: assets/images/svg/secure.svg
   String get secure => 'assets/images/svg/secure.svg';
 
@@ -190,9 +202,12 @@ class $AssetsImagesSvgGen {
     barcode,
     billsPay,
     card,
+    cardTransactions,
     cardActive,
     cardInactive,
+    changePin,
     chip,
+    contactless,
     country,
     delete,
     deposit,
@@ -217,6 +232,7 @@ class $AssetsImagesSvgGen {
     padlock,
     profileActive,
     profileInactive,
+    qrPayment,
     secure,
     setting,
   ];
