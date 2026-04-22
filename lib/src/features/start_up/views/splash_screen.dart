@@ -31,9 +31,11 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
 
   void _init() async {
     _initializeDeviceToken();
-    Future.delayed(const Duration(seconds: 4), () {
-      Navigator.pushReplacementNamed(context, AppRouter.homeContainerScreen);
-    });
+    await Future<void>.delayed(const Duration(seconds: 4));
+    if (!mounted) {
+      return;
+    }
+    Navigator.pushReplacementNamed(context, AppRouter.homeContainerScreen);
   }
 
   Future<void> _initializeDeviceToken() async {

@@ -94,31 +94,39 @@ class _AppButton extends State<AppButton> {
               ? _buttonStyle.disabledBackgroundColor
               : _buttonStyle.background,
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            if (!widget.isLoading)
-              FittedBox(
-                child: Row(
-                  children: [
-                    if (widget.leading != null) widget.leading!,
-                    Text(
-                      widget.text,
-                      style:
-                          (_buttonStyle.textStyle ?? context.textTheme.s16w500)
-                              .copyWith(
-                                fontSize: 18,
-                                color: widget.isEnabled
-                                    ? _buttonStyle.textColor
-                                    : _buttonStyle.disabledTextColor,
-                              ),
-                    ),
+        child: Center(
+          child: widget.isLoading
+              ? Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    SizedBox(width: 20.w),
+                    const AppLoader(),
                   ],
+                )
+              : FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      if (widget.leading != null) ...<Widget>[
+                        widget.leading!,
+                        SizedBox(width: 6.w),
+                      ],
+                      Text(
+                        widget.text,
+                        style:
+                            (_buttonStyle.textStyle ??
+                                    context.textTheme.s16w500)
+                                .copyWith(
+                                  fontSize: 16.sp,
+                                  color: widget.isEnabled
+                                      ? _buttonStyle.textColor
+                                      : _buttonStyle.disabledTextColor,
+                                ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            if (widget.isLoading) ...[SizedBox(width: 20.w), const AppLoader()],
-          ],
         ),
       ),
     );

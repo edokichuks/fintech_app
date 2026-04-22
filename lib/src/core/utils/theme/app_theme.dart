@@ -1,31 +1,38 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
+// Package imports:
+import 'package:google_fonts/google_fonts.dart';
+
 // Project imports:
 import 'package:fintech_app/src/core/utils/app_utils_exports.dart';
 
 class AppTheme {
   static final lightTheme = ThemeData(
+    brightness: Brightness.light,
+    fontFamily: GoogleFonts.arimo().fontFamily,
     appBarTheme: AppBarTheme(backgroundColor: AppColors.white, elevation: 0),
     splashFactory: NoSplash.splashFactory,
     highlightColor: AppColors.transparent,
-    scaffoldBackgroundColor: AppColors.white,
+    scaffoldBackgroundColor: AppColors.fintechLightBackground,
     colorScheme: ColorScheme.light(
-      primary: AppColors.primary300,
-      onPrimary: AppColors.primary300,
-      secondary: AppColors.secondary300,
-      onSecondary: AppColors.secondary300,
-      tertiary: AppColors.neutral200,
-      onTertiary: AppColors.neutral200,
-      inverseSurface: AppColors.defaultBG,
-      onInverseSurface: AppColors.defaultBG,
-      inversePrimary: AppColors.greyMobile,
+      primary: AppColors.fintechBlue,
+      onPrimary: AppColors.white,
+      secondary: AppColors.fintechBlueSoft,
+      onSecondary: AppColors.white,
+      tertiary: AppColors.fintechLightTextSecondary,
+      onTertiary: AppColors.fintechLightTextSecondary,
+      inverseSurface: AppColors.fintechLightTextPrimary,
+      onInverseSurface: AppColors.fintechLightTextPrimary,
+      inversePrimary: AppColors.fintechLightSurfaceMuted,
+      surface: AppColors.fintechLightSurface,
+      onSurface: AppColors.fintechLightTextPrimary,
       brightness: Brightness.light,
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.fintechLightSurface,
     ),
-    iconTheme: IconThemeData(color: AppColors.neutral500),
+    iconTheme: IconThemeData(color: AppColors.fintechLightTextPrimary),
     textTheme: TextTheme(
       bodyLarge: AppTextStyle.bodyLarge,
       bodyMedium: AppTextStyle.bodyMedium,
@@ -42,27 +49,31 @@ class AppTheme {
   );
 
   static final darkTheme = ThemeData(
+    brightness: Brightness.dark,
+    fontFamily: GoogleFonts.arimo().fontFamily,
     appBarTheme: AppBarTheme(
-      backgroundColor: AppColors.neutral500,
+      backgroundColor: AppColors.fintechDarkBackground,
       elevation: 0,
     ),
-    scaffoldBackgroundColor: AppColors.defaultBG,
+    scaffoldBackgroundColor: AppColors.fintechDarkBackground,
     colorScheme: ColorScheme.dark(
-      primary: AppColors.primaryDark300,
-      onPrimary: AppColors.primaryDark300,
-      secondary: AppColors.secondaryDark300,
-      onSecondary: AppColors.secondaryDark300,
-      tertiary: AppColors.neutral50, //USED FOR BOTTOMSHEET
-      onTertiary: AppColors.neutral50, //USED FOR BOTTOMSHEET or text
-      inverseSurface: AppColors.white,
-      onInverseSurface: AppColors.white,
-      inversePrimary: AppColors.darkgreyMobile,
+      primary: AppColors.fintechBlue,
+      onPrimary: AppColors.white,
+      secondary: AppColors.fintechBlueSoft,
+      onSecondary: AppColors.white,
+      tertiary: AppColors.fintechDarkTextSecondary,
+      onTertiary: AppColors.fintechDarkTextSecondary,
+      inverseSurface: AppColors.fintechDarkTextPrimary,
+      onInverseSurface: AppColors.fintechDarkTextPrimary,
+      inversePrimary: AppColors.fintechDarkSurfaceMuted,
+      surface: AppColors.fintechDarkSurface,
+      onSurface: AppColors.fintechDarkTextPrimary,
       brightness: Brightness.dark,
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      backgroundColor: AppColors.defaultBackgroundDark,
+      backgroundColor: AppColors.fintechDarkSurface,
     ),
-    iconTheme: IconThemeData(color: AppColors.white),
+    iconTheme: IconThemeData(color: AppColors.fintechDarkTextPrimary),
     splashFactory: NoSplash.splashFactory,
     highlightColor: AppColors.transparent,
     textTheme: TextTheme(

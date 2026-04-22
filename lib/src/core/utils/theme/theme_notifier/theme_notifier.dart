@@ -25,7 +25,7 @@ class ThemeNotifier extends StateNotifier<ThemeNotifierState> {
 
   void resetTheme() {
     state = state.copyWith(
-      themeMode: ThemeMode.system,
+      themeMode: ThemeMode.dark,
     ); // Reset to initial state
   }
 }

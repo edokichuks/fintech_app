@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:fintech_app/main.dart';
 import 'package:fintech_app/src/core/device_features/device_feature_exports.dart';
+import 'package:fintech_app/src/features/cards/views/cards_screen.dart';
 import 'package:fintech_app/src/features/home/views/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -29,103 +30,104 @@ class AppBottomNavScreen extends ConsumerStatefulWidget {
 class _AppBottomNavScreenState extends ConsumerState<AppBottomNavScreen> {
   final List<Widget> _pages = const [
     HomeScreen(),
-    TodoScreen(),
+    CardsScreen(),
     TodoScreen(),
     TodoScreen(),
   ];
   final NewVersionPlus _newVersion = NewVersionPlus();
+
   Future<void> _checkVersion() async {
     debugPrint('Checking versioning');
     final status = await _newVersion.getVersionStatus();
-    if (status != null && status.canUpdate) {
-      if (Platform.isAndroid) {
-        if (!mounted) return;
-        showDialog(
-          context: context,
-          barrierDismissible: false,
-          builder: (context) {
-            return Dialog(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16.r),
-              ),
-              // backgroundColor: const Color(0xFF1C1C1E),
-              insetPadding: EdgeInsets.symmetric(horizontal: 24.w),
-              child: Padding(
-                padding: EdgeInsets.all(24.w),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    AppText(
-                      text: 'Update Available',
-                      style: AppTextStyle.titleLarge.copyWith(fontSize: 20.sp),
+    if (!mounted || status == null || !status.canUpdate) {
+      return;
+    }
+    if (Platform.isAndroid) {
+      if (!mounted) return;
+      showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (context) {
+          return Dialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16.r),
+            ),
+            insetPadding: EdgeInsets.symmetric(horizontal: 24.w),
+            child: Padding(
+              padding: EdgeInsets.all(24.w),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  AppText(
+                    text: 'Update Available',
+                    style: AppTextStyle.titleLarge.copyWith(fontSize: 20.sp),
+                  ),
+                  Spacing.height(16.h),
+                  AppText(
+                    text:
+                        'A newer version (${status.storeVersion}) of this app is available on the store.\nYou are currently using ${status.localVersion}.',
+                    style: AppTextStyle.titleSmall.copyWith(
+                      color: AppColors.neutral200,
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400,
+                      height: 1.5,
                     ),
-                    Spacing.height(16.h),
-                    AppText(
-                      text:
-                          'A newer version (${status.storeVersion}) of this app is available on the store.\nYou are currently using ${status.localVersion}.',
-                      style: AppTextStyle.titleSmall.copyWith(
-                        color: AppColors.neutral200,
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w400,
-                        height: 1.5,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    Spacing.height(24.h),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: ElevatedButton(
-                            onPressed: () async {
-                              final url = Uri.parse(status.appStoreLink);
-                              if (await canLaunchUrl(url)) {
-                                await launchUrl(
-                                  url,
-                                  mode: LaunchMode.externalApplication,
-                                );
-                              }
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: AppColors.primary300,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12.r),
-                              ),
-                              elevation: 0,
-                              padding: EdgeInsets.symmetric(vertical: 12.h),
+                    textAlign: TextAlign.center,
+                  ),
+                  Spacing.height(24.h),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () async {
+                            final url = Uri.parse(status.appStoreLink);
+                            if (await canLaunchUrl(url)) {
+                              await launchUrl(
+                                url,
+                                mode: LaunchMode.externalApplication,
+                              );
+                            }
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColors.primary300,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12.r),
                             ),
-                            child: AppText(
-                              text: 'Update',
-                              style: AppTextStyle.titleSmall.copyWith(
-                                color: Colors.black,
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.bold,
-                              ),
+                            elevation: 0,
+                            padding: EdgeInsets.symmetric(vertical: 12.h),
+                          ),
+                          child: AppText(
+                            text: 'Update',
+                            style: AppTextStyle.titleSmall.copyWith(
+                              color: AppColors.fintechLightTextPrimary,
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
-                      ],
-                    ),
-                  ],
-                ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-            );
-          },
-        );
-      } else {
-        _newVersion.showUpdateDialog(
-          context: context,
-          versionStatus: status,
-          dialogTitle: 'Update Available',
-          dialogText:
-              'A newer version (${status.storeVersion}) of this app is available on the store.\nYou are currently using ${status.localVersion}.',
-          updateButtonText: 'Update',
-          dismissButtonText: 'Later',
-          allowDismissal: false,
-          dismissAction: () {
-            debugPrint('User dismissed the update dialog');
-          },
-        );
-      }
+            ),
+          );
+        },
+      );
+    } else {
+      _newVersion.showUpdateDialog(
+        context: context,
+        versionStatus: status,
+        dialogTitle: 'Update Available',
+        dialogText:
+            'A newer version (${status.storeVersion}) of this app is available on the store.\nYou are currently using ${status.localVersion}.',
+        updateButtonText: 'Update',
+        dismissButtonText: 'Later',
+        allowDismissal: false,
+        dismissAction: () {
+          debugPrint('User dismissed the update dialog');
+        },
+      );
     }
   }
 
@@ -160,12 +162,9 @@ class _AppBottomNavScreenState extends ConsumerState<AppBottomNavScreen> {
       label: 'Home',
     ),
     BottomTabItemModel(
-      inActiveIcon: AppImages.historyInactive,
-      icon: AppImages.historyActive,
-      label: 'Attendance',
-      isMaterialIcon: true,
-      materialIcon: Icons.access_time_outlined,
-      materialIconActive: Icons.access_time_filled,
+      inActiveIcon: AppImages.cardInactive,
+      icon: AppImages.cardActive,
+      label: 'Cards',
     ),
     BottomTabItemModel(
       inActiveIcon: AppImages.historyInactive,
@@ -242,8 +241,8 @@ class _AppBottomNavScreenState extends ConsumerState<AppBottomNavScreen> {
                     if (isSelected) ...[
                       const Spacing.widthXS(),
                       const Spacing.widthXXS(),
-                      Text(
-                        tabItem.label,
+                      AppText(
+                        text: tabItem.label,
                         style: AppTextStyle.titleSmall.copyWith(
                           fontWeight: FontWeight.w500,
                           fontSize: 12.sp,

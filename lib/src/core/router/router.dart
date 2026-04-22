@@ -8,7 +8,8 @@ import 'package:fintech_app/src/features/sample/widget_samples_screen.dart';
 import 'package:fintech_app/src/features/sample/file_download_sample_screen.dart';
 
 import 'package:fintech_app/src/features/auth/views/create_account_screen.dart';
-import 'package:fintech_app/src/features/home/views/home_container_screen.dart';
+import 'package:fintech_app/src/features/cards/views/card_transaction_screen.dart';
+import 'package:fintech_app/src/features/cards/views/cards_screen.dart';
 
 class AppRouter {
   static const String login = '/login';
@@ -17,6 +18,8 @@ class AppRouter {
   static const String homeContainerScreen = '/homeContainerScreen';
 
   static const String bottomNavBar = '/bottomNavBar';
+  static const String cardsScreen = '/cardsScreen';
+  static const String cardTransactionScreen = '/cardTransactionScreen';
   static const String widgetSamples = '/widgetSamples';
   static const String fileDownloadSample = '/fileDownloadSample';
 
@@ -30,13 +33,18 @@ class AppRouter {
       case createAccountScreen:
         return _trasnsitionRouter(screenWidget: const CreateAccountScreen());
 
-      //HOME
-      case homeContainerScreen:
-        return _trasnsitionRouter(screenWidget: const HomeContainerScreen());
 
       //BOTTOM NAV BAR
       case bottomNavBar:
         return _trasnsitionRouter(screenWidget: const AppBottomNavScreen());
+
+      case cardsScreen:
+        return _trasnsitionRouter(screenWidget: const CardsScreen());
+
+      case cardTransactionScreen:
+        return _trasnsitionRouter(
+          screenWidget: const CardTransactionScreen(),
+        );
 
       //WIDGET SAMPLES
       case widgetSamples:

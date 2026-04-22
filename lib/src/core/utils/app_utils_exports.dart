@@ -9,6 +9,7 @@ export 'app_loggers.dart';
 export 'app_margin_util.dart';
 export 'app_validations.dart';
 export 'app_images.dart';
+export 'fintech_tokens.dart';
 export 'theme/app_text_styles.dart';
 export 'theme/app_theme.dart';
 export 'app_pdf_utils.dart';

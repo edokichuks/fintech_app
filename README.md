@@ -1,222 +1,25 @@
-# Flutter Mobile Assessment – Implementation Plan / README
+# Fintech Dashboard, Cards, and Profile Drawer
 
-## Project Overview
+This project now ships a screenshot-driven fintech experience built inside the existing `lib/src/...` architecture. The implementation covers the dashboard home, cards tab, card-transaction detail, and the profile drawer, with mocked live data, Riverpod state, light/dark theme support, and verification coverage.
 
-This project is a **Flutter mobile application** that implements the **Dashboard** and **Cards** sections from the provided Figma design using **mocked real-time data**.
+## Overview
 
-- figma link
-https://www.figma.com/design/ooumekXFabNCGgE0xKtiga/Fintech-App-Dark-UI-Design--Community-?node-id=68-19&p=f
+- Dashboard home replaces the previous sample home screen.
+- Cards is wired as the second bottom-nav tab.
+- Card transaction detail is reachable through `AppRouter.cardTransactionScreen`.
+- Profile drawer opens from the dashboard menu button and overlays the home screen.
+- Typography is app-wide `Arimo`.
+- Theme support includes light and dark palettes, with dark mode as the default launch theme.
+- Iconography for the new fintech surfaces uses `lucide_icons_flutter` for most actions and settings.
 
-The objective is to deliver a **pixel-accurate, responsive, animated, and maintainable UI** that demonstrates strong Flutter engineering practices.
+## Screen Preview
 
-## Scope
+These are the screenshot references used to replicate the feature surfaces in this pass.
 
-### Included
-
-* Dashboard screen UI
-* Card components from Figma
-* Mock API / mocked live data updates
-* Responsive mobile layouts
-* Animations and transitions
-* Clean architecture
-* State management
-* Testing (unit/widget where relevant)
-
-### Excluded
-
-* Authentication
-* Backend services
-* Full application flows outside Dashboard/Cards unless required for navigation demo
-
----
-
-# Technical Goals
-
-## 1. Accuracy to Design
-
-Implementation should closely match the Figma design:
-
-* Typography
-* Spacing
-* Colors
-* Shadows
-* Border radius
-* Icon sizing
-* Card proportions
-* Consistent layout behavior
-
-## 2. Smooth UX
-
-Animations should feel polished:
-
-* Card entrance animations
-* Value update transitions
-* Loading skeletons
-* Navigation transitions
-* Micro-interactions on tap/press states
-
-## 3. Clean Architecture
-
-Use scalable Flutter architecture with separation of concerns.
-
-Recommended structure:
-
-```text
-lib/
- ├── core/
- │   ├── theme/
- │   ├── utils/
- │   └── constants/
- ├── data/
- │   ├── models/
- │   ├── repositories/
- │   └── mock/
- ├── features/
- │   └── dashboard/
- │       ├── presentation/
- │       ├── widgets/
- │       └── state/
- └── main.dart
-```
-
----
-
-# Recommended Stack
-
-## Framework
-
-* Flutter (latest stable)
-
-## State Management
-
-Use one of:
-
-* Riverpod (**recommended**)
-* Bloc
-* Provider
-
-## Testing
-
-* flutter_test
-* mocktail / Mockito
-
-## Optional Enhancements
-
-* freezed + json_serializable
-* go_router
-* lints package
-
----
-
-# Core Features
-
-## Dashboard Screen
-
-* Header / greeting section
-* Summary metrics
-* Scrollable content
-* Responsive spacing
-
-## Cards Section
-
-Reusable cards supporting:
-
-* Title
-* Subtitle
-* Balance / metric
-* Trend indicator
-* Icon/avatar
-* Action state
-
-## Real-Time Mock Data
-
-Simulate updates using:
-
-```dart
-Stream.periodic(...)
-Timer.periodic(...)
-```
-
-Examples:
-
-* Balance changes
-* Live metrics
-* Status changes
-
-## Error Handling
-
-* Empty states
-* Retry states
-* Loading states
-* Mock disconnection simulation
-
----
-
-# Performance Requirements
-
-* Smooth 60fps scrolling
-* Minimal rebuilds
-* Use `const` widgets where possible
-* Use selectors/providers to reduce re-renders
-* Lazy lists (`ListView.builder`)
-* Image/icon optimization
-
----
-
-# Testing Strategy
-
-## Unit Tests
-
-* Models
-* Formatters
-* Repositories
-* State logic
-
-## Widget Tests
-
-* Dashboard renders correctly
-* Cards display mocked data
-* Loading/error states
-* Tap interactions
-
----
-
-# Responsive Design
-
-Support:
-
-* Small phones
-* Standard phones
-* Large devices
-
-Use:
-
-* `LayoutBuilder`
-* `MediaQuery`
-* Flexible / Expanded widgets
-* Adaptive padding
-
----
-
-# Git Workflow
-
-Use meaningful commits showing progress:
-
-```text
-feat: setup project structure
-feat: implement dashboard layout
-feat: add reusable card widget
-feat: integrate mock realtime stream
-feat: add animations
-test: add dashboard widget tests
-docs: update README with demo
-```
-
----
-
-# README Deliverables
-
-Repository should include:
+![Dashboard](docs/features/fintech_dashboard_cards/images/home.png)
+![Cards](docs/features/fintech_dashboard_cards/images/cards.png)
+![Card Transaction](docs/features/fintech_dashboard_cards/images/card-transaction.png)
+![Profile Drawer](docs/features/fintech_dashboard_cards/images/profile-drawer.png)
 
 ## Setup
 
@@ -225,37 +28,72 @@ flutter pub get
 flutter run
 ```
 
-## Demo
+## Verification
 
-Include:
+```bash
+flutter analyze
+flutter test
+```
 
-* GIF
-  or
-* MP4 screen recording
+Current verification status:
 
-## Notes
+- `flutter analyze`: passing
+- `flutter test`: passing
 
-* Architecture decisions
-* Packages used
-* Known tradeoffs
-* Future improvements
+## Architecture Notes
 
----
+- The implementation keeps the repo's current architecture instead of creating a parallel template structure.
+- Shared fintech data lives in `lib/src/application/model/fintech_dashboard_snapshot.dart`.
+- Mock live data and repository wiring live in `lib/src/application/repositories/fintech/`.
+- Feature UI state is split into small Riverpod notifiers:
+  - `dashboardUiProvider`
+  - `profileDrawerUiProvider`
+  - `cardsUiProvider`
+- Presentation stays feature-scoped:
+  - `lib/src/features/home/views/...`
+  - `lib/src/features/cards/views/...`
+- Reusable fintech widgets live under `lib/src/general_widgets/`.
 
-# Evaluation Strategy (How to Score High)
+## Packages Used
 
-## Prioritize These First
+- `flutter_riverpod`: feature and screen state management
+- `fl_chart`: spend trend chart on card-transaction detail
+- `lucide_icons_flutter`: line icon system for most new screens
+- `google_fonts`: app-wide `Arimo` typography
+- `equatable`: immutable model equality for the shared fintech snapshot
 
-1. Pixel-perfect UI
-2. Smooth animations
-3. Reusable widgets
-4. Real-time updates with efficient rebuilds
-5. Clean folder structure
-6. Tests
-7. Strong README
+## Feature Highlights
 
----
+- Stream-driven mocked dashboard snapshot with 500-800ms initial delay, 3-second updates, and recoverable error simulation
+- Pull-to-refresh on dashboard, cards, and card-transaction detail
+- Staggered reveal animations and animated currency value updates
+- Shared bank-card component reused across home, cards, and detail views
+- Responsive layout fixes for narrower widths and shorter heights
+- Profile drawer notification toggle backed by Riverpod state
 
-# Recommended Final Deliverable
+## Testing Coverage
 
-A polished Flutter app that feels production-ready despite using mocked data.
+The feature adds more than ten meaningful tests across unit and widget suites.
+
+- Unit coverage
+  - snapshot/mock/copyWith/serialization
+  - repository update and retry behavior
+  - theme defaults
+  - dashboard, drawer, and cards UI-state notifiers
+- Widget coverage
+  - loading, success, and error states on home
+  - profile drawer rendering and notification toggle
+  - cards screen rendering
+  - card-transaction detail rendering
+  - registered-route navigation into the detail screen
+
+## Documentation
+
+- Human docs: `docs/features/fintech_dashboard_cards/`
+- Agent docs: `.ai/documentation/features/fintech_dashboard_cards/`
+
+## Known Limitations
+
+- The README includes screenshot previews for the implemented surfaces, but it does not yet include a fresh simulator/device runtime recording GIF.
+- Drawer list actions other than switching to the cards tab are demo placeholders in this assessment pass.
+- The mock data layer simulates live updates and recoverable failures, but there is no backend integration in scope.
