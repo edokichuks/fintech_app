@@ -6,8 +6,10 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 // Project imports:
+import 'package:fintech_app/gen/assets.gen.dart';
 import 'package:fintech_app/src/features/home/domain/notifiers/profile_drawer_ui_notifier.dart';
 import 'package:fintech_app/src/features/home/views/widgets/fintech_profile_drawer.dart';
+import 'package:fintech_app/src/general_widgets/app_imageview.dart';
 
 // Relative imports:
 import '../../../../../helpers/fintech_test_harness.dart';
@@ -31,8 +33,23 @@ void main() {
     expect(find.text('Credit Card'), findsOneWidget);
     expect(find.text('App Notification'), findsOneWidget);
     expect(find.text('Logout'), findsOneWidget);
-    expect(find.byIcon(LucideIcons.fileText400), findsOneWidget);
-    expect(find.byIcon(LucideIcons.languages400), findsOneWidget);
+    expect(find.byIcon(LucideIcons.pencilLine400), findsOneWidget);
+    expect(
+      find.byWidgetPredicate(
+        (widget) =>
+            widget is AppImageView &&
+            widget.svgPath == Assets.images.svg.eStatement,
+      ),
+      findsOneWidget,
+    );
+    expect(
+      find.byWidgetPredicate(
+        (widget) =>
+            widget is AppImageView &&
+            widget.svgPath == Assets.images.svg.language,
+      ),
+      findsOneWidget,
+    );
 
     expect(
       container.read(profileDrawerUiProvider).notificationsEnabled,

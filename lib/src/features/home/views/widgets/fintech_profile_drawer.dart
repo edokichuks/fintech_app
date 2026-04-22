@@ -40,28 +40,49 @@ class FintechProfileDrawer extends ConsumerWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: Container(
-                            width: 52.w,
-                            height: 52.h,
-                            decoration: BoxDecoration(
-                              color: FintechColors.mutedSurface(context),
-                              borderRadius: BorderRadius.circular(18.r),
-                            ),
-                            child: Icon(
-                              LucideIcons.bellDot400,
-                              color: FintechColors.textPrimary(context),
-                              size: 20.r,
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: FintechSpacing.md.h),
-                        ClipOval(
-                          child: Assets.images.png.profileimg.image(
-                            width: 62.w,
-                            height: 62.h,
-                            fit: BoxFit.cover,
+                        SizedBox(
+                          width: 62.w,
+                          height: 62.h,
+                          child: Stack(
+                            clipBehavior: Clip.none,
+                            children: <Widget>[
+                              Positioned.fill(
+                                child: ClipOval(
+                                  child: Assets.images.png.profileimg.image(
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                right: -1.w,
+                                bottom: -1.h,
+                                child: Container(
+                                  width: 19.w,
+                                  height: 19.h,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: AppColors.white,
+                                    border: Border.all(
+                                      color: AppColors.fintechBlue,
+                                      width: 1.2.w,
+                                    ),
+                                    boxShadow: <BoxShadow>[
+                                      BoxShadow(
+                                        color: AppColors.fintechDarkScrim
+                                            .withValues(alpha: 0.18),
+                                        blurRadius: 8.r,
+                                        offset: Offset(0, 2.h),
+                                      ),
+                                    ],
+                                  ),
+                                  child: Icon(
+                                    LucideIcons.pencilLine400,
+                                    color: AppColors.fintechBlue,
+                                    size: 10.r,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                         SizedBox(height: FintechSpacing.sm.h),
@@ -89,13 +110,15 @@ class FintechProfileDrawer extends ConsumerWidget {
                         SizedBox(height: FintechSpacing.md.h),
                         _DrawerTile(
                           title: 'E-Statement',
-                          icon: LucideIcons.fileText400,
+                          svgPath: Assets.images.svg.eStatement,
+                          iconSize: const Size(16, 20),
                           onTap: () => _showPlaceholder(),
                         ),
                         SizedBox(height: FintechSpacing.md.h),
                         _DrawerTile(
                           title: 'Credit Card',
-                          icon: LucideIcons.creditCard400,
+                          svgPath: Assets.images.svg.card,
+                          iconSize: const Size(20, 16),
                           onTap: () {
                             ref.read(profileDrawerUiProvider.notifier).close();
                             context.pushNamed(AppRouter.cardsScreen);
@@ -104,10 +127,11 @@ class FintechProfileDrawer extends ConsumerWidget {
                         SizedBox(height: FintechSpacing.md.h),
                         _DrawerTile(
                           title: 'Settings',
-                          icon: LucideIcons.settings400,
+                          svgPath: Assets.images.svg.setting,
+                          iconSize: const Size(20, 22),
                           onTap: () => _showPlaceholder(),
                         ),
-                        SizedBox(height: FintechSpacing.xl.h),
+                        SizedBox(height: FintechSpacing.xxxl.h),
                         AppText(
                           text: 'Notification',
                           style: AppTextStyle.titleLarge.copyWith(
@@ -117,7 +141,8 @@ class FintechProfileDrawer extends ConsumerWidget {
                         SizedBox(height: FintechSpacing.md.h),
                         _DrawerSwitchTile(
                           title: 'App Notification',
-                          icon: LucideIcons.bell400,
+                          icon: LucideIcons.bellDot400,
+                          iconSize: 18,
                           value: drawerState.notificationsEnabled,
                           onChanged: (value) {
                             ref
@@ -125,7 +150,7 @@ class FintechProfileDrawer extends ConsumerWidget {
                                 .toggleNotifications(value);
                           },
                         ),
-                        SizedBox(height: FintechSpacing.xl.h),
+                        SizedBox(height: FintechSpacing.xxxl.h),
                         AppText(
                           text: 'More',
                           style: AppTextStyle.titleLarge.copyWith(
@@ -135,13 +160,15 @@ class FintechProfileDrawer extends ConsumerWidget {
                         SizedBox(height: FintechSpacing.md.h),
                         _DrawerTile(
                           title: 'Language',
-                          icon: LucideIcons.languages400,
+                          svgPath: Assets.images.svg.language,
+                          iconSize: const Size(22, 22),
                           onTap: () => _showPlaceholder(),
                         ),
                         SizedBox(height: FintechSpacing.md.h),
                         _DrawerTile(
                           title: 'Country',
-                          icon: LucideIcons.globe400,
+                          svgPath: Assets.images.svg.country,
+                          iconSize: const Size(26, 24),
                           onTap: () => _showPlaceholder(),
                         ),
                       ],
@@ -176,10 +203,12 @@ class FintechProfileDrawer extends ConsumerWidget {
                           ),
                         ),
                         SizedBox(width: FintechSpacing.xs.w),
-                        Icon(
-                          LucideIcons.logOut400,
+                        AppImageView(
+                          svgPath: Assets.images.svg.logout,
+                          width: 18.w,
+                          height: 18.h,
+                          fit: BoxFit.contain,
                           color: AppColors.danger500,
-                          size: 18.r,
                         ),
                       ],
                     ),
@@ -201,12 +230,14 @@ class FintechProfileDrawer extends ConsumerWidget {
 class _DrawerTile extends StatelessWidget {
   const _DrawerTile({
     required this.title,
-    required this.icon,
+    required this.svgPath,
+    required this.iconSize,
     required this.onTap,
   });
 
   final String title;
-  final IconData icon;
+  final String svgPath;
+  final Size iconSize;
   final VoidCallback onTap;
 
   @override
@@ -215,16 +246,16 @@ class _DrawerTile extends StatelessWidget {
       onTap: onTap,
       child: Container(
         padding: EdgeInsets.symmetric(
-          horizontal: FintechSpacing.md.w,
-          vertical: FintechSpacing.md.h,
+          horizontal: FintechSpacing.xs.w,
+          vertical: FintechSpacing.xs.h,
         ),
         decoration: BoxDecoration(
           color: FintechColors.surface(context),
-          borderRadius: BorderRadius.circular(FintechRadius.button.r),
+          borderRadius: BorderRadius.circular(6.r),
         ),
         child: Row(
           children: <Widget>[
-            Icon(icon, color: AppColors.fintechBlue, size: 20.r),
+            _DrawerIconBubble(svgPath: svgPath, assetSize: iconSize),
             SizedBox(width: FintechSpacing.md.w),
             Expanded(
               child: AppText(
@@ -250,12 +281,14 @@ class _DrawerSwitchTile extends StatelessWidget {
   const _DrawerSwitchTile({
     required this.title,
     required this.icon,
+    required this.iconSize,
     required this.value,
     required this.onChanged,
   });
 
   final String title;
   final IconData icon;
+  final double iconSize;
   final bool value;
   final ValueChanged<bool> onChanged;
 
@@ -263,16 +296,16 @@ class _DrawerSwitchTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(
-        horizontal: FintechSpacing.md.w,
-        vertical: FintechSpacing.md.h,
+        horizontal: FintechSpacing.xs.w,
+        vertical: FintechSpacing.xs.h,
       ),
       decoration: BoxDecoration(
         color: FintechColors.surface(context),
-        borderRadius: BorderRadius.circular(FintechRadius.button.r),
+        borderRadius: BorderRadius.circular(6.r),
       ),
       child: Row(
         children: <Widget>[
-          Icon(icon, color: AppColors.fintechBlue, size: 20.r),
+          _DrawerIconBubble(icon: icon, iconSize: iconSize),
           SizedBox(width: FintechSpacing.md.w),
           Expanded(
             child: AppText(
@@ -289,6 +322,47 @@ class _DrawerSwitchTile extends StatelessWidget {
             height: 22.h,
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _DrawerIconBubble extends StatelessWidget {
+  const _DrawerIconBubble({
+    this.svgPath,
+    this.assetSize,
+    this.icon,
+    this.iconSize,
+  });
+
+  final String? svgPath;
+  final Size? assetSize;
+  final IconData? icon;
+  final double? iconSize;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 42.w,
+      height: 42.h,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: FintechColors.mutedSurface(context),
+      ),
+      child: Center(
+        child: svgPath != null
+            ? AppImageView(
+                svgPath: svgPath,
+                width: assetSize!.width.w,
+                height: assetSize!.height.h,
+                fit: BoxFit.scaleDown,
+                color: AppColors.fintechBlue,
+              )
+            : Icon(
+                icon,
+                color: AppColors.fintechBlue,
+                size: (iconSize ?? 20).r,
+              ),
       ),
     );
   }

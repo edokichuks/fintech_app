@@ -93,11 +93,20 @@ class $AssetsImagesSvgGen {
   /// File path: assets/images/svg/billsPay.svg
   String get billsPay => 'assets/images/svg/billsPay.svg';
 
+  /// File path: assets/images/svg/card.svg
+  String get card => 'assets/images/svg/card.svg';
+
   /// File path: assets/images/svg/card_active.svg
   String get cardActive => 'assets/images/svg/card_active.svg';
 
   /// File path: assets/images/svg/card_inactive.svg
   String get cardInactive => 'assets/images/svg/card_inactive.svg';
+
+  /// File path: assets/images/svg/chip.svg
+  String get chip => 'assets/images/svg/chip.svg';
+
+  /// File path: assets/images/svg/country.svg
+  String get country => 'assets/images/svg/country.svg';
 
   /// File path: assets/images/svg/delete.svg
   String get delete => 'assets/images/svg/delete.svg';
@@ -120,6 +129,9 @@ class $AssetsImagesSvgGen {
   /// File path: assets/images/svg/donations.svg
   String get donations => 'assets/images/svg/donations.svg';
 
+  /// File path: assets/images/svg/eStatement.svg
+  String get eStatement => 'assets/images/svg/eStatement.svg';
+
   /// File path: assets/images/svg/eWallet.svg
   String get eWallet => 'assets/images/svg/eWallet.svg';
 
@@ -140,6 +152,12 @@ class $AssetsImagesSvgGen {
 
   /// File path: assets/images/svg/home_inactive.svg
   String get homeInactive => 'assets/images/svg/home_inactive.svg';
+
+  /// File path: assets/images/svg/language.svg
+  String get language => 'assets/images/svg/language.svg';
+
+  /// File path: assets/images/svg/logout.svg
+  String get logout => 'assets/images/svg/logout.svg';
 
   /// File path: assets/images/svg/master.svg
   String get master => 'assets/images/svg/master.svg';
@@ -162,14 +180,20 @@ class $AssetsImagesSvgGen {
   /// File path: assets/images/svg/secure.svg
   String get secure => 'assets/images/svg/secure.svg';
 
+  /// File path: assets/images/svg/setting.svg
+  String get setting => 'assets/images/svg/setting.svg';
+
   /// List of all assets
   List<String> get values => [
     aGitkeep,
     bankingFee,
     barcode,
     billsPay,
+    card,
     cardActive,
     cardInactive,
+    chip,
+    country,
     delete,
     deposit,
     discard,
@@ -177,6 +201,7 @@ class $AssetsImagesSvgGen {
     dishome,
     disprofile,
     donations,
+    eStatement,
     eWallet,
     encard,
     hintIcon,
@@ -184,6 +209,8 @@ class $AssetsImagesSvgGen {
     historyInactive,
     homeActive,
     homeInactive,
+    language,
+    logout,
     master,
     more,
     onlineShopping,
@@ -191,6 +218,7 @@ class $AssetsImagesSvgGen {
     profileActive,
     profileInactive,
     secure,
+    setting,
   ];
 }
 
