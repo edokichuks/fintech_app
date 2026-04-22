@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/general_widgets/general_widget_exports.dart';
+import 'package:fintech_app/src/general_widgets/general_widget_exports.dart';
 
 class TileWidget extends StatelessWidget {
   const TileWidget({
@@ -61,7 +61,7 @@ class TileWidget extends StatelessWidget {
                     ],
                   ),
                   const Spacer(),
-                ]
+                ],
               ],
               if (trailing != null) trailing!,
               trailingSpace ?? Spacing.width(6.w),

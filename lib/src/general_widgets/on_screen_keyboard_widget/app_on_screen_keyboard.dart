@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/general_widgets/general_widget_exports.dart';
+import 'package:fintech_app/src/general_widgets/general_widget_exports.dart';
 
 // import 'package:flutter/material.dart';
 
@@ -105,22 +105,20 @@ class _AppOnScreenKeyboardState extends State<AppOnScreenKeyboard> {
       key: shakeKey,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: List.generate(
-          widget.totalFields,
-          (index) {
-            // THE INDEX MUST BE <= TO THE ENTERED TEXT FROM THE UI TO BE ACTIVE
-            final hasEnteredValueInFields = index <= totalOtpFields - 1;
-            return AppPasscodeDisplay(
-              error: _userEnteredWrongValue,
-              //THE SPACING BETWEEN EACH WIDGET
-              spacing: 8.w,
-              //IF THE USER HAS NOT ENTERED VALUES IN THE FIELD THE PASSCODE
-              // WIDGET SHOULD BE EMPTY IF NOT EMPTY USE THE DEFAULT WIDGET
-              contentWidget:
-                  !hasEnteredValueInFields ? const SizedBox.shrink() : null,
-            );
-          },
-        ),
+        children: List.generate(widget.totalFields, (index) {
+          // THE INDEX MUST BE <= TO THE ENTERED TEXT FROM THE UI TO BE ACTIVE
+          final hasEnteredValueInFields = index <= totalOtpFields - 1;
+          return AppPasscodeDisplay(
+            error: _userEnteredWrongValue,
+            //THE SPACING BETWEEN EACH WIDGET
+            spacing: 8.w,
+            //IF THE USER HAS NOT ENTERED VALUES IN THE FIELD THE PASSCODE
+            // WIDGET SHOULD BE EMPTY IF NOT EMPTY USE THE DEFAULT WIDGET
+            contentWidget: !hasEnteredValueInFields
+                ? const SizedBox.shrink()
+                : null,
+          );
+        }),
       ),
     );
   }

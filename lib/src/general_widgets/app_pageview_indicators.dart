@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/core/utils/app_utils_exports.dart';
+import 'package:fintech_app/src/core/utils/app_utils_exports.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart'; // Adjust the import based on your project structure.
 
@@ -24,8 +24,9 @@ class AppIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     final activeIndicatorColor = (activeColor ?? AppColors.primary300);
     final inactiveIndicatorColor = (inActiveColor ?? AppColors.neutral50);
-    final indicatorColor =
-        isActive ? activeIndicatorColor : inactiveIndicatorColor;
+    final indicatorColor = isActive
+        ? activeIndicatorColor
+        : inactiveIndicatorColor;
     return AnimatedContainer(
       margin: margin ?? EdgeInsets.only(left: 8.w),
       duration: const Duration(milliseconds: 350),

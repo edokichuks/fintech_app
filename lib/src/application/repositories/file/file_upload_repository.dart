@@ -1,9 +1,9 @@
 import 'dart:io';
-import 'package:clean_flutter/src/application/model/file_upload_response.dart';
-import 'package:clean_flutter/src/core/config/exceptions/app_exceptions.dart';
-import 'package:clean_flutter/src/core/config/response/base_response.dart';
-import 'package:clean_flutter/src/core/services/client/rest_client.dart';
-import 'package:clean_flutter/src/core/services/file_upload_service.dart';
+import 'package:fintech_app/src/application/model/file_upload_response.dart';
+import 'package:fintech_app/src/core/config/exceptions/app_exceptions.dart';
+import 'package:fintech_app/src/core/config/response/base_response.dart';
+import 'package:fintech_app/src/core/services/client/rest_client.dart';
+import 'package:fintech_app/src/core/services/file_upload_service.dart';
 import 'package:dio/dio.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

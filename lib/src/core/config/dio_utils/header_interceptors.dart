@@ -6,9 +6,9 @@ import 'package:dio/dio.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/application/repositories/user/user_repository.dart';
-import 'package:clean_flutter/src/core/config/dio_utils/auth_strings.dart';
-import 'package:clean_flutter/src/core/utils/app_loggers.dart';
+import 'package:fintech_app/src/application/repositories/user/user_repository.dart';
+import 'package:fintech_app/src/core/config/dio_utils/auth_strings.dart';
+import 'package:fintech_app/src/core/utils/app_loggers.dart';
 
 class HeaderInterceptor extends Interceptor {
   HeaderInterceptor({
@@ -77,12 +77,19 @@ class HeaderInterceptor extends Interceptor {
   }
 }
 
-Future<void> refreshToken(DioException error, ErrorInterceptorHandler handler,
-    Dio dio, UserRepository userRepository, Ref ref) async {
+Future<void> refreshToken(
+  DioException error,
+  ErrorInterceptorHandler handler,
+  Dio dio,
+  UserRepository userRepository,
+  Ref ref,
+) async {
   final refreshToken = userRepository.getRefreshToken();
   try {
-    final r = await Dio().post('${AuthStrings.baseUrl}/auth/refresh-token',
-        options: Options(headers: {"Authorization": "Bearer $refreshToken"}));
+    final r = await Dio().post(
+      '${AuthStrings.baseUrl}/auth/refresh-token',
+      options: Options(headers: {"Authorization": "Bearer $refreshToken"}),
+    );
 
     if (r.statusCode == 200 || r.statusCode == 201) {
       userRepository.saveToken(r.data['data']['accessToken']);
@@ -121,9 +128,7 @@ Future<void> handleError(
 
 class PlacesInterceptor extends Interceptor {
   final Dio dio;
-  PlacesInterceptor({
-    required this.dio,
-  });
+  PlacesInterceptor({required this.dio});
 
   @override
   FutureOr<dynamic> onRequest(
@@ -140,10 +145,7 @@ class PlacesInterceptor extends Interceptor {
   }
 
   @override
-  FutureOr<dynamic> onError(
-    DioException err,
-    ErrorInterceptorHandler handler,
-  ) {
+  FutureOr<dynamic> onError(DioException err, ErrorInterceptorHandler handler) {
     handler.next(err);
     return err;
   }

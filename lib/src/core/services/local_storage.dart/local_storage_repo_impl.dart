@@ -6,8 +6,8 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/core/services/local_storage.dart/local_storage_repo.dart';
-import 'package:clean_flutter/src/core/services/local_storage.dart/storage_keys.dart';
+import 'package:fintech_app/src/core/services/local_storage.dart/local_storage_repo.dart';
+import 'package:fintech_app/src/core/services/local_storage.dart/storage_keys.dart';
 
 class LocalStorageRepoImpl implements LocalStorageRepo {
   LocalStorageRepoImpl(this.box);

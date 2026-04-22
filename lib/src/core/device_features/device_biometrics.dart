@@ -6,20 +6,22 @@ import 'package:local_auth/error_codes.dart' as auth_error;
 import 'package:local_auth/local_auth.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/general_widgets/general_widget_exports.dart';
+import 'package:fintech_app/src/general_widgets/general_widget_exports.dart';
 
 class DeviceBiometrics {
-  static Future<bool> deviceBiometricsAuth(
-      {required String localizedReason}) async {
+  static Future<bool> deviceBiometricsAuth({
+    required String localizedReason,
+  }) async {
     final LocalAuthentication auth = LocalAuthentication();
     try {
       final bool didAuthenticate = await auth.authenticate(
-          localizedReason: localizedReason,
-          options: const AuthenticationOptions(
-            useErrorDialogs: false,
-            stickyAuth: false,
-          ),
-          authMessages: {});
+        localizedReason: localizedReason,
+        options: const AuthenticationOptions(
+          useErrorDialogs: false,
+          stickyAuth: false,
+        ),
+        authMessages: {},
+      );
       return didAuthenticate;
     } on PlatformException catch (e) {
       _biometricsPlatromErrorCases(errorCode: e.code);

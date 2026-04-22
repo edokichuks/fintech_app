@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/core/utils/app_colors.dart';
+import 'package:fintech_app/src/core/utils/app_colors.dart';
 
 class AppLoader extends StatefulWidget {
   const AppLoader({super.key, this.size = 20.0});
@@ -22,14 +22,12 @@ class _AppLoaderState extends State<AppLoader>
   @override
   void initState() {
     super.initState();
-    _controller =
-        AnimationController(vsync: this, duration: const Duration(seconds: 1))
-          ..repeat();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 1),
+    )..repeat();
 
-    _animation = CurvedAnimation(
-      parent: _controller,
-      curve: Curves.linear,
-    );
+    _animation = CurvedAnimation(parent: _controller, curve: Curves.linear);
   }
 
   @override
@@ -52,8 +50,10 @@ class _AppLoaderState extends State<AppLoader>
               width: widget.size,
               child: SvgPicture.asset(
                 'assets/svgs/load.svg',
-                colorFilter:
-                    ColorFilter.mode(AppColors.primary300, BlendMode.srcIn),
+                colorFilter: ColorFilter.mode(
+                  AppColors.primary300,
+                  BlendMode.srcIn,
+                ),
               ),
             ),
           ),

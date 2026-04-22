@@ -1,5 +1,5 @@
 // Project imports:
-import 'package:clean_flutter/src/core/extensions/date_extensions.dart';
+import 'package:fintech_app/src/core/extensions/date_extensions.dart';
 
 extension TimeExtension on String {
   DateTime get toDate => DateTime.parse(this);
@@ -96,7 +96,9 @@ extension TimeExtension on String {
 
     // Add spaces between every four digits
     final spaced = masked.replaceAllMapped(
-        RegExp(r".{4}"), (match) => "${match.group(0)} ");
+      RegExp(r".{4}"),
+      (match) => "${match.group(0)} ",
+    );
 
     // Trim any trailing space
     return spaced.trim();
@@ -140,10 +142,10 @@ extension TimeExtension on String {
 
   String _toCapitalized() =>
       length > 0 ? '${this[0].toUpperCase()}${substring(1)}' : '';
-  String uppercased() => replaceAll(RegExp(' +'), ' ')
-      .split(' ')
-      .map((word) => word._toCapitalized())
-      .join(' ');
+  String uppercased() => replaceAll(
+    RegExp(' +'),
+    ' ',
+  ).split(' ').map((word) => word._toCapitalized()).join(' ');
 
   /// Removes all non-numeric characters from the string
   String numbersOnly({bool allowDecimal = false}) {
@@ -158,8 +160,9 @@ extension TimeExtension on String {
       int firstDecimalIndex = cleaned.indexOf('.');
       if (firstDecimalIndex != -1) {
         String beforeDecimal = cleaned.substring(0, firstDecimalIndex + 1);
-        String afterDecimal =
-            cleaned.substring(firstDecimalIndex + 1).replaceAll('.', '');
+        String afterDecimal = cleaned
+            .substring(firstDecimalIndex + 1)
+            .replaceAll('.', '');
         return beforeDecimal + afterDecimal;
       }
 
@@ -180,8 +183,10 @@ extension TimeExtension on String {
     if (allowDecimal && cleaned.contains('.')) {
       // Split into whole number and decimal parts
       List<String> parts = cleaned.split('.');
-      String wholeNumber =
-          parts[0].substring(0, parts[0].length.clamp(0, maxLength));
+      String wholeNumber = parts[0].substring(
+        0,
+        parts[0].length.clamp(0, maxLength),
+      );
       return parts.length > 1 ? '$wholeNumber.${parts[1]}' : wholeNumber;
     }
 

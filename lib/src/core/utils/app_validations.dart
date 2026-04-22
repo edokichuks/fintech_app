@@ -1,5 +1,5 @@
 // Project imports:
-import 'package:clean_flutter/src/core/extensions/validation_extension.dart';
+import 'package:fintech_app/src/core/extensions/validation_extension.dart';
 
 /// A collection of common validators that can be reused
 class Validators {
@@ -75,8 +75,9 @@ class Validators {
   }
 
   static final RegExp _webUrlsPattern = RegExp(
-      r'(?<=\s|^)(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z]{2,}(\.[a-zA-Z]{2,})(\.[a-zA-Z]{2,})?\/[a-zA-Z0-9]{2,}|((https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z]{2,}(\.[a-zA-Z]{2,})(\.[a-zA-Z]{2,})?)|(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}(\.[a-zA-Z0-9]{2,})?',
-      caseSensitive: false);
+    r'(?<=\s|^)(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z]{2,}(\.[a-zA-Z]{2,})(\.[a-zA-Z]{2,})?\/[a-zA-Z0-9]{2,}|((https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z]{2,}(\.[a-zA-Z]{2,})(\.[a-zA-Z]{2,})?)|(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}(\.[a-zA-Z0-9]{2,})?',
+    caseSensitive: false,
+  );
 
   static Validator link() {
     return (String? value) {
@@ -129,8 +130,11 @@ class Validators {
   static bool isValid(String pin, String pin2) =>
       pin.isNotEmpty && pin2.isNotEmpty && pin == pin2;
 
-  static Validator matchPattern(Pattern pattern,
-      [String? patternName, String? text]) {
+  static Validator matchPattern(
+    Pattern pattern, [
+    String? patternName,
+    String? text,
+  ]) {
     return (String? value) {
       if (value == null || (pattern.allMatches(value).isEmpty)) {
         return (text ?? "Please enter a valid ${patternName ?? "value"}.");
@@ -158,16 +162,13 @@ class Validators {
     };
   }
 
-  static Validator password([int minimumLength = 8]) => multiple(
-        [
-          containsUpper('Password'),
-          containsLower('Password'),
-          containsNumber('Password'),
-          containsSpecialChar('Password'),
-          minLength(minimumLength),
-        ],
-        shouldTrim: false,
-      );
+  static Validator password([int minimumLength = 8]) => multiple([
+    containsUpper('Password'),
+    containsLower('Password'),
+    containsNumber('Password'),
+    containsSpecialChar('Password'),
+    minLength(minimumLength),
+  ], shouldTrim: false);
 
   static Validator containsUpper([String? fieldName]) {
     return (String? value) {
@@ -235,7 +236,7 @@ class Validators {
       for (var i = 0; i < length; i++) {
         // get digits in reverse order
         var digit = int.parse(input[length - i - 1]);
-// every 2nd number multiply with 2
+        // every 2nd number multiply with 2
         if (i.isOdd) {
           digit *= 2;
         }

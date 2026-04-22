@@ -1,5 +1,5 @@
-import 'package:clean_flutter/src/application/repositories/user/user_repository_impl.dart';
-import 'package:clean_flutter/src/core/utils/app_utils_exports.dart';
+import 'package:fintech_app/src/application/repositories/user/user_repository_impl.dart';
+import 'package:fintech_app/src/core/utils/app_utils_exports.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:in_app_review/in_app_review.dart';
@@ -34,7 +34,8 @@ class InAppReviewService {
         final daysSinceRating = DateTime.now().difference(lastRatedDate).inDays;
         if (daysSinceRating < 30) {
           debugLog(
-              '30-day cooldown active. Days since rating: $daysSinceRating');
+            '30-day cooldown active. Days since rating: $daysSinceRating',
+          );
           return false;
         }
       }
@@ -73,7 +74,8 @@ class InAppReviewService {
         debugLog('In-app review requested successfully');
       } else {
         debugLog(
-            'this device cannot call review...probably show a custom dialoge for the review');
+          'this device cannot call review...probably show a custom dialoge for the review',
+        );
       }
     } catch (e) {
       debugLog('Error requesting review: $e');

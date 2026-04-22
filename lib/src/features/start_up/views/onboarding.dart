@@ -6,12 +6,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/core/extensions/navigation_extensions.dart';
-import 'package:clean_flutter/src/core/extensions/theme_extensions.dart';
-import 'package:clean_flutter/src/core/router/router.dart';
-import 'package:clean_flutter/src/core/utils/app_colors.dart';
-import 'package:clean_flutter/src/core/utils/app_margin_util.dart';
-import 'package:clean_flutter/src/general_widgets/general_widget_exports.dart';
+import 'package:fintech_app/src/core/extensions/navigation_extensions.dart';
+import 'package:fintech_app/src/core/extensions/theme_extensions.dart';
+import 'package:fintech_app/src/core/router/router.dart';
+import 'package:fintech_app/src/core/utils/app_colors.dart';
+import 'package:fintech_app/src/core/utils/app_margin_util.dart';
+import 'package:fintech_app/src/general_widgets/general_widget_exports.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -39,18 +39,17 @@ class _OnboardingScreenState extends State<OnboardingScreen>
     (
       "Fast Delivery",
       "Quick and reliable delivery. Enjoy your meals hot and fresh, right on time.",
-    )
+    ),
   ];
   @override
   void initState() {
     super.initState();
     _pageController = PageController();
-    _animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 3),
-    )..addStatusListener((status) {
-        _animateCurrentPage(status);
-      });
+    _animationController =
+        AnimationController(vsync: this, duration: const Duration(seconds: 3))
+          ..addStatusListener((status) {
+            _animateCurrentPage(status);
+          });
     _forwardAnimation();
   }
 
@@ -101,116 +100,126 @@ class _OnboardingScreenState extends State<OnboardingScreen>
   }
 
   void _changePage(int value) => setState(() {
-        page = value;
-        if (_swipingFromPageView) _resetAnimation();
-        _swipingFromPageView = true;
-      });
+    page = value;
+    if (_swipingFromPageView) _resetAnimation();
+    _swipingFromPageView = true;
+  });
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: AnimatedBuilder(
-          animation: _animationController,
-          builder: (context, child) {
-            return PageView.builder(
-                onPageChanged: _changePage,
-                controller: _pageController,
-                itemCount: 3,
-                itemBuilder: (context, index) {
-                  final item = _items[index];
-                  return Stack(
-                    fit: StackFit.expand,
-                    children: [
-                      Image.asset(
-                        "assets/images/mockup${index + 1}.png",
-                        fit: BoxFit.cover,
-                        height: screenHeight(context),
-                        width: screenWidth(context),
+        animation: _animationController,
+        builder: (context, child) {
+          return PageView.builder(
+            onPageChanged: _changePage,
+            controller: _pageController,
+            itemCount: 3,
+            itemBuilder: (context, index) {
+              final item = _items[index];
+              return Stack(
+                fit: StackFit.expand,
+                children: [
+                  Image.asset(
+                    "assets/images/mockup${index + 1}.png",
+                    fit: BoxFit.cover,
+                    height: screenHeight(context),
+                    width: screenWidth(context),
+                  ),
+                  Positioned(
+                    right: 30.w,
+                    top: 50.h,
+                    child: InkWell(
+                      onTap: () {
+                        context.pushNamed(AppRouter.splashScreen);
+                      },
+                      child: Row(
+                        children: [
+                          Text(
+                            "Skip",
+                            style: context.textTheme.s16w700.copyWith(
+                              color: AppColors.white,
+                            ),
+                          ),
+                          SizedBox(width: 1.5.w),
+                          Padding(
+                            padding: EdgeInsets.only(top: 2.7.h),
+                            child: Icon(
+                              Icons.arrow_forward_rounded,
+                              color: AppColors.white,
+                            ),
+                          ),
+                        ],
                       ),
-                      Positioned(
-                        right: 30.w,
-                        top: 50.h,
-                        child: InkWell(
-                          onTap: () {
-                            context.pushNamed(AppRouter.splashScreen);
-                          },
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      left: 24.w,
+                      right: 24.w,
+                      bottom: 95.h,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(
+                          item.$1,
+                          style: context.textTheme.s32w700.copyWith(
+                            color: AppColors.white,
+                          ),
+                        ),
+                        SizedBox(height: 8.h),
+                        Text(
+                          item.$2,
+                          textAlign: TextAlign.center,
+                          style: context.textTheme.s12w400.copyWith(
+                            color: AppColors.white,
+                          ),
+                        ),
+                        SizedBox(height: 28.h),
+                        Center(
                           child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text("Skip",
-                                  style: context.textTheme.s16w700.copyWith(
-                                    color: AppColors.white,
-                                  )),
-                              SizedBox(width: 1.5.w),
-                              Padding(
-                                padding: EdgeInsets.only(top: 2.7.h),
-                                child: Icon(
-                                  Icons.arrow_forward_rounded,
-                                  color: AppColors.white,
+                              ...List.generate(
+                                3,
+                                (index) => Padding(
+                                  padding: const EdgeInsets.all(5.0),
+                                  child: Container(
+                                    height: 5.h,
+                                    width: index != page ? 5.w : 10.w,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(6),
+                                      color: switch (index != page) {
+                                        true => AppColors.white,
+                                        _ => AppColors.primary300,
+                                      },
+                                    ),
+                                  ),
                                 ),
-                              )
+                              ),
                             ],
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                            left: 24.w, right: 24.w, bottom: 95.h),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(item.$1,
-                                style: context.textTheme.s32w700.copyWith(
-                                  color: AppColors.white,
-                                )),
-                            SizedBox(height: 8.h),
-                            Text(
-                              item.$2,
-                              textAlign: TextAlign.center,
-                              style: context.textTheme.s12w400.copyWith(
-                                color: AppColors.white,
-                              ),
-                            ),
-                            SizedBox(height: 28.h),
-                            Center(
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  ...List.generate(
-                                    3,
-                                    (index) => Padding(
-                                      padding: const EdgeInsets.all(5.0),
-                                      child: Container(
-                                        height: 5.h,
-                                        width: index != page ? 5.w : 10.w,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(6),
-                                            color: switch (index != page) {
-                                              true => AppColors.white,
-                                              _ => AppColors.primary300,
-                                            }),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(height: 60.h),
-                            Consumer(
-                              builder: (context, ref, __) {
-                                return AppButton(
-                                    text: page != 2 ? "Next" : "Get Started",
-                                    onPressed: _goToNextpage);
-                              },
-                            ),
-                          ],
+                        SizedBox(height: 60.h),
+                        Consumer(
+                          builder: (context, ref, __) {
+                            return AppButton(
+                              text: page != 2 ? "Next" : "Get Started",
+                              onPressed: _goToNextpage,
+                            );
+                          },
                         ),
-                      ),
-                    ],
-                  );
-                });
-          }),
+                      ],
+                    ),
+                  ),
+                ],
+              );
+            },
+          );
+        },
+      ),
     );
   }
 }

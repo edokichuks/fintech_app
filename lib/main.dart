@@ -3,7 +3,15 @@
 // Flutter imports:
 import 'dart:io';
 
-import 'package:clean_flutter/src/core/services/google_auto_updater.dart';
+import 'package:fintech_app/src/core/device_features/device_feature_exports.dart';
+import 'package:fintech_app/src/core/helpers/helper_functions.dart';
+import 'package:fintech_app/src/core/router/router.dart';
+import 'package:fintech_app/src/core/services/google_auto_updater.dart';
+import 'package:fintech_app/src/core/config/exceptions/overall_app_error.dart';
+import 'package:fintech_app/src/core/services/local_storage.dart/storage_keys.dart';
+import 'package:fintech_app/src/core/utils/app_utils_exports.dart';
+import 'package:fintech_app/src/core/utils/theme/theme_notifier/theme_notifier.dart';
+import 'package:fintech_app/src/general_widgets/general_widget_exports.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -16,15 +24,6 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import 'package:clean_flutter/firebase_options.dart';
-import 'package:clean_flutter/src/core/config/exceptions/overall_app_error.dart';
-import 'package:clean_flutter/src/core/device_features/device_feature_exports.dart';
-import 'package:clean_flutter/src/core/helpers/helper_functions.dart';
-import 'package:clean_flutter/src/core/router/router.dart';
-import 'package:clean_flutter/src/core/services/local_storage.dart/local_storage_export.dart';
-import 'package:clean_flutter/src/core/utils/app_utils_exports.dart';
-import 'package:clean_flutter/src/core/utils/theme/theme_notifier/theme_notifier.dart';
-import 'package:clean_flutter/src/general_widgets/general_widget_exports.dart';
 
 // Add a navigator key to access navigation state globally
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
@@ -42,12 +41,7 @@ void main() async {
   await ScreenUtil.ensureScreenSize();
   await Hive.initFlutter();
   await Hive.openBox(LocalStoreKeysManger.appBox.rawValue);
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  await SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-  ]);
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await InAppUpdateAuto.checkForUpdate();
   AppErrorLog.init();
   runApp(const ProviderScope(child: MyApp()));
@@ -66,21 +60,18 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback(
-      (timeStamp) async {
-
-        if (mounted) {
-          HelperFunctions().activateTimer(dispose: false);
-          if (Platform.isAndroid) {
-            try {
-              await InAppUpdateAuto.checkForUpdate();
-            } catch (e) {
-              debugLog('Auto-update check failed: $e');
-            }
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
+      if (mounted) {
+        HelperFunctions().activateTimer(dispose: false);
+        if (Platform.isAndroid) {
+          try {
+            await InAppUpdateAuto.checkForUpdate();
+          } catch (e) {
+            debugLog('Auto-update check failed: $e');
           }
         }
-      },
-    );
+      }
+    });
     WidgetsBinding.instance.addObserver(this);
   }
 
@@ -110,8 +101,9 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
             themeMode: appTheme.themeMode,
-            scrollBehavior: const ScrollBehavior()
-                .copyWith(physics: const BouncingScrollPhysics()),
+            scrollBehavior: const ScrollBehavior().copyWith(
+              physics: const BouncingScrollPhysics(),
+            ),
             initialRoute: AppRouter.bottomNavBar,
             // initialRoute: AppRouter.createAccountScreen,
             onGenerateRoute: AppRouter.onGenerateRoute,

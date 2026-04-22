@@ -9,8 +9,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/core/utils/app_colors.dart';
-import 'package:clean_flutter/src/general_widgets/general_widget_exports.dart';
+import 'package:fintech_app/src/core/utils/app_colors.dart';
+import 'package:fintech_app/src/general_widgets/general_widget_exports.dart';
 
 // Package imports:
 // import 'package:carousel_slider/carousel_slider.dart';
@@ -37,46 +37,37 @@ class _CarouselState extends State<Carousel> {
   @override
   void initState() {
     super.initState();
-    allImages = [
-      ...(widget.imageList),
-      ...(widget.url ?? []),
-    ];
+    allImages = [...(widget.imageList), ...(widget.url ?? [])];
   }
 
   @override
   void didUpdateWidget(Carousel oldWidget) {
     super.didUpdateWidget(oldWidget);
-    allImages = [
-      ...(widget.imageList),
-      ...(widget.url ?? []),
-    ];
+    allImages = [...(widget.imageList), ...(widget.url ?? [])];
   }
 
   List<Widget> generateImageTiles() {
     // return (widget.url ?? widget.imageList)
-    return (allImages).map(
-      (element) {
-        // debugPrint('ELEMENTS => $element');
-        return ClipRRect(
-          borderRadius: BorderRadius.circular(4.r),
-          child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(4.r),
-              ),
-              child: AppImageView(
-                file: element is File ? element : null,
-                url: (widget.url != null)
-                    ? element.toString().startsWith('http')
-                        ? element as String
-                        : null
-                    : null,
-                width: double.infinity,
-                fit: BoxFit.cover,
-                radius: BorderRadius.circular(15.r),
-              )),
-        );
-      },
-    ).toList();
+    return (allImages).map((element) {
+      // debugPrint('ELEMENTS => $element');
+      return ClipRRect(
+        borderRadius: BorderRadius.circular(4.r),
+        child: Container(
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(4.r)),
+          child: AppImageView(
+            file: element is File ? element : null,
+            url: (widget.url != null)
+                ? element.toString().startsWith('http')
+                      ? element as String
+                      : null
+                : null,
+            width: double.infinity,
+            fit: BoxFit.cover,
+            radius: BorderRadius.circular(15.r),
+          ),
+        ),
+      );
+    }).toList();
   }
 
   @override
@@ -97,40 +88,37 @@ class _CarouselState extends State<Carousel> {
                 blurRadius: 4.r,
                 spreadRadius: 4.r / 2.r,
                 color: const Color.fromRGBO(23, 23, 23, 0.16),
-              )
+              ),
             ],
-            border: Border.all(
-              color: AppColors.primary75,
-            ),
+            border: Border.all(color: AppColors.primary75),
           ),
           child: CarouselSlider(
             items: imageSliders,
             options: CarouselOptions(
-                aspectRatio: 18 / 10,
-                autoPlay: ((allImages).length == 1) ? false : true,
-                height: 200.h,
-                enlargeCenterPage: true,
-                animateToClosest: true,
-                enlargeFactor: 1,
-                viewportFraction: 1,
-                enlargeStrategy: CenterPageEnlargeStrategy.zoom,
-                onPageChanged: (index, reason) {
-                  setState(() {
-                    for (int i = 0; i < imageSliders.length; i++) {
-                      if (i == index) {
-                        _isSelected[i] = true;
-                      } else {
-                        _isSelected[i] = false;
-                      }
+              aspectRatio: 18 / 10,
+              autoPlay: ((allImages).length == 1) ? false : true,
+              height: 200.h,
+              enlargeCenterPage: true,
+              animateToClosest: true,
+              enlargeFactor: 1,
+              viewportFraction: 1,
+              enlargeStrategy: CenterPageEnlargeStrategy.zoom,
+              onPageChanged: (index, reason) {
+                setState(() {
+                  for (int i = 0; i < imageSliders.length; i++) {
+                    if (i == index) {
+                      _isSelected[i] = true;
+                    } else {
+                      _isSelected[i] = false;
                     }
-                  });
-                }),
+                  }
+                });
+              },
+            ),
             carouselController: _controller,
           ),
         ),
-        SizedBox(
-          height: 16.h,
-        ),
+        SizedBox(height: 16.h),
         SizedBox(
           width: 80.w,
           child: ((allImages).length == 1)

@@ -1,13 +1,10 @@
-import 'package:clean_flutter/src/application/model/file_upload_response.dart';
+import 'package:fintech_app/src/application/model/file_upload_response.dart';
 
 class FileUploadState {
   final List<FileUploadResponse>? uploadedFiles;
   final bool isLoading;
 
-  FileUploadState({
-    this.uploadedFiles,
-    this.isLoading = false,
-  });
+  FileUploadState({this.uploadedFiles, this.isLoading = false});
 
   FileUploadState copyWith({
     List<FileUploadResponse>? uploadedFiles,

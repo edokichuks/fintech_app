@@ -8,9 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/core/utils/app_colors.dart';
-import 'package:clean_flutter/src/core/utils/theme/app_text_styles.dart';
-import 'package:clean_flutter/src/general_widgets/spacing.dart';
+import 'package:fintech_app/src/core/utils/app_colors.dart';
+import 'package:fintech_app/src/core/utils/theme/app_text_styles.dart';
+import 'package:fintech_app/src/general_widgets/spacing.dart';
 
 class TodoScreen extends StatelessWidget {
   const TodoScreen({super.key});

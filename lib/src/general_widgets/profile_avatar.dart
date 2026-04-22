@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/core/extensions/theme_extensions.dart';
-import 'package:clean_flutter/src/core/extensions/widget_extensions.dart';
-import 'package:clean_flutter/src/core/utils/app_colors.dart';
+import 'package:fintech_app/src/core/extensions/theme_extensions.dart';
+import 'package:fintech_app/src/core/extensions/widget_extensions.dart';
+import 'package:fintech_app/src/core/utils/app_colors.dart';
 
 class ProfileAvatar extends StatelessWidget {
   const ProfileAvatar({
@@ -29,9 +29,7 @@ class ProfileAvatar extends StatelessWidget {
     return CircleAvatar(
       radius: radius,
       backgroundImage: imageUrl.isNotEmpty
-          ? CachedNetworkImageProvider(
-              imageUrl,
-            )
+          ? CachedNetworkImageProvider(imageUrl)
           : null,
       child: imageUrl.isEmpty && initials.isNotEmpty
           ? Text(
@@ -45,10 +43,7 @@ class ProfileAvatar extends StatelessWidget {
           : null,
     ).withContainer(
       shape: BoxShape.circle,
-      border: Border.all(
-        color: color,
-        width: 2,
-      ),
+      border: Border.all(color: color, width: 2),
     );
   }
 }

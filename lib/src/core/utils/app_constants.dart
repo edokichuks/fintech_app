@@ -4,7 +4,7 @@
 import 'package:flutter/foundation.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/core/utils/app_asset_path.dart';
+import 'package:fintech_app/src/core/utils/app_asset_path.dart';
 
 class AppConstants {
   static const String primaryFontFamily = "Satoshi";

@@ -1,6 +1,6 @@
-import 'package:clean_flutter/src/core/device_features/device_feature_exports.dart';
-import 'package:clean_flutter/src/core/services/file_download_service.dart';
-import 'package:clean_flutter/src/general_widgets/general_widget_exports.dart';
+import 'package:fintech_app/src/core/device_features/device_feature_exports.dart';
+import 'package:fintech_app/src/core/services/file_download_service.dart';
+import 'package:fintech_app/src/general_widgets/general_widget_exports.dart';
 import 'package:flutter/material.dart';
 import 'package:cross_file/cross_file.dart';
 
@@ -25,7 +25,8 @@ class _FileDownloadSampleScreenState extends State<FileDownloadSampleScreen> {
 
     try {
       final file = await _downloadService.downloadFile(
-        url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+        url:
+            'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
         fileName: 'sample_${DateTime.now().millisecondsSinceEpoch}.pdf',
         onProgress: (received, total) {
           if (total != -1) {

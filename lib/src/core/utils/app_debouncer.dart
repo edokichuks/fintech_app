@@ -3,13 +3,14 @@ import 'dart:async';
 import 'dart:ui';
 
 // Project imports:
-import 'package:clean_flutter/src/core/utils/app_loggers.dart';
+import 'package:fintech_app/src/core/utils/app_loggers.dart';
 
 class Debouncer {
   Debouncer._internal({required this.milliseconds});
   int timesCalled = 0;
   static final Debouncer _instance = Debouncer._internal(
-      milliseconds: 1000); // Initial milliseconds can be adjusted
+    milliseconds: 1000,
+  ); // Initial milliseconds can be adjusted
 
   factory Debouncer({required int milliseconds}) {
     return _instance;

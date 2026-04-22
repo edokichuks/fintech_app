@@ -1,4 +1,4 @@
-package com.example.clean_flutter
+package com.example.fintech_app
 
 import io.flutter.embedding.android.FlutterActivity
 

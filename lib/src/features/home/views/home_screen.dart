@@ -6,9 +6,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/core/utils/app_colors.dart';
-import 'package:clean_flutter/src/core/utils/theme/app_text_styles.dart';
-import 'package:clean_flutter/src/general_widgets/general_widget_exports.dart';
+import 'package:fintech_app/src/core/utils/app_colors.dart';
+import 'package:fintech_app/src/core/utils/theme/app_text_styles.dart';
+import 'package:fintech_app/src/general_widgets/general_widget_exports.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});

@@ -9,8 +9,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/core/extensions/extension_exports.dart';
-import 'package:clean_flutter/src/core/utils/app_utils_exports.dart';
+import 'package:fintech_app/src/core/extensions/extension_exports.dart';
+import 'package:fintech_app/src/core/utils/app_utils_exports.dart';
 
 // Project imports:
 

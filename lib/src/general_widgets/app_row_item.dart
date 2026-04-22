@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/general_widgets/general_widget_exports.dart';
+import 'package:fintech_app/src/general_widgets/general_widget_exports.dart';
 
 class AppRowItem extends StatelessWidget {
   const AppRowItem({
@@ -46,7 +46,8 @@ class AppRowItem extends StatelessWidget {
     return Container(
       padding: containerContentPadding,
       alignment: containerContentAlignment,
-      decoration: containerDecoration ??
+      decoration:
+          containerDecoration ??
           BoxDecoration(
             color: showDefaulColorDecoration ? theme.colorScheme.primary : null,
             borderRadius: borderRadius,

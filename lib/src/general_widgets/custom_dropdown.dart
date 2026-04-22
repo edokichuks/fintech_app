@@ -5,10 +5,10 @@
 // import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // // Project imports:
-// import 'package:clean_flutter/src/core/extensions/string_extensions.dart';
-// import 'package:clean_flutter/src/core/extensions/theme_extensions.dart';
-// import 'package:clean_flutter/src/core/utils/app_colors.dart';
-// import 'package:clean_flutter/src/general_widgets/app_loader.dart';
+// import 'package:fintech_app/src/core/extensions/string_extensions.dart';
+// import 'package:fintech_app/src/core/extensions/theme_extensions.dart';
+// import 'package:fintech_app/src/core/utils/app_colors.dart';
+// import 'package:fintech_app/src/general_widgets/app_loader.dart';
 
 // class AppDropDown<T> extends StatefulWidget {
 //   const AppDropDown({

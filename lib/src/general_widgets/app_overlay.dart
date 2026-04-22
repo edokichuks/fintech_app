@@ -8,10 +8,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/core/extensions/theme_extensions.dart';
-import 'package:clean_flutter/src/core/utils/app_colors.dart';
-import 'package:clean_flutter/src/core/utils/app_enums.dart';
-import 'package:clean_flutter/src/general_widgets/app_loader.dart';
+import 'package:fintech_app/src/core/extensions/theme_extensions.dart';
+import 'package:fintech_app/src/core/utils/app_colors.dart';
+import 'package:fintech_app/src/core/utils/app_enums.dart';
+import 'package:fintech_app/src/general_widgets/app_loader.dart';
 
 class AppOverLay extends StatefulWidget {
   const AppOverLay({
@@ -28,8 +28,8 @@ class AppOverLay extends StatefulWidget {
   State<AppOverLay> createState() => _AppOverLayState();
 
   static _AppOverLayState of(BuildContext context) {
-    final _AppOverLayState? result =
-        context.findAncestorStateOfType<_AppOverLayState>();
+    final _AppOverLayState? result = context
+        .findAncestorStateOfType<_AppOverLayState>();
     if (result != null) return result;
     throw FlutterError.fromParts(<DiagnosticsNode>[
       ErrorSummary(
@@ -84,22 +84,20 @@ class _AppOverLayState extends State<AppOverLay> {
                   child: TweenAnimationBuilder<double>(
                     tween: Tween(begin: -20, end: 0),
                     curve: Curves.easeInOut,
-                    duration: const Duration(
-                      milliseconds: 500,
-                    ),
+                    duration: const Duration(milliseconds: 500),
                     builder: (context, value, child) {
                       return Transform.translate(
                         offset: Offset(0, value),
                         child: _messageWidget(
                           messageIcon:
                               listen.$2?.messageType == MessageType.error
-                                  ? 'assets/svgs/error.svg'
-                                  : 'assets/svgs/success.svg',
+                              ? 'assets/svgs/error.svg'
+                              : 'assets/svgs/success.svg',
                           messageText: listen.$2!,
                           messageColor:
                               listen.$2?.messageType == MessageType.error
-                                  ? AppColors.danger300
-                                  : AppColors.success300,
+                              ? AppColors.danger300
+                              : AppColors.success300,
                           onClose: () {
                             controller.removeOverLay();
                           },
@@ -144,9 +142,7 @@ class _AppOverLayState extends State<AppOverLay> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             SvgPicture.asset(messageIcon, height: 30.h),
-            SizedBox(
-              width: 15.w,
-            ),
+            SizedBox(width: 15.w),
             Expanded(
               child: Column(
                 textDirection: TextDirection.ltr,
@@ -196,11 +192,7 @@ class OverLayLoaderController {
   }) {
     _valueNotifier.value = ((
       OverLayType.message,
-      _MessageText(
-        title: title,
-        message: message,
-        messageType: messageType,
-      )
+      _MessageText(title: title, message: message, messageType: messageType),
     ));
     Future.delayed(const Duration(seconds: 3), () {
       removeOverLay();
@@ -220,9 +212,5 @@ class _MessageText {
   final String? title;
   final String message;
   final MessageType messageType;
-  _MessageText({
-    this.title,
-    required this.message,
-    required this.messageType,
-  });
+  _MessageText({this.title, required this.message, required this.messageType});
 }

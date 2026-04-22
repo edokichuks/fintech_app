@@ -6,8 +6,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/core/extensions/theme_extensions.dart';
-import 'package:clean_flutter/src/general_widgets/app_button.dart';
+import 'package:fintech_app/src/core/extensions/theme_extensions.dart';
+import 'package:fintech_app/src/general_widgets/app_button.dart';
 
 class MessageModal extends StatelessWidget {
   const MessageModal({
@@ -22,8 +22,12 @@ class MessageModal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding:
-          EdgeInsets.only(top: 44.h, right: 35.w, left: 35.w, bottom: 30.h),
+      padding: EdgeInsets.only(
+        top: 44.h,
+        right: 35.w,
+        left: 35.w,
+        bottom: 30.h,
+      ),
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(16),
@@ -43,26 +47,20 @@ class MessageModal extends StatelessWidget {
                 color: Colors.grey.shade900,
               ),
             ),
-            SizedBox(
-              height: 41.h,
-            ),
+            SizedBox(height: 41.h),
             SvgPicture.asset('assets/svgs/error.svg'),
-            SizedBox(
-              height: 31.h,
-            ),
+            SizedBox(height: 31.h),
             Text(
               message,
               style: context.textTheme.s16w400,
               textAlign: TextAlign.center,
             ),
-            SizedBox(
-              height: 24.h,
-            ),
+            SizedBox(height: 24.h),
             AppButton(
               width: 160.h,
               text: text,
               onPressed: onDismissed ?? () => Navigator.pop(context),
-            )
+            ),
           ],
         ),
       ),

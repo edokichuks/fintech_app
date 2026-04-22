@@ -1,8 +1,8 @@
 // Project imports:
-import 'package:clean_flutter/src/application/model/device_auth_response.dart';
-import 'package:clean_flutter/src/core/config/response/base_response.dart';
-import 'package:clean_flutter/src/core/services/device_info_service.dart';
-import 'package:clean_flutter/src/core/utils/app_enums.dart';
+import 'package:fintech_app/src/application/model/device_auth_response.dart';
+import 'package:fintech_app/src/core/config/response/base_response.dart';
+import 'package:fintech_app/src/core/services/device_info_service.dart';
+import 'package:fintech_app/src/core/utils/app_enums.dart';
 
 abstract interface class UserRepository {
   // User getUser();
@@ -26,7 +26,7 @@ abstract interface class UserRepository {
   bool getBalanceVisibility();
   void setBalanceVisibility();
 
-//! New Implimentation Methods
+  //! New Implimentation Methods
   bool getHasRatedApp();
   Future<void> setHasRatedApp(bool value);
   DateTime? getLastRatedDate();

@@ -1,6 +1,6 @@
 import 'dart:async';
-import 'package:clean_flutter/src/core/utils/app_utils_exports.dart';
-import 'package:clean_flutter/src/general_widgets/general_widget_exports.dart';
+import 'package:fintech_app/src/core/utils/app_utils_exports.dart';
+import 'package:fintech_app/src/general_widgets/general_widget_exports.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';

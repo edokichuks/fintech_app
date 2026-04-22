@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/core/utils/app_utils_exports.dart';
-import 'package:clean_flutter/src/general_widgets/general_widget_exports.dart';
+import 'package:fintech_app/src/core/utils/app_utils_exports.dart';
+import 'package:fintech_app/src/general_widgets/general_widget_exports.dart';
 
 class AppDropdown<T> extends StatelessWidget {
   const AppDropdown({
@@ -111,15 +111,14 @@ class AppDropdown<T> extends StatelessWidget {
               menuMaxHeight: menuMaxHeight,
               hint: AppText(
                 text: hintText ?? '',
-                style: AppTextStyle.titleSmall
-                    .copyWith(color: AppColors.neutral100),
+                style: AppTextStyle.titleSmall.copyWith(
+                  color: AppColors.neutral100,
+                ),
                 textAlign: TextAlign.center,
               ),
-              icon: suffix ??
-                  Icon(
-                    Icons.keyboard_arrow_down_outlined,
-                    size: 20.sp,
-                  ),
+              icon:
+                  suffix ??
+                  Icon(Icons.keyboard_arrow_down_outlined, size: 20.sp),
               decoration: _buildDecoration(
                 isLightMode: isLightMode,
                 theme: theme,
@@ -152,10 +151,7 @@ class AppDropdown<T> extends StatelessWidget {
     );
   }
 
-  _buildDecoration({
-    required bool isLightMode,
-    required ThemeData theme,
-  }) {
+  _buildDecoration({required bool isLightMode, required ThemeData theme}) {
     return InputDecoration(
       border: _setBorderStyle(),
       enabledBorder: _setBorderStyle(),
@@ -164,13 +160,15 @@ class AppDropdown<T> extends StatelessWidget {
       prefixIcon: prefix,
       prefixIconConstraints: prefixConstraints,
       constraints: constraints,
-      fillColor: dropdownColor ??
+      fillColor:
+          dropdownColor ??
           (isLightMode
               ? AppColors.defaultBackgroundLight
               : AppColors.defaultBackgroundDark),
       filled: _setFilled(),
       isDense: false,
-      contentPadding: contentPadding ??
+      contentPadding:
+          contentPadding ??
           EdgeInsets.symmetric(horizontal: 14.w, vertical: 12.h),
     );
   }
@@ -215,8 +213,4 @@ class AppDropdown<T> extends StatelessWidget {
   }
 }
 
-enum DropDownVariant {
-  none,
-  underline,
-  outline,
-}
+enum DropDownVariant { none, underline, outline }

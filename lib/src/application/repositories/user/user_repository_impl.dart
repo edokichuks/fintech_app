@@ -1,28 +1,23 @@
 // Dart imports:
 
 // Package imports:
-import 'package:clean_flutter/src/application/model/device_auth_response.dart';
-import 'package:clean_flutter/src/core/config/exceptions/app_exceptions.dart';
-import 'package:clean_flutter/src/core/config/response/base_response.dart';
-import 'package:clean_flutter/src/core/services/device_info_service.dart';
-import 'package:clean_flutter/src/core/utils/app_utils_exports.dart';
+import 'package:fintech_app/src/application/model/device_auth_response.dart';
+import 'package:fintech_app/src/core/config/exceptions/app_exceptions.dart';
+import 'package:fintech_app/src/core/config/response/base_response.dart';
+import 'package:fintech_app/src/core/services/device_info_service.dart';
+import 'package:fintech_app/src/core/utils/app_utils_exports.dart';
 import 'package:dio/dio.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/application/repositories/user/user_repository.dart';
-import 'package:clean_flutter/src/core/services/client/rest_client.dart';
-import 'package:clean_flutter/src/core/services/local_storage.dart/local_storage_repo.dart';
-import 'package:clean_flutter/src/core/services/local_storage.dart/local_storage_repo_impl.dart';
-import 'package:clean_flutter/src/core/services/local_storage.dart/storage_keys.dart';
-
+import 'package:fintech_app/src/application/repositories/user/user_repository.dart';
+import 'package:fintech_app/src/core/services/client/rest_client.dart';
+import 'package:fintech_app/src/core/services/local_storage.dart/local_storage_repo.dart';
+import 'package:fintech_app/src/core/services/local_storage.dart/local_storage_repo_impl.dart';
+import 'package:fintech_app/src/core/services/local_storage.dart/storage_keys.dart';
 
 class UserRepositoryImpl implements UserRepository {
-  UserRepositoryImpl(
-    this._storage,
-    this._ref,
-    this._restClient,
-  );
+  UserRepositoryImpl(this._storage, this._ref, this._restClient);
   final LocalStorageRepo _storage;
 
   final Ref _ref;
@@ -53,8 +48,9 @@ class UserRepositoryImpl implements UserRepository {
 
   @override
   bool? getRememberMe() {
-    final rememberMe =
-        _storage.get<bool?>(LocalStoreKeysManger.rememberMe.rawValue);
+    final rememberMe = _storage.get<bool?>(
+      LocalStoreKeysManger.rememberMe.rawValue,
+    );
     if (rememberMe is bool?) {
       return rememberMe;
     }
@@ -144,7 +140,9 @@ class UserRepositoryImpl implements UserRepository {
     final visible =
         _storage.get(LocalStoreKeysManger.balanceVisibility.rawValue) ?? true;
     await _storage.put(
-        LocalStoreKeysManger.balanceVisibility.rawValue, !visible);
+      LocalStoreKeysManger.balanceVisibility.rawValue,
+      !visible,
+    );
     _ref.read(walletBalanceVisibility.notifier).state = !visible;
   }
 
@@ -160,28 +158,34 @@ class UserRepositoryImpl implements UserRepository {
 
   @override
   DateTime? getLastRatedDate() {
-    final dateString =
-        _storage.get<String?>(LocalStoreKeysManger.lastRatedDate.rawValue);
+    final dateString = _storage.get<String?>(
+      LocalStoreKeysManger.lastRatedDate.rawValue,
+    );
     return dateString != null ? DateTime.parse(dateString) : null;
   }
 
   @override
   Future<void> setLastRatedDate(DateTime date) async {
     await _storage.put(
-        LocalStoreKeysManger.lastRatedDate.rawValue, date.toIso8601String());
+      LocalStoreKeysManger.lastRatedDate.rawValue,
+      date.toIso8601String(),
+    );
   }
 
   @override
   int getTransactionCountSinceRating() {
-    return _storage
-            .get(LocalStoreKeysManger.transactionCountSinceRating.rawValue) ??
+    return _storage.get(
+          LocalStoreKeysManger.transactionCountSinceRating.rawValue,
+        ) ??
         0;
   }
 
   @override
   Future<void> setTransactionCountSinceRating(int count) async {
     await _storage.put(
-        LocalStoreKeysManger.transactionCountSinceRating.rawValue, count);
+      LocalStoreKeysManger.transactionCountSinceRating.rawValue,
+      count,
+    );
   }
 
   @override
@@ -219,7 +223,8 @@ class UserRepositoryImpl implements UserRepository {
 
   @override
   Future<BaseResponse<DeviceAuthResponse>> sendDevice(
-      DeviceAuthModel data) async {
+    DeviceAuthModel data,
+  ) async {
     try {
       final r = await _restClient.authDevice(data);
 

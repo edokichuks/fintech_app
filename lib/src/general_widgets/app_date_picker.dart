@@ -1,6 +1,6 @@
 // Flutter imports:
-import 'package:clean_flutter/src/core/helpers/helper_functions.dart';
-import 'package:clean_flutter/src/core/utils/app_utils_exports.dart';
+import 'package:fintech_app/src/core/helpers/helper_functions.dart';
+import 'package:fintech_app/src/core/utils/app_utils_exports.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -33,11 +33,14 @@ Future<String?> showAppDatePicker({
         data: theme.copyWith(
           colorScheme: theme.colorScheme.copyWith(primary: AppColors.primary50),
           textButtonTheme: TextButtonThemeData(
-              style: ButtonStyle(
-            foregroundColor: WidgetStatePropertyAll(isDarkMode
-                ? AppColors.defaultBackgroundLight
-                : AppColors.defaultBackgroundDark),
-          )),
+            style: ButtonStyle(
+              foregroundColor: WidgetStatePropertyAll(
+                isDarkMode
+                    ? AppColors.defaultBackgroundLight
+                    : AppColors.defaultBackgroundDark,
+              ),
+            ),
+          ),
           textTheme: TextTheme(
             headlineSmall: AppTextStyle.headlineLarge.copyWith(fontSize: 20.sp),
             titleLarge: AppTextStyle.headlineLarge.copyWith(fontSize: 18.sp),
@@ -50,17 +53,18 @@ Future<String?> showAppDatePicker({
   );
 
   if (pickedDate != null) {
-    formattedDate = HelperFunctions.formatDate(
-            dateTime: pickedDate, dateFormat: dateFormat) ??
+    formattedDate =
+        HelperFunctions.formatDate(
+          dateTime: pickedDate,
+          dateFormat: dateFormat,
+        ) ??
         '';
     return formattedDate;
   }
   return null;
 }
 
-Future<String?> showAppTimePicker({
-  required BuildContext context,
-}) async {
+Future<String?> showAppTimePicker({required BuildContext context}) async {
   final TimeOfDay? pickedTime = await showTimePicker(
     context: context,
     initialTime: TimeOfDay.now(),
@@ -69,13 +73,16 @@ Future<String?> showAppTimePicker({
       final isDarkMode = theme.brightness == Brightness.dark;
       return Theme(
         data: theme.copyWith(
-          colorScheme:
-              theme.colorScheme.copyWith(primary: AppColors.primary300),
+          colorScheme: theme.colorScheme.copyWith(
+            primary: AppColors.primary300,
+          ),
           textButtonTheme: TextButtonThemeData(
             style: ButtonStyle(
-              foregroundColor: WidgetStatePropertyAll(isDarkMode
-                  ? AppColors.defaultBackgroundLight
-                  : AppColors.primary100),
+              foregroundColor: WidgetStatePropertyAll(
+                isDarkMode
+                    ? AppColors.defaultBackgroundLight
+                    : AppColors.primary100,
+              ),
             ),
           ),
           textTheme: TextTheme(

@@ -9,9 +9,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/core/extensions/extension_exports.dart';
-import 'package:clean_flutter/src/core/utils/app_utils_exports.dart';
-import 'package:clean_flutter/src/general_widgets/general_widget_exports.dart';
+import 'package:fintech_app/src/core/extensions/extension_exports.dart';
+import 'package:fintech_app/src/core/utils/app_utils_exports.dart';
+import 'package:fintech_app/src/general_widgets/general_widget_exports.dart';
 
 // Project imports:
 
@@ -65,9 +65,7 @@ class AppBottomSheet extends StatelessWidget {
           minWidth: width ?? MediaQuery.of(context).size.width,
         ),
         decoration: const BoxDecoration(
-          borderRadius: BorderRadius.vertical(
-            top: Radius.circular(24),
-          ),
+          borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
           color: Colors.white,
         ),
         padding: padding ?? const EdgeInsets.all(20),
@@ -84,9 +82,12 @@ class AppBottomSheet extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         const SizedBox(),
-                        Text(title ?? '',
-                            style: context.textTheme.s18w700
-                                .copyWith(color: AppColors.defaultBG)),
+                        Text(
+                          title ?? '',
+                          style: context.textTheme.s18w700.copyWith(
+                            color: AppColors.defaultBG,
+                          ),
+                        ),
                         GestureDetector(
                           onTap: onExitTap ?? () => Navigator.pop(context),
                           child: Container(
@@ -137,28 +138,31 @@ showAppBottomSheet({
     builder: (context) {
       return Theme(
         data: Theme.of(context),
-        child: Builder(builder: (context) {
-          final theme = Theme.of(context);
-          return Material(
-            type: MaterialType.transparency,
-            child: Container(
-              alignment: alignment ?? Alignment.topLeft,
-              height: height ?? 300.h,
-              padding: EdgeInsets.fromLTRB(
-                paddingLeft ?? 16.w,
-                paddingTop ?? 20.h,
-                paddingRight ?? 16.w,
-                MediaQuery.viewInsetsOf(context).bottom,
+        child: Builder(
+          builder: (context) {
+            final theme = Theme.of(context);
+            return Material(
+              type: MaterialType.transparency,
+              child: Container(
+                alignment: alignment ?? Alignment.topLeft,
+                height: height ?? 300.h,
+                padding: EdgeInsets.fromLTRB(
+                  paddingLeft ?? 16.w,
+                  paddingTop ?? 20.h,
+                  paddingRight ?? 16.w,
+                  MediaQuery.viewInsetsOf(context).bottom,
+                ),
+                decoration: BoxDecoration(
+                  color: backgroundColor ?? theme.scaffoldBackgroundColor,
+                  borderRadius:
+                      borderRadius ??
+                      const BorderRadius.vertical(top: Radius.circular(16)),
+                ),
+                child: SingleChildScrollView(child: child),
               ),
-              decoration: BoxDecoration(
-                color: backgroundColor ?? theme.scaffoldBackgroundColor,
-                borderRadius: borderRadius ??
-                    const BorderRadius.vertical(top: Radius.circular(16)),
-              ),
-              child: SingleChildScrollView(child: child),
-            ),
-          );
-        }),
+            );
+          },
+        ),
       );
     },
   );
@@ -208,15 +212,16 @@ showDraggableBottomsheet({
                 ),
                 decoration: BoxDecoration(
                   color: theme.scaffoldBackgroundColor,
-                  borderRadius: borderRadius ??
+                  borderRadius:
+                      borderRadius ??
                       const BorderRadius.vertical(top: Radius.circular(16)),
                 ),
                 child: NotificationListener(
                   onNotification:
                       (OverscrollIndicatorNotification? overScroll) {
-                    overScroll?.disallowIndicator();
-                    return true;
-                  },
+                        overScroll?.disallowIndicator();
+                        return true;
+                      },
                   child: Column(
                     children: [
                       if (showHandle) ...[
@@ -251,9 +256,8 @@ showDraggableBottomsheet({
 Widget _makeDissmissible({
   required Widget child,
   required BuildContext context,
-}) =>
-    GestureDetector(
-      behavior: HitTestBehavior.opaque,
-      onTap: () => Navigator.pop(context),
-      child: GestureDetector(onTap: () {}, child: child),
-    );
+}) => GestureDetector(
+  behavior: HitTestBehavior.opaque,
+  onTap: () => Navigator.pop(context),
+  child: GestureDetector(onTap: () {}, child: child),
+);

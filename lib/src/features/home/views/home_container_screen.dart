@@ -1,5 +1,5 @@
 // Project imports:
-import 'package:clean_flutter/src/features/home/views/home_screen.dart';
+import 'package:fintech_app/src/features/home/views/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeContainerScreen extends StatelessWidget {

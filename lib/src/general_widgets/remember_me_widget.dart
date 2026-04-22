@@ -6,9 +6,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/application/repositories/user/user_repository_impl.dart';
-import 'package:clean_flutter/src/core/extensions/theme_extensions.dart';
-import 'package:clean_flutter/src/core/utils/app_colors.dart';
+import 'package:fintech_app/src/application/repositories/user/user_repository_impl.dart';
+import 'package:fintech_app/src/core/extensions/theme_extensions.dart';
+import 'package:fintech_app/src/core/utils/app_colors.dart';
 
 class RememberMeWidget extends ConsumerWidget {
   const RememberMeWidget({
@@ -33,16 +33,20 @@ class RememberMeWidget extends ConsumerWidget {
             const SizedBox(width: 8.59),
             Text(
               'Keep me in',
-              style: context.textTheme.s16w400
-                  .copyWith(color: AppColors.neutral200),
+              style: context.textTheme.s16w400.copyWith(
+                color: AppColors.neutral200,
+              ),
             ),
           ],
         ),
         InkWell(
           onTap: onForgotPasswordTapped,
-          child: Text('Forget Passsword?',
-              style: context.textTheme.s16w400
-                  .copyWith(color: AppColors.primary300)),
+          child: Text(
+            'Forget Passsword?',
+            style: context.textTheme.s16w400.copyWith(
+              color: AppColors.primary300,
+            ),
+          ),
         ),
       ],
     );
@@ -50,11 +54,12 @@ class RememberMeWidget extends ConsumerWidget {
 }
 
 class AppCheckBox extends StatefulWidget {
-  const AppCheckBox(
-      {super.key,
-      required this.onCheck,
-      this.checkBoxColor = const Color(0XFF929292), //AppColors.neutral200,
-      this.initialValue});
+  const AppCheckBox({
+    super.key,
+    required this.onCheck,
+    this.checkBoxColor = const Color(0XFF929292), //AppColors.neutral200,
+    this.initialValue,
+  });
   final ValueChanged<bool> onCheck;
   final Color checkBoxColor;
   final bool? initialValue;
@@ -79,9 +84,7 @@ class _AssetizeCheckBoxState extends State<AppCheckBox> {
       height: 10.h,
       child: Checkbox(
         activeColor: AppColors.primary300,
-        side: BorderSide(
-          color: widget.checkBoxColor,
-        ),
+        side: BorderSide(color: widget.checkBoxColor),
         value: _checked,
         onChanged: (value) {
           setState(() {

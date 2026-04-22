@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/core/utils/app_utils_exports.dart';
-import 'package:clean_flutter/src/general_widgets/general_widget_exports.dart';
+import 'package:fintech_app/src/core/utils/app_utils_exports.dart';
+import 'package:fintech_app/src/general_widgets/general_widget_exports.dart';
 
 class AppPasscodeDisplay extends StatelessWidget {
   const AppPasscodeDisplay({
@@ -41,7 +41,8 @@ class AppPasscodeDisplay extends StatelessWidget {
       width: width ?? 44.w,
       height: height ?? 44.w,
       decoration: BoxDecoration(
-        border: border ??
+        border:
+            border ??
             Border.all(
               color: error ? AppColors.danger200 : AppColors.transparent,
               width: error ? 1 : 0,
@@ -49,7 +50,8 @@ class AppPasscodeDisplay extends StatelessWidget {
         borderRadius: borderRadius ?? BorderRadius.circular(12),
         color: theme.colorScheme.primary,
       ),
-      child: contentWidget ??
+      child:
+          contentWidget ??
           AppText(
             text: obscuringCharacter ?? "＊",
             style: AppTextStyle.bodySmall.copyWith(

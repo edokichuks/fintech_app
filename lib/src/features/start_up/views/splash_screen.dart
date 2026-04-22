@@ -1,9 +1,9 @@
 // Flutter imports:
-import 'package:clean_flutter/src/application/repositories/user/user_repository_impl.dart';
-import 'package:clean_flutter/src/core/device_features/device_feature_exports.dart';
-import 'package:clean_flutter/src/core/services/device_info_service.dart';
-import 'package:clean_flutter/src/core/utils/app_utils_exports.dart';
-import 'package:clean_flutter/src/general_widgets/general_widget_exports.dart';
+import 'package:fintech_app/src/application/repositories/user/user_repository_impl.dart';
+import 'package:fintech_app/src/core/device_features/device_feature_exports.dart';
+import 'package:fintech_app/src/core/services/device_info_service.dart';
+import 'package:fintech_app/src/core/utils/app_utils_exports.dart';
+import 'package:fintech_app/src/general_widgets/general_widget_exports.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -11,7 +11,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/core/router/router.dart';
+import 'package:fintech_app/src/core/router/router.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});

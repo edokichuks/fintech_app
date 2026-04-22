@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/general_widgets/general_widget_exports.dart';
+import 'package:fintech_app/src/general_widgets/general_widget_exports.dart';
 
 class AppLoadingOverlay extends StatefulWidget {
   const AppLoadingOverlay({super.key});

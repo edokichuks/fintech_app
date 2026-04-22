@@ -1,9 +1,9 @@
 // Flutter imports:
 import 'dart:io';
 
-import 'package:clean_flutter/main.dart';
-import 'package:clean_flutter/src/core/device_features/device_feature_exports.dart';
-import 'package:clean_flutter/src/features/home/views/home_screen.dart';
+import 'package:fintech_app/main.dart';
+import 'package:fintech_app/src/core/device_features/device_feature_exports.dart';
+import 'package:fintech_app/src/features/home/views/home_screen.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -12,10 +12,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/core/utils/app_utils_exports.dart';
-import 'package:clean_flutter/src/features/bottom_nav/domain/models/app_bottom_nav_model.dart';
-import 'package:clean_flutter/src/features/bottom_nav/domain/notifier/app_bottom_nav_notifier.dart';
-import 'package:clean_flutter/src/general_widgets/general_widget_exports.dart';
+import 'package:fintech_app/src/core/utils/app_utils_exports.dart';
+import 'package:fintech_app/src/features/bottom_nav/domain/models/app_bottom_nav_model.dart';
+import 'package:fintech_app/src/features/bottom_nav/domain/notifier/app_bottom_nav_notifier.dart';
+import 'package:fintech_app/src/general_widgets/general_widget_exports.dart';
 import 'package:new_version_plus/new_version_plus.dart';
 import 'package:upgrader/upgrader.dart';
 import 'package:url_launcher/url_launcher.dart';

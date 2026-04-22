@@ -1,22 +1,23 @@
 import 'dart:io';
-import 'package:clean_flutter/src/application/model/file_upload_response.dart';
-import 'package:clean_flutter/src/application/notifiers/file_upload/file_upload_state.dart';
-import 'package:clean_flutter/src/application/repositories/file/file_upload_repository.dart';
-import 'package:clean_flutter/src/core/config/exceptions/app_exceptions.dart';
-import 'package:clean_flutter/src/core/config/response/base_response.dart';
-import 'package:clean_flutter/src/core/services/client/rest_client.dart';
-import 'package:clean_flutter/src/core/services/file_upload_service.dart';
-import 'package:clean_flutter/src/core/utils/app_utils_exports.dart';
+import 'package:fintech_app/src/application/model/file_upload_response.dart';
+import 'package:fintech_app/src/application/notifiers/file_upload/file_upload_state.dart';
+import 'package:fintech_app/src/application/repositories/file/file_upload_repository.dart';
+import 'package:fintech_app/src/core/config/exceptions/app_exceptions.dart';
+import 'package:fintech_app/src/core/config/response/base_response.dart';
+import 'package:fintech_app/src/core/services/client/rest_client.dart';
+import 'package:fintech_app/src/core/services/file_upload_service.dart';
+import 'package:fintech_app/src/core/utils/app_utils_exports.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-final fileUploadProgressProvider =
-    StateProvider<Map<String, double>>((ref) => {});
+final fileUploadProgressProvider = StateProvider<Map<String, double>>(
+  (ref) => {},
+);
 
 class FileUploadNotifier extends StateNotifier<FileUploadState> {
   FileUploadNotifier(this._ref, this._repository)
-      : super(FileUploadState(uploadedFiles: []));
+    : super(FileUploadState(uploadedFiles: []));
 
   final Ref _ref;
   final FileUploadRepository _repository;
@@ -41,9 +42,7 @@ class FileUploadNotifier extends StateNotifier<FileUploadState> {
       contentType: _fileUploadService.getMediaType(fileName),
     );
 
-    final formData = FormData.fromMap({
-      'file': multipartFile,
-    });
+    final formData = FormData.fromMap({'file': multipartFile});
 
     try {
       final response = await dioClient.post(
@@ -54,10 +53,7 @@ class FileUploadNotifier extends StateNotifier<FileUploadState> {
             final progress = (sent / total) * 100;
             debugLog('PROGRESS => $progress');
             _ref.read(fileUploadProgressProvider.notifier).update((state) {
-              return {
-                ...state,
-                fileKey: progress,
-              };
+              return {...state, fileKey: progress};
             });
           }
         },
@@ -76,9 +72,14 @@ class FileUploadNotifier extends StateNotifier<FileUploadState> {
 
       if (parsed.statusCode == 201 || parsed.statusCode == 200) {
         state = state.copyWith(
-            uploadedFiles: [...state.uploadedFiles ?? [], parsed.data??FileUploadResponse()]);
+          uploadedFiles: [
+            ...state.uploadedFiles ?? [],
+            parsed.data ?? FileUploadResponse(),
+          ],
+        );
         debugLog(
-            'CURRENT LENGTH OF UPLOADED FILES ${(state.uploadedFiles ?? []).length}');
+          'CURRENT LENGTH OF UPLOADED FILES ${(state.uploadedFiles ?? []).length}',
+        );
       }
     } on DioException catch (e) {
       debugPrint("Upload failed: ${e.type}");
@@ -97,8 +98,5 @@ class FileUploadNotifier extends StateNotifier<FileUploadState> {
 
 final fileUploadNotifierProvider =
     StateNotifierProvider<FileUploadNotifier, FileUploadState>(
-  (ref) => FileUploadNotifier(
-    ref,
-    ref.read(fileUploadRepositoryProvider),
-  ),
-);
+      (ref) => FileUploadNotifier(ref, ref.read(fileUploadRepositoryProvider)),
+    );

@@ -1,7 +1,7 @@
-import 'package:clean_flutter/gen/assets.gen.dart';
-import 'package:clean_flutter/src/core/extensions/navigation_extensions.dart';
-import 'package:clean_flutter/src/core/utils/app_utils_exports.dart';
-import 'package:clean_flutter/src/general_widgets/general_widget_exports.dart';
+import 'package:fintech_app/gen/assets.gen.dart';
+import 'package:fintech_app/src/core/extensions/navigation_extensions.dart';
+import 'package:fintech_app/src/core/utils/app_utils_exports.dart';
+import 'package:fintech_app/src/general_widgets/general_widget_exports.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';

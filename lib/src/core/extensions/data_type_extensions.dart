@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/core/utils/app_enums.dart';
+import 'package:fintech_app/src/core/utils/app_enums.dart';
 
 extension FormatAmount on num? {
   String get formatAmount {
@@ -38,14 +38,9 @@ extension CurrencyText on num? {
         children: [
           TextSpan(
             text: curr,
-            style: style?.copyWith(
-              fontFamily: '',
-            ),
+            style: style?.copyWith(fontFamily: ''),
           ),
-          TextSpan(
-            text: formatAmount,
-            style: style,
-          ),
+          TextSpan(text: formatAmount, style: style),
         ],
       ),
     );
@@ -70,10 +65,7 @@ class Groups<K, T> {
   List<K> keys;
   List<List<T>> children;
 
-  Groups({
-    required this.keys,
-    required this.children,
-  });
+  Groups({required this.keys, required this.children});
 
   @override
   String toString() {

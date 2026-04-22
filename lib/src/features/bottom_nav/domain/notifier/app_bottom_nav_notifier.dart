@@ -2,7 +2,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/features/bottom_nav/domain/notifier/app_bottom_nav_state.dart';
+import 'package:fintech_app/src/features/bottom_nav/domain/notifier/app_bottom_nav_state.dart';
 
 class AppBottomNavNotifier extends StateNotifier<AppBottomNavState> {
   AppBottomNavNotifier() : super(AppBottomNavState.initialState());
@@ -14,4 +14,5 @@ class AppBottomNavNotifier extends StateNotifier<AppBottomNavState> {
 
 final appBottomNavProdivder =
     StateNotifierProvider<AppBottomNavNotifier, AppBottomNavState>(
-        (ref) => AppBottomNavNotifier());
+      (ref) => AppBottomNavNotifier(),
+    );

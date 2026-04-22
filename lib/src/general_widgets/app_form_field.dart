@@ -9,8 +9,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/core/extensions/extension_exports.dart';
-import 'package:clean_flutter/src/core/utils/app_utils_exports.dart';
+import 'package:fintech_app/src/core/extensions/extension_exports.dart';
+import 'package:fintech_app/src/core/utils/app_utils_exports.dart';
 
 // Project imports:
 
@@ -21,9 +21,7 @@ class AppFormField extends StatefulWidget {
     this.width,
     this.labelSpace = 8,
     this.textCapitalization = TextCapitalization.sentences,
-    this.padding = const SizedBox(
-      height: 22,
-    ),
+    this.padding = const SizedBox(height: 22),
     this.onTap,
     this.decoration,
     this.hintStyle,
@@ -116,8 +114,9 @@ class _AppFormFieldState extends State<AppFormField> {
         if (widget.customLabel == null && widget.label != null)
           Text(
             widget.label!,
-            style:
-                context.textTheme.s16w400.copyWith(color: AppColors.neutral200),
+            style: context.textTheme.s16w400.copyWith(
+              color: AppColors.neutral200,
+            ),
           ),
         if (widget.customLabel != null || widget.label != null)
           SizedBox(height: widget.labelSpace),
@@ -148,10 +147,7 @@ class _AppFormFieldState extends State<AppFormField> {
             setState(() {});
             if (widget.onChange != null) widget.onChange!.call(val);
           },
-          style: widget.textStyle ??
-              const TextStyle(
-                fontSize: 14,
-              ),
+          style: widget.textStyle ?? const TextStyle(fontSize: 14),
           cursorColor: AppColors.primary300,
           key: widget.key,
           maxLines: widget.maxLines,
@@ -161,7 +157,8 @@ class _AppFormFieldState extends State<AppFormField> {
           textInputAction: widget.textInputAction,
           focusNode: widget.focusNode,
           onFieldSubmitted: widget.onFieldSubmitted,
-          decoration: widget.decoration ??
+          decoration:
+              widget.decoration ??
               InputDecoration(
                 filled: true,
                 fillColor: widget.backgroundColor ?? AppColors.neutral50,
@@ -170,66 +167,60 @@ class _AppFormFieldState extends State<AppFormField> {
                 enabled: false,
                 errorStyle: const TextStyle(fontSize: 0, height: -30),
                 hintText: widget.hintText,
-                hintStyle: widget.hintStyle ??
+                hintStyle:
+                    widget.hintStyle ??
                     context.textTheme.s16w400.copyWith(
                       color: AppColors.neutral100,
                     ),
                 errorBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(widget.borderRadius),
-                  borderSide: widget.borderSide ??
-                      BorderSide(
-                        color: AppColors.danger300.withOpacity(0.3),
-                      ),
+                  borderSide:
+                      widget.borderSide ??
+                      BorderSide(color: AppColors.danger300.withOpacity(0.3)),
                 ),
                 focusedErrorBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(widget.borderRadius),
-                  borderSide: widget.borderSide ??
-                      BorderSide(
-                        color: AppColors.danger300.withOpacity(0.3),
-                      ),
+                  borderSide:
+                      widget.borderSide ??
+                      BorderSide(color: AppColors.danger300.withOpacity(0.3)),
                 ),
                 disabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(widget.borderRadius),
-                  borderSide: widget.borderSide ??
+                  borderSide:
+                      widget.borderSide ??
                       BorderSide(
                         color: widget.bordercolor ?? AppColors.neutral50,
                       ),
                 ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(widget.borderRadius),
-                  borderSide: widget.borderSide ??
+                  borderSide:
+                      widget.borderSide ??
                       BorderSide(
                         color: widget.bordercolor ?? AppColors.neutral50,
                       ),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(widget.borderRadius),
-                  borderSide: widget.borderSide ??
+                  borderSide:
+                      widget.borderSide ??
                       BorderSide(
                         color: widget.bordercolor ?? AppColors.neutral50,
                       ),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(widget.borderRadius),
-                  borderSide: widget.borderSide ??
-                      BorderSide(
-                        color: AppColors.primary300,
-                        width: 1,
-                      ),
+                  borderSide:
+                      widget.borderSide ??
+                      BorderSide(color: AppColors.primary300, width: 1),
                 ),
               ),
         ),
-        if (error != null)
-          SizedBox(
-            height: 5.h,
-          ),
+        if (error != null) SizedBox(height: 5.h),
         if (error != null)
           Text(
             error!,
-            style: TextStyle(
-              color: AppColors.danger300,
-              fontSize: 12,
-            ),
+            style: TextStyle(color: AppColors.danger300, fontSize: 12),
           ),
         widget.padding,
       ],

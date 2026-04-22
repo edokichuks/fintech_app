@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/core/extensions/navigation_extensions.dart';
-import 'package:clean_flutter/src/core/extensions/theme_extensions.dart';
+import 'package:fintech_app/src/core/extensions/navigation_extensions.dart';
+import 'package:fintech_app/src/core/extensions/theme_extensions.dart';
 import 'back_button.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -56,10 +56,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                       ),
                     ),
                   ),
-                actions ??
-                    Container(
-                      width: 38.w,
-                    )
+                actions ?? Container(width: 38.w),
               ],
             ),
           ),

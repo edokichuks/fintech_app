@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/core/utils/theme/theme_notifier/theme_notifier_state.dart';
+import 'package:fintech_app/src/core/utils/theme/theme_notifier/theme_notifier_state.dart';
 
 class ThemeNotifier extends StateNotifier<ThemeNotifierState> {
   ThemeNotifier() : super(ThemeNotifierState.initialState());
-  
+
   setCurrentTheme({required bool isDarkMode}) {
     state = state.copyWith(
       themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
@@ -31,4 +31,5 @@ class ThemeNotifier extends StateNotifier<ThemeNotifierState> {
 }
 
 final themeProvider = StateNotifierProvider<ThemeNotifier, ThemeNotifierState>(
-    (ref) => ThemeNotifier());
+  (ref) => ThemeNotifier(),
+);

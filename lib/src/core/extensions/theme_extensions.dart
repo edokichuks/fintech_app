@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/core/utils/app_enums.dart';
-import 'package:clean_flutter/src/general_widgets/app_dialog.dart';
-import 'package:clean_flutter/src/general_widgets/app_overlay.dart';
+import 'package:fintech_app/src/core/utils/app_enums.dart';
+import 'package:fintech_app/src/general_widgets/app_dialog.dart';
+import 'package:fintech_app/src/general_widgets/app_overlay.dart';
 
 extension TextThemeExtension on BuildContext {
   TextTheme get textTheme => Theme.of(this).textTheme;
@@ -18,36 +18,28 @@ extension TextThemeExtension on BuildContext {
     MessageType messageType = MessageType.error,
   }) {
     AppOverLay.of(this).controller.showMessage(
-          message: message,
-          messageType: messageType,
-          title: title,
-        );
+      message: message,
+      messageType: messageType,
+      title: title,
+    );
   }
 
   void showLoading() => AppOverLay.of(this).controller.showLoader();
   void hideLoading() => AppOverLay.of(this).controller.removeOverLay();
-  Future<T?> showCustomDialog<T>({
-    required Widget child,
-  }) =>
-      showGeneralDialog(
-        barrierDismissible: true,
-        barrierLabel: 'label',
-        context: this,
-        transitionDuration: const Duration(milliseconds: 400),
-        pageBuilder: (context, animation, secondaryAnimation) {
-          return SlideTransition(
-            position: animation.drive(
-              Tween<Offset>(
-                begin: const Offset(0, 1),
-                end: Offset.zero,
-              ),
-            ),
-            child: AppDialog(
-              child: child,
-            ),
-          );
-        },
+  Future<T?> showCustomDialog<T>({required Widget child}) => showGeneralDialog(
+    barrierDismissible: true,
+    barrierLabel: 'label',
+    context: this,
+    transitionDuration: const Duration(milliseconds: 400),
+    pageBuilder: (context, animation, secondaryAnimation) {
+      return SlideTransition(
+        position: animation.drive(
+          Tween<Offset>(begin: const Offset(0, 1), end: Offset.zero),
+        ),
+        child: AppDialog(child: child),
       );
+    },
+  );
 
   EdgeInsetsGeometry get bottomPaddingForTextField =>
       EdgeInsets.only(bottom: MediaQuery.of(this).viewInsets.bottom);

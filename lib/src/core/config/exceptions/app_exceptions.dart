@@ -1,6 +1,6 @@
 // Flutter imports:
-import 'package:clean_flutter/src/core/config/response/base_response.dart';
-import 'package:clean_flutter/src/core/utils/app_utils_exports.dart';
+import 'package:fintech_app/src/core/config/response/base_response.dart';
+import 'package:fintech_app/src/core/utils/app_utils_exports.dart';
 
 // Package imports:
 import 'package:dio/dio.dart';
@@ -8,16 +8,14 @@ import 'package:dio/dio.dart';
 // Project imports:
 
 class AppException {
-  static BaseResponse<T> handleError<T>(
-    DioException e, {
-    T? data,
-  }) {
+  static BaseResponse<T> handleError<T>(DioException e, {T? data}) {
     final statusCode = e.response?.statusCode ?? 0;
     final responseData = e.response?.data;
 
     debugLog('APP EXCEPTION ERROR RESPONSE ==> $responseData');
 
-    final String message = _extractBackendMessage(responseData) ??
+    final String message =
+        _extractBackendMessage(responseData) ??
         _mapStatusCodeToMessage(e.response?.statusCode) ??
         _mapException(e.type);
 

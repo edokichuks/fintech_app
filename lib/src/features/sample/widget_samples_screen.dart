@@ -1,5 +1,5 @@
 // Flutter imports:
-import 'package:clean_flutter/gen/assets.gen.dart';
+import 'package:fintech_app/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -7,10 +7,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/general_widgets/general_widget_exports.dart';
-import 'package:clean_flutter/src/core/utils/app_utils_exports.dart';
-import 'package:clean_flutter/src/core/utils/theme/theme_notifier/theme_notifier.dart';
-import 'package:clean_flutter/src/core/router/router.dart';
+import 'package:fintech_app/src/general_widgets/general_widget_exports.dart';
+import 'package:fintech_app/src/core/utils/app_utils_exports.dart';
+import 'package:fintech_app/src/core/utils/theme/theme_notifier/theme_notifier.dart';
+import 'package:fintech_app/src/core/router/router.dart';
 
 class WidgetSamplesScreen extends ConsumerStatefulWidget {
   const WidgetSamplesScreen({super.key});

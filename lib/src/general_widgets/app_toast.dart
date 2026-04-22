@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/core/utils/app_utils_exports.dart';
+import 'package:fintech_app/src/core/utils/app_utils_exports.dart';
 
 showSuccessToast({required String message, Color? backgroundColor}) {
   Fluttertoast.showToast(

@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:clean_flutter/src/core/utils/app_utils_exports.dart';
+import 'package:fintech_app/src/core/utils/app_utils_exports.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:in_app_update/in_app_update.dart';
@@ -57,11 +57,13 @@ class InAppUpdateAuto {
   }
 
   void _listenForFlexibleUpdateCompletion() {
-    InAppUpdate.completeFlexibleUpdate().then((_) {
-      debugLog('Flexible update completed and installed');
-    }).catchError((error) {
-      debugLog('Flexible update completion failed: $error');
-    });
+    InAppUpdate.completeFlexibleUpdate()
+        .then((_) {
+          debugLog('Flexible update completed and installed');
+        })
+        .catchError((error) {
+          debugLog('Flexible update completion failed: $error');
+        });
   }
 
   Future<void> _checkIOSUpdate() async {

@@ -1,7 +1,7 @@
-import 'package:clean_flutter/src/core/router/router.dart';
-import 'package:clean_flutter/src/core/extensions/navigation_extensions.dart';
-import 'package:clean_flutter/src/general_widgets/general_widget_exports.dart';
-import 'package:clean_flutter/src/features/auth/widgets/auth_flow_header.dart';
+import 'package:fintech_app/src/core/router/router.dart';
+import 'package:fintech_app/src/core/extensions/navigation_extensions.dart';
+import 'package:fintech_app/src/general_widgets/general_widget_exports.dart';
+import 'package:fintech_app/src/features/auth/widgets/auth_flow_header.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

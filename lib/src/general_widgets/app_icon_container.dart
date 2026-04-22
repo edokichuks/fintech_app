@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/core/utils/app_utils_exports.dart';
-import 'package:clean_flutter/src/general_widgets/general_widget_exports.dart';
+import 'package:fintech_app/src/core/utils/app_utils_exports.dart';
+import 'package:fintech_app/src/general_widgets/general_widget_exports.dart';
 
 // THIS IS THE ICON CONTAINER THAT PROVIDES THE
 // THEMED BACKGROUND (light and dark mode)
@@ -30,8 +30,9 @@ class AppIconContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final isLightMode = theme.brightness == Brightness.light;
-    final color =
-        isLightMode ? AppColors.defaultBackgroundLight : AppColors.charcoalGrey;
+    final color = isLightMode
+        ? AppColors.defaultBackgroundLight
+        : AppColors.charcoalGrey;
     return AppContainer(
       height: height ?? 32.h,
       width: width ?? 28.w,

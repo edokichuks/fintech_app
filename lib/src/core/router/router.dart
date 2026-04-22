@@ -2,13 +2,13 @@
 import 'package:flutter/cupertino.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/features/bottom_nav/presentation/app_bottom_nav_bar.dart';
-import 'package:clean_flutter/src/features/start_up/views/splash_screen.dart';
-import 'package:clean_flutter/src/features/sample/widget_samples_screen.dart';
-import 'package:clean_flutter/src/features/sample/file_download_sample_screen.dart';
+import 'package:fintech_app/src/features/bottom_nav/presentation/app_bottom_nav_bar.dart';
+import 'package:fintech_app/src/features/start_up/views/splash_screen.dart';
+import 'package:fintech_app/src/features/sample/widget_samples_screen.dart';
+import 'package:fintech_app/src/features/sample/file_download_sample_screen.dart';
 
-import 'package:clean_flutter/src/features/auth/views/create_account_screen.dart';
-import 'package:clean_flutter/src/features/home/views/home_container_screen.dart';
+import 'package:fintech_app/src/features/auth/views/create_account_screen.dart';
+import 'package:fintech_app/src/features/home/views/home_container_screen.dart';
 
 class AppRouter {
   static const String login = '/login';

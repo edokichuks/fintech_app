@@ -1,6 +1,6 @@
 // Flutter imports:
-import 'package:clean_flutter/src/core/utils/app_utils_exports.dart';
-import 'package:clean_flutter/src/general_widgets/general_widget_exports.dart';
+import 'package:fintech_app/src/core/utils/app_utils_exports.dart';
+import 'package:fintech_app/src/general_widgets/general_widget_exports.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -158,7 +158,8 @@ class _AppTextFieldState extends State<AppTextField> {
             },
             onTap: widget.onTap,
             style: textTheme.titleSmall?.copyWith(
-              color: widget.textColor ??
+              color:
+                  widget.textColor ??
                   (isLightMode ? AppColors.neutral500 : AppColors.neutral50),
             ),
             // cursorColor: isLightMode ? AppColors.darkBlue : AppColors.white,
@@ -185,70 +186,71 @@ class _AppTextFieldState extends State<AppTextField> {
               filled: true,
               enabled: false,
               contentPadding: widget.contentPadding,
-              fillColor: widget.backgroundColor ??
+              fillColor:
+                  widget.backgroundColor ??
                   Theme.of(context).scaffoldBackgroundColor,
               hintText: widget.hintText,
-              hintStyle:
-                  AppTextStyle.titleSmall.copyWith(color: AppColors.neutral100),
-              errorStyle:
-                  AppTextStyle.titleSmall.copyWith(color: AppColors.danger200),
+              hintStyle: AppTextStyle.titleSmall.copyWith(
+                color: AppColors.neutral100,
+              ),
+              errorStyle: AppTextStyle.titleSmall.copyWith(
+                color: AppColors.danger200,
+              ),
               errorBorder: OutlineInputBorder(
-                borderRadius: widget.borderRadiusGeometry ??
+                borderRadius:
+                    widget.borderRadiusGeometry ??
                     BorderRadius.circular(widget.borderRadius),
-                borderSide: BorderSide(
-                  color: AppColors.red,
-                  width: 0.8,
-                ),
+                borderSide: BorderSide(color: AppColors.red, width: 0.8),
               ),
               focusedErrorBorder: OutlineInputBorder(
-                borderRadius: widget.borderRadiusGeometry ??
+                borderRadius:
+                    widget.borderRadiusGeometry ??
                     BorderRadius.circular(widget.borderRadius),
-                borderSide: BorderSide(
-                  color: AppColors.red,
-                  width: 1,
-                ),
+                borderSide: BorderSide(color: AppColors.red, width: 1),
               ),
               disabledBorder: OutlineInputBorder(
-                borderRadius: widget.borderRadiusGeometry ??
+                borderRadius:
+                    widget.borderRadiusGeometry ??
                     BorderRadius.circular(widget.borderRadius),
                 borderSide: BorderSide(
-                  color: widget.bordercolor ??
-                      Theme.of(context)
-                          .colorScheme
-                          .tertiary
-                          .withValues(alpha: 0.21),
+                  color:
+                      widget.bordercolor ??
+                      Theme.of(
+                        context,
+                      ).colorScheme.tertiary.withValues(alpha: 0.21),
                   width: widget.borderWidth ?? 0.8,
                 ),
               ),
-              labelStyle: TextStyle(
-                color: AppColors.transparent,
-              ),
+              labelStyle: TextStyle(color: AppColors.transparent),
               border: OutlineInputBorder(
-                borderRadius: widget.borderRadiusGeometry ??
+                borderRadius:
+                    widget.borderRadiusGeometry ??
                     BorderRadius.circular(widget.borderRadius),
                 borderSide: BorderSide(
-                  color: widget.bordercolor ??
-                      Theme.of(context)
-                          .colorScheme
-                          .tertiary
-                          .withValues(alpha: 0.21),
+                  color:
+                      widget.bordercolor ??
+                      Theme.of(
+                        context,
+                      ).colorScheme.tertiary.withValues(alpha: 0.21),
                   width: widget.borderWidth ?? 0.8,
                 ),
               ),
               enabledBorder: OutlineInputBorder(
-                borderRadius: widget.borderRadiusGeometry ??
+                borderRadius:
+                    widget.borderRadiusGeometry ??
                     BorderRadius.circular(widget.borderRadius),
                 borderSide: BorderSide(
-                  color: widget.bordercolor ??
-                      Theme.of(context)
-                          .colorScheme
-                          .tertiary
-                          .withValues(alpha: 0.21),
+                  color:
+                      widget.bordercolor ??
+                      Theme.of(
+                        context,
+                      ).colorScheme.tertiary.withValues(alpha: 0.21),
                   width: widget.borderWidth ?? 0.8,
                 ),
               ),
               focusedBorder: OutlineInputBorder(
-                borderRadius: widget.borderRadiusGeometry ??
+                borderRadius:
+                    widget.borderRadiusGeometry ??
                     BorderRadius.circular(widget.borderRadius),
                 borderSide: BorderSide(
                   color: widget.bordercolor ?? AppColors.primary300,
@@ -315,8 +317,9 @@ class AppPinCodeField extends StatelessWidget {
           obscureCharacter: obscureCharacter ?? "⚫️",
           obscureText: obscureText ?? false,
           // activeBorderColor: AppColors.primary300,
-          activeBorderColor:
-              errorText != null ? AppColors.danger100 : AppColors.primary300,
+          activeBorderColor: errorText != null
+              ? AppColors.danger100
+              : AppColors.primary300,
           activeBackgroundColor: activeBackgroundColor ?? color,
           fieldBackgroundColor: fieldBackgroundColor ?? color,
           borderWidth: 1.0,
@@ -441,9 +444,7 @@ class AppPhoneField extends StatelessWidget {
           // cursorColor: (isLightMode ? AppColors.darkBlue : AppColors.gray100),
           cursorColor: Theme.of(context).colorScheme.primary,
           initialValue: phoneController == null
-              ? PhoneNumber.parse(
-                  '+1',
-                )
+              ? PhoneNumber.parse('+1')
               : null,
           validator: validator,
           //!Take this to anywhere validation is required
@@ -452,13 +453,15 @@ class AppPhoneField extends StatelessWidget {
           //   PhoneValidator.validMobile(context)
           // ]),
           countryButtonStyle: countryButtonStyle ?? const CountryButtonStyle(),
-          countrySelectorNavigator: countrySelectorNavigator ??
+          countrySelectorNavigator:
+              countrySelectorNavigator ??
               CountrySelectorNavigator.draggableBottomSheet(
                 minChildSize: 0.4,
                 maxChildSize: 0.8,
                 initialChildSize: 0.5,
-                titleStyle: AppTextStyle.titleSmall
-                    .copyWith(fontWeight: FontWeight.w500),
+                titleStyle: AppTextStyle.titleSmall.copyWith(
+                  fontWeight: FontWeight.w500,
+                ),
                 subtitleStyle: AppTextStyle.titleSmall,
                 searchBoxTextStyle: AppTextStyle.titleSmall,
                 flagSize: 24.r,
@@ -488,64 +491,55 @@ class AppPhoneField extends StatelessWidget {
             fillColor:
                 backgroundColor ?? Theme.of(context).scaffoldBackgroundColor,
             hintText: hintText,
-            hintStyle:
-                AppTextStyle.titleSmall.copyWith(color: AppColors.neutral100),
-            errorStyle: AppTextStyle.titleSmall
-                .copyWith(color: AppColors.danger200, fontSize: 11.sp),
+            hintStyle: AppTextStyle.titleSmall.copyWith(
+              color: AppColors.neutral100,
+            ),
+            errorStyle: AppTextStyle.titleSmall.copyWith(
+              color: AppColors.danger200,
+              fontSize: 11.sp,
+            ),
             errorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(borderRadius),
-              borderSide: BorderSide(
-                color: AppColors.danger100,
-                width: 0.8,
-              ),
+              borderSide: BorderSide(color: AppColors.danger100, width: 0.8),
             ),
             focusedErrorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(borderRadius),
-              borderSide: BorderSide(
-                color: AppColors.danger100,
-                width: 1,
-              ),
+              borderSide: BorderSide(color: AppColors.danger100, width: 1),
             ),
             disabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(borderRadius),
               borderSide: BorderSide(
-                color: Theme.of(context)
-                    .colorScheme
-                    .tertiary
-                    .withValues(alpha: 0.21),
+                color: Theme.of(
+                  context,
+                ).colorScheme.tertiary.withValues(alpha: 0.21),
                 width: 0.8,
               ),
             ),
-            labelStyle: TextStyle(
-              color: AppColors.transparent,
-            ),
+            labelStyle: TextStyle(color: AppColors.transparent),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(borderRadius),
               borderSide: BorderSide(
-                color: Theme.of(context)
-                    .colorScheme
-                    .tertiary
-                    .withValues(alpha: 0.21),
+                color: Theme.of(
+                  context,
+                ).colorScheme.tertiary.withValues(alpha: 0.21),
                 width: 0.8,
               ),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(borderRadius),
               borderSide: BorderSide(
-                color: Theme.of(context)
-                    .colorScheme
-                    .tertiary
-                    .withValues(alpha: 0.21),
+                color: Theme.of(
+                  context,
+                ).colorScheme.tertiary.withValues(alpha: 0.21),
                 width: 0.8,
               ),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(borderRadius),
               borderSide: BorderSide(
-                color: Theme.of(context)
-                    .colorScheme
-                    .tertiary
-                    .withValues(alpha: 0.21),
+                color: Theme.of(
+                  context,
+                ).colorScheme.tertiary.withValues(alpha: 0.21),
                 width: 1,
               ),
             ),

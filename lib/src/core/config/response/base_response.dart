@@ -1,7 +1,6 @@
 // Package imports:
-import 'package:clean_flutter/src/core/utils/strings/strings.dart';
+import 'package:fintech_app/src/core/utils/strings/strings.dart';
 import 'package:json_annotation/json_annotation.dart';
-
 
 part 'base_response.g.dart';
 
@@ -13,11 +12,8 @@ class BaseResponse<T> {
   // final bool status;
   final String? message;
 
-  const BaseResponse({
-    this.data,
-    required this.statusCode,
-    this.message,
-  }) : super();
+  const BaseResponse({this.data, required this.statusCode, this.message})
+    : super();
 
   factory BaseResponse.fromJson(
     Map<String, dynamic> json,

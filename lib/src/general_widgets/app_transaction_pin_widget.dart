@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/core/extensions/extension_exports.dart';
-import 'package:clean_flutter/src/core/utils/app_utils_exports.dart';
-import 'package:clean_flutter/src/general_widgets/general_widget_exports.dart';
+import 'package:fintech_app/src/core/extensions/extension_exports.dart';
+import 'package:fintech_app/src/core/utils/app_utils_exports.dart';
+import 'package:fintech_app/src/general_widgets/general_widget_exports.dart';
 
 class AppTransactionPinWidget extends StatefulWidget {
   const AppTransactionPinWidget({
@@ -63,14 +63,13 @@ class _AppTransactionPinWidgetState extends State<AppTransactionPinWidget> {
               const SizedBox(width: 20),
               AppText(
                 text: 'Enter Pin',
-                style: AppTextStyle.bodyMedium
-                    .copyWith(fontWeight: FontWeight.w600, fontSize: 18.sp),
+                style: AppTextStyle.bodyMedium.copyWith(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 18.sp,
+                ),
                 textAlign: TextAlign.center,
               ),
-              Icon(
-                Icons.clear,
-                size: 20.sp,
-              ).addTapGesture(
+              Icon(Icons.clear, size: 20.sp).addTapGesture(
                 onTap: () {
                   Navigator.pop(context);
                 },
@@ -98,7 +97,9 @@ class _AppTransactionPinWidgetState extends State<AppTransactionPinWidget> {
                     AppText(
                       text: 'Milarn Secure Numeric Keypad',
                       style: AppTextStyle.bodySmall.copyWith(
-                          fontSize: 10.sp, fontWeight: FontWeight.w400),
+                        fontSize: 10.sp,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                   ],
                 ),
@@ -147,22 +148,20 @@ class _AppTransactionPinWidgetState extends State<AppTransactionPinWidget> {
       key: shakeKey,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: List.generate(
-          widget.totalFields,
-          (index) {
-            // THE INDEX MUST BE <= TO THE ENTERED TEXT FROM THE UI TO BE ACTIVE
-            final hasEnteredValueInFields = index <= totalOtpFields - 1;
-            return AppPasscodeDisplay(
-              // error: _userEnteredWrongValue,
-              //THE SPACING BETWEEN EACH WIDGET
-              spacing: 8.w,
-              //IF THE USER HAS NOT ENTERED VALUES IN THE FIELD THE PASSCODE
-              // WIDGET SHOULD BE EMPTY IF NOT EMPTY USE THE DEFAULT WIDGET
-              contentWidget:
-                  !hasEnteredValueInFields ? const SizedBox.shrink() : null,
-            );
-          },
-        ),
+        children: List.generate(widget.totalFields, (index) {
+          // THE INDEX MUST BE <= TO THE ENTERED TEXT FROM THE UI TO BE ACTIVE
+          final hasEnteredValueInFields = index <= totalOtpFields - 1;
+          return AppPasscodeDisplay(
+            // error: _userEnteredWrongValue,
+            //THE SPACING BETWEEN EACH WIDGET
+            spacing: 8.w,
+            //IF THE USER HAS NOT ENTERED VALUES IN THE FIELD THE PASSCODE
+            // WIDGET SHOULD BE EMPTY IF NOT EMPTY USE THE DEFAULT WIDGET
+            contentWidget: !hasEnteredValueInFields
+                ? const SizedBox.shrink()
+                : null,
+          );
+        }),
       ),
     );
   }

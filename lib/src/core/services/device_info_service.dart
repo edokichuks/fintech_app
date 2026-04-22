@@ -1,4 +1,4 @@
-import 'package:clean_flutter/src/core/utils/app_utils_exports.dart';
+import 'package:fintech_app/src/core/utils/app_utils_exports.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:equatable/equatable.dart';
 
@@ -201,21 +201,15 @@ class DeviceAuthModel extends Equatable {
   }
 
   Map<String, dynamic> toJson() => {
-        'device_id': deviceId,
-        'device_type': deviceType,
-        'device_platform': devicePlatform,
-        'device_OS': deviceOs,
-        'device_model': deviceModel,
-      };
+    'device_id': deviceId,
+    'device_type': deviceType,
+    'device_platform': devicePlatform,
+    'device_OS': deviceOs,
+    'device_model': deviceModel,
+  };
 
   @override
   List<Object?> get props {
-    return [
-      deviceId,
-      deviceType,
-      devicePlatform,
-      deviceOs,
-      deviceModel,
-    ];
+    return [deviceId, deviceType, devicePlatform, deviceOs, deviceModel];
   }
 }

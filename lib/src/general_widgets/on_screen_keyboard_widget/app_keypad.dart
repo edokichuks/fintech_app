@@ -6,9 +6,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/core/extensions/stateless_widget_extensions.dart';
-import 'package:clean_flutter/src/core/utils/theme/app_text_styles.dart';
-import 'package:clean_flutter/src/general_widgets/general_widget_exports.dart';
+import 'package:fintech_app/src/core/extensions/stateless_widget_extensions.dart';
+import 'package:fintech_app/src/core/utils/theme/app_text_styles.dart';
+import 'package:fintech_app/src/general_widgets/general_widget_exports.dart';
 
 class AppKeypad extends StatefulWidget {
   const AppKeypad({
@@ -92,60 +92,57 @@ class AppKeypadState extends State<AppKeypad> {
       shrinkWrap: true,
       padding: EdgeInsets.zero,
       physics: const NeverScrollableScrollPhysics(),
-      children: List.generate(
-        keys.length,
-        (index) {
-          final key = keys[index];
-          if (index == 9) {
-            return widget.rightSideWidget ?? const SizedBox.shrink();
-          }
-          if (index == 11) {
-            return widget.leftSideWidget ??
-                AppContainer(
-                  height: widget.keypadHeight ?? 66.h,
-                  width: widget.keypadWidth ?? 66.w,
-                  padding: widget.keypadContentPadding ?? EdgeInsets.zero,
-                  alignment: widget.keypadChildAlignment ?? Alignment.center,
-                  borderRadius:
-                      widget.keypadBorderRadius ?? BorderRadius.circular(33),
-                  decoration: widget.keypadDecoration,
-                  child: widget.clearIcon ??
-                      const Icon(CupertinoIcons.delete_left_fill),
-                ).addTapGesture(
-                  onTap: () {
-                    clear();
-                  },
-                );
-          }
-          return AppContainer(
-            height: widget.keypadHeight ?? 66.h,
-            width: widget.keypadWidth ?? 66.w,
-            padding: widget.keypadContentPadding ?? EdgeInsets.zero,
-            alignment: widget.keypadChildAlignment ?? Alignment.center,
-            borderRadius:
-                widget.keypadBorderRadius ?? BorderRadius.circular(33),
-            decoration: widget.keypadDecoration,
-            child: AppText(
-              text: key,
-              style: AppTextStyle.titleMedium.copyWith(fontSize: 25.w),
-            ),
-          ).addTapGesture(
-            onTap: () {
-              HapticFeedback.mediumImpact();
-              if (enteredValues!.length != widget.totalFields) {
-                enteredValues?.add(key);
-                if (widget.onKeyPress != null) {
-                  widget.onKeyPress!(enteredValues!.join());
-                }
+      children: List.generate(keys.length, (index) {
+        final key = keys[index];
+        if (index == 9) {
+          return widget.rightSideWidget ?? const SizedBox.shrink();
+        }
+        if (index == 11) {
+          return widget.leftSideWidget ??
+              AppContainer(
+                height: widget.keypadHeight ?? 66.h,
+                width: widget.keypadWidth ?? 66.w,
+                padding: widget.keypadContentPadding ?? EdgeInsets.zero,
+                alignment: widget.keypadChildAlignment ?? Alignment.center,
+                borderRadius:
+                    widget.keypadBorderRadius ?? BorderRadius.circular(33),
+                decoration: widget.keypadDecoration,
+                child:
+                    widget.clearIcon ??
+                    const Icon(CupertinoIcons.delete_left_fill),
+              ).addTapGesture(
+                onTap: () {
+                  clear();
+                },
+              );
+        }
+        return AppContainer(
+          height: widget.keypadHeight ?? 66.h,
+          width: widget.keypadWidth ?? 66.w,
+          padding: widget.keypadContentPadding ?? EdgeInsets.zero,
+          alignment: widget.keypadChildAlignment ?? Alignment.center,
+          borderRadius: widget.keypadBorderRadius ?? BorderRadius.circular(33),
+          decoration: widget.keypadDecoration,
+          child: AppText(
+            text: key,
+            style: AppTextStyle.titleMedium.copyWith(fontSize: 25.w),
+          ),
+        ).addTapGesture(
+          onTap: () {
+            HapticFeedback.mediumImpact();
+            if (enteredValues!.length != widget.totalFields) {
+              enteredValues?.add(key);
+              if (widget.onKeyPress != null) {
+                widget.onKeyPress!(enteredValues!.join());
               }
-              if (enteredValues!.length == widget.totalFields &&
-                  widget.onFinish != null) {
-                widget.onFinish!(enteredValues!.join());
-              }
-            },
-          );
-        },
-      ),
+            }
+            if (enteredValues!.length == widget.totalFields &&
+                widget.onFinish != null) {
+              widget.onFinish!(enteredValues!.join());
+            }
+          },
+        );
+      }),
     );
   }
 }

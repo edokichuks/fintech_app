@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/core/utils/app_colors.dart';
+import 'package:fintech_app/src/core/utils/app_colors.dart';
 
 class CustomPinCodeTextField extends StatefulWidget {
   const CustomPinCodeTextField({
@@ -65,10 +65,9 @@ class _CustomPinCodeTextFieldState extends State<CustomPinCodeTextField> {
       focusNode: _focusNode,
       showCursor: false,
       enableActiveFill: true,
-      textStyle: Theme.of(context)
-          .textTheme
-          .bodyLarge!
-          .copyWith(color: AppColors.starColor, fontSize: 16),
+      textStyle: Theme.of(
+        context,
+      ).textTheme.bodyLarge!.copyWith(color: AppColors.starColor, fontSize: 16),
       blinkWhenObscuring: true,
       keyboardType: TextInputType.number,
       readOnly: widget.isReadOnly,

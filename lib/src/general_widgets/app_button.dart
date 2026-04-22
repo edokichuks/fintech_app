@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/core/extensions/theme_extensions.dart';
-import 'package:clean_flutter/src/core/utils/styles/app_button_styles.dart';
-import 'package:clean_flutter/src/general_widgets/app_loader.dart';
+import 'package:fintech_app/src/core/extensions/theme_extensions.dart';
+import 'package:fintech_app/src/core/utils/styles/app_button_styles.dart';
+import 'package:fintech_app/src/general_widgets/app_loader.dart';
 
 /// A custom Frodor button. This was built to adapt to the our in-house button style.
 /// Works similarly to default flutter button except for its aesthetic changes.
@@ -88,10 +88,7 @@ class _AppButton extends State<AppButton> {
         height: widget.height,
         width: widget.width,
         decoration: BoxDecoration(
-          border: Border.all(
-            width: 1.0,
-            color: _buttonStyle.borderColor,
-          ),
+          border: Border.all(width: 1.0, color: _buttonStyle.borderColor),
           borderRadius: BorderRadius.circular(widget.cornerRadius),
           color: !widget.isEnabled
               ? _buttonStyle.disabledBackgroundColor
@@ -103,21 +100,23 @@ class _AppButton extends State<AppButton> {
           children: [
             if (!widget.isLoading)
               FittedBox(
-                  child: Row(
-                children: [
-                  if (widget.leading != null) widget.leading!,
-                  Text(
-                    widget.text,
-                    style: (_buttonStyle.textStyle ?? context.textTheme.s16w500)
-                        .copyWith(
-                      fontSize: 18,
-                      color: widget.isEnabled
-                          ? _buttonStyle.textColor
-                          : _buttonStyle.disabledTextColor,
+                child: Row(
+                  children: [
+                    if (widget.leading != null) widget.leading!,
+                    Text(
+                      widget.text,
+                      style:
+                          (_buttonStyle.textStyle ?? context.textTheme.s16w500)
+                              .copyWith(
+                                fontSize: 18,
+                                color: widget.isEnabled
+                                    ? _buttonStyle.textColor
+                                    : _buttonStyle.disabledTextColor,
+                              ),
                     ),
-                  )
-                ],
-              )),
+                  ],
+                ),
+              ),
             if (widget.isLoading) ...[SizedBox(width: 20.w), const AppLoader()],
           ],
         ),
@@ -135,7 +134,7 @@ class _AppButton extends State<AppButton> {
 
   bool isActive() => widget.isEnabled
       ? widget.isLoading
-          ? false
-          : true
+            ? false
+            : true
       : false;
 }

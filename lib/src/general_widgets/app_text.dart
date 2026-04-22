@@ -2,9 +2,9 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/core/helpers/helper_functions.dart';
-import 'package:clean_flutter/src/core/utils/app_utils_exports.dart';
-import 'package:clean_flutter/src/core/utils/theme/app_text_styles.dart';
+import 'package:fintech_app/src/core/helpers/helper_functions.dart';
+import 'package:fintech_app/src/core/utils/app_utils_exports.dart';
+import 'package:fintech_app/src/core/utils/theme/app_text_styles.dart';
 
 class AppText extends StatelessWidget {
   const AppText({
@@ -77,10 +77,7 @@ class AppCurrencyAndText extends StatelessWidget {
                   : style?.fontFamily,
             ),
           ),
-          TextSpan(
-            text: amount,
-            style: style,
-          ),
+          TextSpan(text: amount, style: style),
         ],
       ),
     );

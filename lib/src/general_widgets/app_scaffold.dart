@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/core/helpers/helper_functions.dart';
-import 'package:clean_flutter/src/core/utils/app_utils_exports.dart';
+import 'package:fintech_app/src/core/helpers/helper_functions.dart';
+import 'package:fintech_app/src/core/utils/app_utils_exports.dart';
 
 //MAIN SCAFFOLD FOR APPLICATION CHECK BELOW FOR THE
 //OF WHITE SCAFFOLD
@@ -37,7 +37,8 @@ class AppScaffold extends StatelessWidget {
       appBar: appBar,
       backgroundColor: backgroundColor ?? theme.scaffoldBackgroundColor,
       body: Padding(
-        padding: (HelperFunctions.isAndroid() &&
+        padding:
+            (HelperFunctions.isAndroid() &&
                 applySafeArea &&
                 !isLandscape) // BOTTOM SAFE AREA SETUP FOR ANDROID
             ? EdgeInsets.only(bottom: 16.h)
@@ -84,15 +85,17 @@ class AppScaffoldOffWhite extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final isLightMode = theme.brightness == Brightness.light;
-    final scaffoldBackgroundColor =
-        isLightMode ? AppColors.defaultBackgroundLight : AppColors.neutral500;
+    final scaffoldBackgroundColor = isLightMode
+        ? AppColors.defaultBackgroundLight
+        : AppColors.neutral500;
     final orientation = MediaQuery.orientationOf(context);
     final isLandscape = orientation == Orientation.landscape && applySafeArea;
     return Scaffold(
       appBar: appBar,
       backgroundColor: backgroundColor ?? scaffoldBackgroundColor,
       body: Padding(
-        padding: (HelperFunctions.isAndroid() &&
+        padding:
+            (HelperFunctions.isAndroid() &&
                 applySafeArea &&
                 !isLandscape) // BOTTOM SAFE AREA SETUP FOR ANDROID
             ? EdgeInsets.only(bottom: 16.h)

@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import 'package:clean_flutter/src/core/extensions/theme_extensions.dart';
+import 'package:fintech_app/src/core/extensions/theme_extensions.dart';
 import '../core/utils/app_colors.dart';
 
 class TermsWidget extends StatelessWidget {
@@ -15,8 +15,9 @@ class TermsWidget extends StatelessWidget {
       children: [
         Text(
           "Read through our ",
-          style:
-              context.textTheme.s14w500.copyWith(color: AppColors.neutral300),
+          style: context.textTheme.s14w500.copyWith(
+            color: AppColors.neutral300,
+          ),
         ),
         GestureDetector(
           onTap: () {},
