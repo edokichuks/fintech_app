@@ -1,0 +1,12 @@
+{
+  "@@locale": "ig",
+  "appName":"Clean Flutter Setup",
+  "welcome": "Nnoo na {appName}",
+  "@welcome": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  }
+ }

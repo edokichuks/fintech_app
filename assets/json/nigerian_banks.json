@@ -1,0 +1,1076 @@
+[
+    {
+        "code": "120001",
+        "slug": "9mobile-9payment-service-bank-ng",
+        "name": "9 Payment Service Bank (9PSB)",
+        "logo": "https://d38v990enafbk6.cloudfront.net/9psb.png"
+    },
+    {
+        "code": "404",
+        "slug": "abbey-mortgage-bank-ng",
+        "name": "Abbey Mortgage Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/abbey_mortgage_bank.png"
+    },
+    {
+        "code": "51204",
+        "slug": "above-only-mfb",
+        "name": "Above Only MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "51312",
+        "slug": "abulesoro-mfb-ng",
+        "name": "Abulesoro MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "044",
+        "slug": "access-bank",
+        "name": "Access Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/access.png"
+    },
+    {
+        "code": "063",
+        "slug": "access-bank-diamond",
+        "name": "Access Bank (Diamond)",
+        "logo": "https://d38v990enafbk6.cloudfront.net/access.png"
+    },
+    {
+        "code": "602",
+        "slug": "accion-microfinance-bank-ng",
+        "name": "ACCION MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/accion_mfb.png"
+    },
+    {
+        "code": "50315",
+        "slug": "aella-mfb-ng",
+        "name": "Aella MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Aella-MFB.png"
+    },
+    {
+        "code": "90077",
+        "slug": "ag-mortgage-bank-ng",
+        "name": "AG Mortgage Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/AG-Mortgage-MFB.png"
+    },
+    {
+        "code": "50036",
+        "slug": "ahmadu-bello-university-microfinance-bank-ng",
+        "name": "Ahmadu Bello University MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "120004",
+        "slug": "airtel-smartcash-psb-ng",
+        "name": "Airtel Smartcash PSB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "51336",
+        "slug": "aku-mfb",
+        "name": "AKU Microfinance Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Akubank.png"
+    },
+    {
+        "code": "090561",
+        "slug": "akuchukwu-microfinance-bank-limited-ng",
+        "name": "Akuchukwu Microfinance Bank Limited",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "035A",
+        "slug": "alat-by-wema",
+        "name": "ALAT by WEMA",
+        "logo": "https://nigerianbanks.xyz/logo/alat-by-wema.png"
+    },
+    {
+        "code": "090629",
+        "slug": "amegy-microfinance-bank-ng",
+        "name": "Amegy Microfinance Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Amegy-MFB.png"
+    },
+    {
+        "code": "50926",
+        "slug": "amju-unique-mfb",
+        "name": "Amju Unique MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "645",
+        "slug": "amucha-mfb-ng",
+        "name": "Amucha MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "50083",
+        "slug": "aramoko-mfb",
+        "name": "Aramoko MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "401",
+        "slug": "asosavings",
+        "name": "ASO Savings and Loans",
+        "logo": "https://nigerianbanks.xyz/logo/asosavings.png"
+    },
+    {
+        "code": "50092",
+        "slug": "assets-microfinance-bank-ng",
+        "name": "Assets Microfinance Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Assets-MFB.png"
+    },
+    {
+        "code": "MFB50094",
+        "slug": "astrapolaris-mfb",
+        "name": "Astrapolaris MFB LTD",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "090478",
+        "slug": "avuenegbe-microfinance-bank-ng",
+        "name": "Avuenegbe MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Avuenegbe-MFB.png"
+    },
+    {
+        "code": "51351",
+        "slug": "awacash-microfinance-bank-ng",
+        "name": "Awacash MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Awacash-MFB.png"
+    },
+    {
+        "code": "51337",
+        "slug": "aztec-microfinance-bank-limited-ng",
+        "name": "Aztec MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Aztec-MFB.png"
+    },
+    {
+        "code": "51229",
+        "slug": "bainescredit-mfb",
+        "name": "Bainescredit MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/bainescredit_mfb.png"
+    },
+    {
+        "code": "50117",
+        "slug": "banc-corp-microfinance-bank-ng",
+        "name": "Banc Corp MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Banc-Corp-MFB.png"
+    },
+    {
+        "code": "51341",
+        "slug": "ampersand-microfinance-bank-ng",
+        "name": "Bellbank MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Bankly.png"
+    },
+    {
+        "code": "MFB50992",
+        "slug": "baobab-microfinance-bank-ng",
+        "name": "Baobab Microfinance Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Baobab-MFB.png"
+    },
+    {
+        "code": "51100",
+        "slug": "bellbank-microfinance-bank-ng",
+        "name": "BellBank Microfinance Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "51267",
+        "slug": "benysta-microfinance-bank-limited",
+        "name": "Benysta Microfinance Bank Limited",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Benysta-MFB.png"
+    },
+    {
+        "code": "50123",
+        "slug": "beststar-microfinance-bank-ng",
+        "name": "Beststar Microfinance Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Best-Star-MFB.png"
+    },
+    {
+        "code": "50931",
+        "slug": "bowen-microfinance-bank",
+        "name": "Bowen Microfinance Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/bowen_mfb.png"
+    },
+    {
+        "code": "FC40163",
+        "slug": "branch",
+        "name": "Branch International Finance Company Limited",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Branch.png"
+    },
+    {
+        "code": "565",
+        "slug": "carbon",
+        "name": "Carbon",
+        "logo": "https://d38v990enafbk6.cloudfront.net/carbon.png"
+    },
+    {
+        "code": "51353",
+        "slug": "cashbridge-mfb-ng",
+        "name": "Cashbridge MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "865",
+        "slug": "cashconnect-mfb-ng",
+        "name": "CashConnect MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/CashConnect-MFB.png"
+    },
+    {
+        "code": "50823",
+        "slug": "cemcs-microfinance-bank",
+        "name": "CEMCS Microfinance Bank",
+        "logo": "https://nigerianbanks.xyz/logo/cemcs-microfinance-bank.png"
+    },
+    {
+        "code": "50171",
+        "slug": "chanelle-microfinance-bank-limited-ng",
+        "name": "Chanelle MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Chanelle-MFB.png"
+    },
+    {
+        "code": "312",
+        "slug": "chikum-microfinance-bank-ng",
+        "name": "Chikum Microfinance bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "023",
+        "slug": "citibank-nigeria",
+        "name": "Citibank Nigeria",
+        "logo": "https://d38v990enafbk6.cloudfront.net/citibank.png"
+    },
+    {
+        "code": "070027",
+        "slug": "citycode-mortage-bank-ng",
+        "name": "Citycode Mortgage Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Citycode-Mortgage-Bank.png"
+    },
+    {
+        "code": "50910",
+        "slug": "consumer-microfinance-bank-ng",
+        "name": "Consumer Microfinance Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Consumer-MFB.png"
+    },
+    {
+        "code": "50204",
+        "slug": "corestep-mfb",
+        "name": "Corestep MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/corestep_mfb.png"
+    },
+    {
+        "code": "559",
+        "slug": "coronation-merchant-bank-ng",
+        "name": "Coronation Merchant Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/coronation.png"
+    },
+    {
+        "code": "FC40128",
+        "slug": "county-finance-limited",
+        "name": "County Finance Limited",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Country-Finance-MFB.png"
+    },
+    {
+        "code": "51297",
+        "slug": "crescent-mfb",
+        "name": "Crescent MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "090560",
+        "slug": "crust-microfinance-bank-ng",
+        "name": "Crust Microfinance Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "51334",
+        "slug": "davenport-microfinance-bank-ng",
+        "name": "Davenport MICROFINANCE BANK",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Davenport-1.png"
+    },
+    {
+        "code": "50162",
+        "slug": "dot-microfinance-bank-ng",
+        "name": "Dot Microfinance Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/DOT_MFB.png"
+    },
+    {
+        "code": "050",
+        "slug": "ecobank-nigeria",
+        "name": "Ecobank Nigeria",
+        "logo": "https://d38v990enafbk6.cloudfront.net/ecobank.png"
+    },
+    {
+        "code": "50263",
+        "slug": "ekimogun-mfb-ng",
+        "name": "Ekimogun MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "098",
+        "slug": "ekondo-microfinance-bank-ng",
+        "name": "Ekondo Microfinance Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/ekondo_mfb.png"
+    },
+    {
+        "code": "090678",
+        "slug": "excel-finance-bank-ng",
+        "name": "Excel Microfinance Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Excel-MFB.png"
+    },
+    {
+        "code": "50126",
+        "slug": "eyowo",
+        "name": "Eyowo",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "51318",
+        "slug": "fairmoney-microfinance-bank-ng",
+        "name": "Fairmoney Microfinance Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Fairmoney.png"
+    },
+    {
+        "code": "50298",
+        "slug": "fedeth-mfb-ng",
+        "name": "Fedeth MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "070",
+        "slug": "fidelity-bank",
+        "name": "Fidelity Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/fidelity.png"
+    },
+    {
+        "code": "51314",
+        "slug": "firmus-mfb",
+        "name": "Firmus MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Firmus-MFB.png"
+    },
+    {
+        "code": "011",
+        "slug": "first-bank-of-nigeria",
+        "name": "First Bank of Nigeria",
+        "logo": "https://d38v990enafbk6.cloudfront.net/fbn-quest.png"
+    },
+    {
+        "code": "214",
+        "slug": "first-city-monument-bank",
+        "name": "First City Monument Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/fcmb.png"
+    },
+    {
+        "code": "090164",
+        "slug": "first-royal-microfinance-bank-ng",
+        "name": "First Royal MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "51333",
+        "slug": "firstmidas-mfb-ng",
+        "name": "Firstmidas MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "413",
+        "slug": "firsttrust-mortgage-bank-nigeria-ng",
+        "name": "FirstTrust Mortgage Bank Nigeria",
+        "logo": "https://d38v990enafbk6.cloudfront.net/First-Trust-Mortgage-Bank.png"
+    },
+    {
+        "code": "501",
+        "slug": "fsdh-merchant-bank-limited",
+        "name": "FSDH Merchant Bank Limited",
+        "logo": "https://d38v990enafbk6.cloudfront.net/fsdh-(1).png"
+    },
+    {
+        "code": "832",
+        "slug": "futminna-microfinance-bank-ng",
+        "name": "FUTMINNA MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "MFB51093",
+        "slug": "garun-mallam-mfb-ng",
+        "name": "Garun Mallam MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "812",
+        "slug": "gateway-mortgage-bank",
+        "name": "Gateway Mortgage Bank LTD",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "00103",
+        "slug": "globus-bank",
+        "name": "Globus Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/globus_bank.png"
+    },
+    {
+        "code": "090574",
+        "slug": "goldman-mfb-ng",
+        "name": "Goldman MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "100022",
+        "slug": "gomoney",
+        "name": "GoMoney",
+        "logo": "https://d38v990enafbk6.cloudfront.net/gomoney.png"
+    },
+    {
+        "code": "090664",
+        "slug": "good-shepherd-microfinance-bank-ng",
+        "name": "Goodshepherd MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Good-shepherd-MFB.png"
+    },
+    {
+        "code": "50739",
+        "slug": "goodnews-microfinance-bank-ng",
+        "name": "Goodnews Microfinance Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "562",
+        "slug": "greenwich-merchant-bank-ng",
+        "name": "Greenwich Merchant Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "51276",
+        "slug": "grooming-microfinance-bank-ng",
+        "name": "Grooming MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Grooming-MFB.png"
+    },
+    {
+        "code": "058",
+        "slug": "guaranty-trust-bank",
+        "name": "Guaranty Trust Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/gtb.png"
+    },
+    {
+        "code": "51251",
+        "slug": "hackman-microfinance-bank",
+        "name": "Hackman Microfinance Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "50383",
+        "slug": "hasal-microfinance-bank",
+        "name": "Hasal Microfinance Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "120002",
+        "slug": "hopepsb-ng",
+        "name": "HopePSB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "51211",
+        "slug": "IBANK-mfb",
+        "name": "IBANK Microfinance Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "51244",
+        "slug": "ibile-mfb",
+        "name": "Ibile Microfinance Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "50439",
+        "slug": "ikoyi-osun-mfb",
+        "name": "Ikoyi Osun MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "50442",
+        "slug": "ilaro-poly-microfinance-bank-ng",
+        "name": "Ilaro Poly MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "50453",
+        "slug": "imowo-mfb-ng",
+        "name": "Imowo MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Imowo_MFB.png"
+    },
+    {
+        "code": "415",
+        "slug": "imperial-homes-mortage-bank-ng",
+        "name": "Imperial Homes Mortgage Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Imperial-Homes-Mortgage_Bank.png"
+    },
+    {
+        "code": "50457",
+        "slug": "infinity-mfb",
+        "name": "Infinity MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "090701",
+        "slug": "isua-mfb-ng",
+        "name": "ISUA MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/ISUA_MFB.png"
+    },
+    {
+        "code": "301",
+        "slug": "jaiz-bank",
+        "name": "Jaiz Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/jaiz.png"
+    },
+    {
+        "code": "50502",
+        "slug": "kadpoly-mfb",
+        "name": "Kadpoly MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/KadPoly-MFB.png"
+    },
+    {
+        "code": "51308",
+        "slug": "kanopoly-mfb-ng",
+        "name": "Kanopoly MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "082",
+        "slug": "keystone-bank",
+        "name": "Keystone Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/keystone.png"
+    },
+    {
+        "code": "899",
+        "slug": "kolomoni-mfb-ng",
+        "name": "Kolomoni MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "100025",
+        "slug": "kongapay-tech-ltd",
+        "name": "KongaPay (formerly Zinternet)",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Konga_Pay.png"
+    },
+    {
+        "code": "50200",
+        "slug": "kredi-money-mfb",
+        "name": "Kredi Money MFB LTD",
+        "logo": "https://d38v990enafbk6.cloudfront.net/kredimoney.png"
+    },
+    {
+        "code": "50211",
+        "slug": "kuda-bank",
+        "name": "Kuda Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/kuda.png"
+    },
+    {
+        "code": "90052",
+        "slug": "lbic-plc",
+        "name": "Lagos Building Investment Company Plc.",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "50549",
+        "slug": "links-mfb",
+        "name": "Links MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Links-MFB.png"
+    },
+    {
+        "code": "031",
+        "slug": "living-trust-mortgage-bank",
+        "name": "Living Trust Mortgage Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/living_trust_mortgage_bank.png"
+    },
+    {
+        "code": "50491",
+        "slug": "loma-mfb-ng",
+        "name": "LOMA MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Loma-Bank.png"
+    },
+    {
+        "code": "303",
+        "slug": "lotus-bank",
+        "name": "Lotus Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/lotus_bank.png"
+    },
+    {
+        "code": "090171",
+        "slug": "mainstreet-microfinance-bank-ng",
+        "name": "Mainstreet MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/mainstreet_mfb.png"
+    },
+    {
+        "code": "50563",
+        "slug": "mayfair-mfb",
+        "name": "Mayfair MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "50304",
+        "slug": "mint-mfb",
+        "name": "Mint MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Mint.png"
+    },
+    {
+        "code": "946",
+        "slug": "money-master-psb-ng",
+        "name": "Money Master PSB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/MONEYMASTER-PSB.png"
+    },
+    {
+        "code": "50515",
+        "slug": "moniepoint-mfb-ng",
+        "name": "Moniepoint MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/moniepoint.png"
+    },
+    {
+        "code": "120003",
+        "slug": "mtn-momo-psb-ng",
+        "name": "MTN Momo PSB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Momo-PSB.png"
+    },
+    {
+        "code": "090190",
+        "slug": "mutual-benefits-microfinance-bank-ng",
+        "name": "Mutual Benefits MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Mutual-Benefits-MFB.png"
+    },
+    {
+        "code": "090679",
+        "slug": "ndcc-microfinance-bank-ng",
+        "name": "NDDC MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/NDDC-MFB.png"
+    },
+    {
+        "code": "51361",
+        "slug": "net-microfinance-bank-ng",
+        "name": "Net MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Net-MFB.png"
+    },
+    {
+        "code": "51142",
+        "slug": "nigerian-navy-microfinance-bank-limited-ng",
+        "name": "Nigerian Navy MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "561",
+        "slug": "nova-bank-ng",
+        "name": "NOVA Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Nova_Bank.png"
+    },
+    {
+        "code": "50629",
+        "slug": "npf-microfinance-bank-ng",
+        "name": "NPF MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "50697",
+        "slug": "oluchukwu-microfinance-bank-ltd-ng",
+        "name": "Oluchukwu MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "999992",
+        "slug": "paycom",
+        "name": "OPay Digital Services Limited",
+        "logo": "https://d38v990enafbk6.cloudfront.net/OPAY.png"
+    },
+    {
+        "code": "107",
+        "slug": "optimus-bank-ltd",
+        "name": "Optimus Bank Limited",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Optimus-Bank.png"
+    },
+    {
+        "code": "100002",
+        "slug": "paga",
+        "name": "Paga",
+        "logo": "https://d38v990enafbk6.cloudfront.net/paga.png"
+    },
+    {
+        "code": "999991",
+        "slug": "palmpay",
+        "name": "PalmPay",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Palmpay.png"
+    },
+    {
+        "code": "104",
+        "slug": "parallex-bank",
+        "name": "Parallex Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/parallex_bank.png"
+    },
+    {
+        "code": "311",
+        "slug": "parkway-ready-cash",
+        "name": "Parkway - ReadyCash",
+        "logo": "https://d38v990enafbk6.cloudfront.net/parkway_readycash.png"
+    },
+    {
+        "code": "090680",
+        "slug": "pathfinder-microfinance-bank-limited-ng",
+        "name": "Pathfinder MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Pathfinder-MFB.png"
+    },
+    {
+        "code": "100039",
+        "slug": "titan-paystack",
+        "name": "Paystack-Titan",
+        "logo": "https://d38v990enafbk6.cloudfront.net/titan_paystack.png"
+    },
+    {
+        "code": "50743",
+        "slug": "peace-microfinance-bank-ng",
+        "name": "Peace MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Peace-MFB.png"
+    },
+    {
+        "code": "51226",
+        "slug": "pecantrust-microfinance-bank-limited-ng",
+        "name": "Pecantrust MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/PecanTrust-MFB.png"
+    },
+    {
+        "code": "51146",
+        "slug": "personal-trust-mfb-ng",
+        "name": "Personal Trust MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Personal-MFB-Ltd..png"
+    },
+    {
+        "code": "50746",
+        "slug": "petra-microfinance-bank-plc",
+        "name": "Petra Mircofinance Bank Plc",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "050021",
+        "slug": "pfi-finance-company-limited-ng",
+        "name": "PFI Finance",
+        "logo": "https://d38v990enafbk6.cloudfront.net/PFI-Finance.png"
+    },
+    {
+        "code": "268",
+        "slug": "platinum-mortgage-bank-ng",
+        "name": "Platinum Mortgage Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "00716",
+        "slug": "pocket",
+        "name": "Pocket App",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "076",
+        "slug": "polaris-bank",
+        "name": "Polaris Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/polaris.png"
+    },
+    {
+        "code": "50864",
+        "slug": "polyunwana-mfb-ng",
+        "name": "Polyunwana MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "105",
+        "slug": "premiumtrust-bank-ng",
+        "name": "PremiumTrust Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Premium_trust_bank.png"
+    },
+    {
+        "code": "50739",
+        "slug": "prospa-capital-microfinance-bank-ng",
+        "name": "Prospa Capital Microfinance Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "050023",
+        "slug": "prosperis-finance-limited-ng",
+        "name": "Prosperis Finance",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "101",
+        "slug": "providus-bank",
+        "name": "Providus Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/providus.png"
+    },
+    {
+        "code": "51293",
+        "slug": "quickfund-mfb",
+        "name": "QuickFund MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "502",
+        "slug": "rand-merchant-bank",
+        "name": "Rand Merchant Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/rand_merchant_bank.png"
+    },
+    {
+        "code": "090496",
+        "slug": "randalpha-microfinance-bank-ng",
+        "name": "Randalpha MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Randalpha-MFB.png"
+    },
+    {
+        "code": "90067",
+        "slug": "refuge-mortgage-bank",
+        "name": "Refuge Mortgage Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "50761",
+        "slug": "rehoboth-microfinance-bank-ng",
+        "name": "Rehoboth Microfinance Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Rehoboth-MFB.png"
+    },
+    {
+        "code": "50994",
+        "slug": "rephidim",
+        "name": "Rephidim Microfinance Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "51286",
+        "slug": "rigo-microfinance-bank-limited-ng",
+        "name": "Rigo Microfinance Bank Limited",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "50767",
+        "slug": "rockshield-microfinance-bank-ng",
+        "name": "Rockshield MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Rockshield.png"
+    },
+    {
+        "code": "125",
+        "slug": "rubies-mfb",
+        "name": "Rubies MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/rubies.png"
+    },
+    {
+        "code": "51113",
+        "slug": "safe-haven-mfb-ng",
+        "name": "Safe Haven MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/safe_haven_mfb.png"
+    },
+    {
+        "code": "40165",
+        "slug": "sage-grey-finance-limited-ng",
+        "name": "Sage Grey Finance",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "50582",
+        "slug": "shield-mfb-ng",
+        "name": "Shield MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "106",
+        "slug": "signature-bank-ltd-ng",
+        "name": "Signature Bank Ltd",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Signature-Bank.png"
+    },
+    {
+        "code": "51062",
+        "slug": "solid-allianze-mfb",
+        "name": "Solid Allianze MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/SolidAllianzeMFB.png"
+    },
+    {
+        "code": "50800",
+        "slug": "solid-rock-mfb",
+        "name": "Solid Rock MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "51310",
+        "slug": "sparkle-microfinance-bank",
+        "name": "Sparkle Microfinance Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/sparkle.png"
+    },
+    {
+        "code": "221",
+        "slug": "stanbic-ibtc-bank",
+        "name": "Stanbic IBTC Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/stanbic.png"
+    },
+    {
+        "code": "068",
+        "slug": "standard-chartered-bank",
+        "name": "Standard Chartered Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/standard_chartered.png"
+    },
+    {
+        "code": "090162",
+        "slug": "stanford-microfinance-bank-ng",
+        "name": "Stanford MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "50809",
+        "slug": "stateside-microfinance-bank-ng",
+        "name": "Stateside MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "51253",
+        "slug": "stellas-mfb",
+        "name": "Stellas MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Stellas.png"
+    },
+    {
+        "code": "232",
+        "slug": "sterling-bank",
+        "name": "Sterling Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/sterling.png"
+    },
+    {
+        "code": "100",
+        "slug": "suntrust-bank",
+        "name": "Suntrust Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/suntrust.png"
+    },
+    {
+        "code": "50968",
+        "slug": "supreme-mfb-ng",
+        "name": "Supreme MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "302",
+        "slug": "taj-bank",
+        "name": "TAJ Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/taj_bank.png"
+    },
+    {
+        "code": "51269",
+        "slug": "tangerine-money",
+        "name": "Tangerine Money",
+        "logo": "https://d38v990enafbk6.cloudfront.net/tangerine_money.png"
+    },
+    {
+        "code": "51403",
+        "slug": "tenn-ng",
+        "name": "TENN",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "000304",
+        "slug": "the-alternative-bank-ng",
+        "name": "The Alternative bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Alternative-Bank.png"
+    },
+    {
+        "code": "102",
+        "slug": "titan-bank",
+        "name": "Titan Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/titan_trust_bank.png"
+    },
+    {
+        "code": "090708",
+        "slug": "transpay-mfb-ng",
+        "name": "TransPay MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/TransPayMFB.png"
+    },
+    {
+        "code": "50840",
+        "slug": "uc-microfinance-bank-ltd-u-and-c-mfb-ng",
+        "name": "U And C MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/U-C-MFB.png"
+    },
+    {
+        "code": "090706",
+        "slug": "ucee-mfb-ng",
+        "name": "UCEE MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/UCEEMFB.PNG"
+    },
+    {
+        "code": "51322",
+        "slug": "uhuru-mfb-ng",
+        "name": "Uhuru MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "50870",
+        "slug": "unaab-microfinance-bank-limited-ng",
+        "name": "Unaab Microfinance Bank Limited",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "50871",
+        "slug": "unical-mfb",
+        "name": "Unical MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "51316",
+        "slug": "unilag-microfinance-bank-ng",
+        "name": "Unilag Microfinance Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Default-Bank.png"
+    },
+    {
+        "code": "032",
+        "slug": "union-bank-of-nigeria",
+        "name": "Union Bank of Nigeria",
+        "logo": "https://d38v990enafbk6.cloudfront.net/union.png"
+    },
+    {
+        "code": "033",
+        "slug": "united-bank-for-africa",
+        "name": "United Bank For Africa",
+        "logo": "https://d38v990enafbk6.cloudfront.net/uba.png"
+    },
+    {
+        "code": "215",
+        "slug": "unity-bank",
+        "name": "Unity Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/unity_bank.png"
+    },
+    {
+        "code": "50894",
+        "slug": "uzondu-microfinance-bank-awka-anambra-state-ng",
+        "name": "Uzondu Microfinance Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/UZONDU_MICROFINANCE_BANK.png"
+    },
+    {
+        "code": "050020",
+        "slug": "vale-finance",
+        "name": "Vale Finance",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Vale-Finance.png"
+    },
+    {
+        "code": "566",
+        "slug": "vfd",
+        "name": "VFD Microfinance Bank Limited",
+        "logo": "https://d38v990enafbk6.cloudfront.net/VFD_MFB.png"
+    },
+    {
+        "code": "51355",
+        "slug": "waya-microfinance-bank-ng",
+        "name": "Waya Microfinance Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Waya-MFB.png"
+    },
+    {
+        "code": "035",
+        "slug": "wema-bank",
+        "name": "Wema Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/wema.png"
+    },
+    {
+        "code": "594",
+        "slug": "yes-mfb-ng",
+        "name": "Yes MFB",
+        "logo": "https://d38v990enafbk6.cloudfront.net/Yes-MFB.png"
+    },
+    {
+        "code": "057",
+        "slug": "zenith-bank",
+        "name": "Zenith Bank",
+        "logo": "https://d38v990enafbk6.cloudfront.net/zenith.png"
+    }
+]

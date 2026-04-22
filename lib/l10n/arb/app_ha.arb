@@ -1,0 +1,12 @@
+{
+  "@@locale": "ha",
+  "appName":"Clean Flutter Setup",
+  "welcome": "Barka da zuwa {appName}",
+  "@welcome": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  }
+}

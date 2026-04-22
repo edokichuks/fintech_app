@@ -1,0 +1,12 @@
+{
+  "@@locale": "yo",
+  "appName":"Clean Flutter Setup",
+  "welcome": "E abo si {appName}",
+  "@welcome": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  }
+}
