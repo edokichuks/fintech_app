@@ -176,22 +176,26 @@ class _CardsBody extends ConsumerWidget {
                     final cardControls = cardsUiState.controlFor(card.id);
                     final isSelected = index == activeIndex;
 
-                    return Center(
-                      child: FittedBox(
-                        fit: BoxFit.scaleDown,
-                        alignment: _carouselAlignment(index, activeIndex),
-                        child: AnimatedScale(
-                          duration: const Duration(milliseconds: 220),
-                          curve: Curves.easeOutCubic,
-                          scale: isSelected ? 1 : 0.95,
-                          child: AnimatedOpacity(
+                    return FintechStaggeredReveal(
+                      delay: Duration(milliseconds: index * 100),
+                      offset: const Offset(0, 0.2),
+                      child: Center(
+                        child: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          alignment: _carouselAlignment(index, activeIndex),
+                          child: AnimatedScale(
                             duration: const Duration(milliseconds: 220),
                             curve: Curves.easeOutCubic,
-                            opacity: isSelected ? 1 : 0.8,
-                            child: FintechCardView(
-                              card: card,
-                              isFrozen: cardControls.isFrozen,
-                              isRevealed: cardControls.isRevealed,
+                            scale: isSelected ? 1 : 0.95,
+                            child: AnimatedOpacity(
+                              duration: const Duration(milliseconds: 220),
+                              curve: Curves.easeOutCubic,
+                              opacity: isSelected ? 1 : 0.8,
+                              child: FintechCardView(
+                                card: card,
+                                isFrozen: cardControls.isFrozen,
+                                isRevealed: cardControls.isRevealed,
+                              ),
                             ),
                           ),
                         ),
