@@ -69,8 +69,8 @@ class DashboardHeader extends StatelessWidget {
                     ),
                     if (unreadNotifications > 0)
                       Positioned(
-                        top: 12,
-                        right: 12,
+                        top: 10.r,
+                        right: 10.r,
                         child: Container(
                           width: 7,
                           height: 7,

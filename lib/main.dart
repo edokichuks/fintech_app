@@ -82,7 +82,7 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
           onPointerDown: (event) {},
           child: MaterialApp(
             navigatorKey: navigatorKey,
-            title: 'FinTech App',
+            title: 'FinTrack',
             debugShowCheckedModeBanner: false,
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
