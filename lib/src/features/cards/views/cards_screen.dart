@@ -42,15 +42,30 @@ class _CardsScreenState extends ConsumerState<CardsScreen> {
   }
 }
 
-class _CardsBody extends ConsumerWidget {
+class _CardsBody extends ConsumerStatefulWidget {
   const _CardsBody({required this.snapshot});
 
   final FintechDashboardSnapshot snapshot;
   static const int _defaultVisibleIndex = 1;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<_CardsBody> createState() => _CardsBodyState();
+}
+
+class _CardsBodyState extends ConsumerState<_CardsBody> {
+  PageController? _carouselController;
+  double? _carouselViewportFraction;
+
+  @override
+  void dispose() {
+    _carouselController?.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final cardsUiState = ref.watch(cardsUiProvider);
+    final snapshot = widget.snapshot;
     final filteredCards = snapshot.cards
         .where((card) => card.variant == cardsUiState.selectedVariant)
         .toList();
@@ -58,12 +73,13 @@ class _CardsBody extends ConsumerWidget {
       filteredCards.isEmpty ? snapshot.cards : filteredCards,
     );
     final activeIndex = cardsUiState.activeCardIndex >= cards.length
-        ? (cards.length > 1 ? _defaultVisibleIndex : 0)
+        ? (cards.length > 1 ? _CardsBody._defaultVisibleIndex : 0)
         : cardsUiState.activeCardIndex;
     final selectedCard = cards[activeIndex];
     final controls = cardsUiState.controlFor(selectedCard.id);
-    final itemExtent = 262.w;
-    final carouselController = CarouselController(initialItem: activeIndex);
+    final itemExtent = FintechCardView.cardWidth.w;
+    final screenWidth = MediaQuery.sizeOf(context).width;
+    final carouselHeight = FintechCardView.cardHeight.h + 16.h;
 
     return AppScaffold(
       applySafeArea: false,
@@ -118,7 +134,7 @@ class _CardsBody extends ConsumerWidget {
                         .setSelectedVariant(FintechCardVariant.physical);
                     ref
                         .read(cardsUiProvider.notifier)
-                        .setActiveCardIndex(_defaultVisibleIndex);
+                        .setActiveCardIndex(_CardsBody._defaultVisibleIndex);
                   },
                 ),
                 _VariantChip(
@@ -132,80 +148,93 @@ class _CardsBody extends ConsumerWidget {
                         .setSelectedVariant(FintechCardVariant.virtual);
                     ref
                         .read(cardsUiProvider.notifier)
-                        .setActiveCardIndex(_defaultVisibleIndex);
+                        .setActiveCardIndex(_CardsBody._defaultVisibleIndex);
                   },
                 ),
               ],
             ),
             SizedBox(height: FintechSpacing.xl.h),
             SizedBox(
-              height: 210.h,
-              child: NotificationListener<ScrollNotification>(
-                onNotification: (notification) {
-                  final metrics = notification.metrics;
-                  final resolvedIndex = _indexFromOffset(
-                    pixels: metrics.pixels,
-                    itemExtent: itemExtent,
-                    itemCount: cards.length,
-                  );
+              height: carouselHeight,
+              child: OverflowBox(
+                minWidth: screenWidth,
+                maxWidth: screenWidth,
+                alignment: Alignment.center,
+                child: SizedBox(
+                  width: screenWidth,
+                  height: carouselHeight,
+                  child: LayoutBuilder(
+                    builder: (context, constraints) {
+                      final viewportFraction =
+                          (itemExtent / constraints.maxWidth).clamp(0.01, 1.0);
+                      final carouselController = _resolveCarouselController(
+                        activeIndex: activeIndex,
+                        viewportFraction: viewportFraction,
+                      );
+                      _syncCarouselController(carouselController, activeIndex);
 
-                  if (resolvedIndex != cardsUiState.activeCardIndex) {
-                    ref
-                        .read(cardsUiProvider.notifier)
-                        .setActiveCardIndex(resolvedIndex);
-                  }
+                      return PageView.builder(
+                        controller: carouselController,
+                        clipBehavior: Clip.none,
+                        itemCount: cards.length,
+                        onPageChanged: (index) {
+                          ref
+                              .read(cardsUiProvider.notifier)
+                              .setActiveCardIndex(index);
+                        },
+                        itemBuilder: (context, index) {
+                          final card = cards[index];
+                          final cardControls = cardsUiState.controlFor(card.id);
+                          final isSelected = index == activeIndex;
 
-                  return false;
-                },
-                child: CarouselView(
-                  controller: carouselController,
-                  itemExtent: itemExtent,
-                  itemSnapping: true,
-                  shrinkExtent: 200.w,
-                  backgroundColor: AppColors.transparent,
-                  itemClipBehavior: Clip.none,
-                  padding: EdgeInsets.zero,
-                  enableSplash: false,
-                  onTap: (index) {
-                    ref
-                        .read(cardsUiProvider.notifier)
-                        .setActiveCardIndex(index);
-                  },
-                  children: List<Widget>.generate(cards.length, (index) {
-                    final card = cards[index];
-                    final cardControls = cardsUiState.controlFor(card.id);
-                    final isSelected = index == activeIndex;
+                          return FintechStaggeredReveal(
+                            delay: Duration(milliseconds: index * 100),
+                            offset: const Offset(0, 0.2),
+                            child: GestureDetector(
+                              behavior: HitTestBehavior.opaque,
+                              onTap: () {
+                                if (index == activeIndex) {
+                                  return;
+                                }
 
-                    return FintechStaggeredReveal(
-                      delay: Duration(milliseconds: index * 100),
-                      offset: const Offset(0, 0.2),
-                      child: Center(
-                        child: FittedBox(
-                          fit: BoxFit.scaleDown,
-                          alignment: _carouselAlignment(index, activeIndex),
-                          child: AnimatedScale(
-                            duration: const Duration(milliseconds: 220),
-                            curve: Curves.easeOutCubic,
-                            scale: isSelected ? 1 : 0.95,
-                            child: AnimatedOpacity(
-                              duration: const Duration(milliseconds: 220),
-                              curve: Curves.easeOutCubic,
-                              opacity: isSelected ? 1 : 0.8,
-                              child: FintechCardView(
-                                card: card,
-                                isFrozen: cardControls.isFrozen,
-                                isRevealed: cardControls.isRevealed,
+                                carouselController.animateToPage(
+                                  index,
+                                  duration: const Duration(milliseconds: 240),
+                                  curve: Curves.easeOutCubic,
+                                );
+                              },
+                              child: Center(
+                                child: FittedBox(
+                                  fit: BoxFit.scaleDown,
+                                  child: AnimatedScale(
+                                    duration: const Duration(milliseconds: 220),
+                                    curve: Curves.easeOutCubic,
+                                    scale: isSelected ? 1 : 0.95,
+                                    child: AnimatedOpacity(
+                                      duration: const Duration(
+                                        milliseconds: 220,
+                                      ),
+                                      curve: Curves.easeOutCubic,
+                                      opacity: isSelected ? 1 : 0.8,
+                                      child: FintechCardView(
+                                        card: card,
+                                        isFrozen: cardControls.isFrozen,
+                                        isRevealed: cardControls.isRevealed,
+                                      ),
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
-                          ),
-                        ),
-                      ),
-                    );
-                  }),
+                          );
+                        },
+                      );
+                    },
+                  ),
                 ),
               ),
             ),
-            SizedBox(height: FintechSpacing.md.h),
+            SizedBox(height: FintechSpacing.xs.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: List<Widget>.generate(cards.length, (index) {
@@ -285,7 +314,7 @@ class _CardsBody extends ConsumerWidget {
 
   List<FintechBankCard> _cardsForCarousel(List<FintechBankCard> source) {
     if (source.isEmpty) {
-      return snapshot.cards.take(3).toList(growable: false);
+      return widget.snapshot.cards.take(3).toList(growable: false);
     }
 
     if (source.length >= 3) {
@@ -303,29 +332,41 @@ class _CardsBody extends ConsumerWidget {
     return cards;
   }
 
-  int _indexFromOffset({
-    required double pixels,
-    required double itemExtent,
-    required int itemCount,
+  PageController _resolveCarouselController({
+    required int activeIndex,
+    required double viewportFraction,
   }) {
-    if (itemCount <= 1) {
-      return 0;
+    if (_carouselController != null &&
+        _carouselViewportFraction == viewportFraction) {
+      return _carouselController!;
     }
 
-    final rawIndex = (pixels / itemExtent).round();
-    return rawIndex.clamp(0, itemCount - 1);
+    _carouselController?.dispose();
+    _carouselViewportFraction = viewportFraction;
+    _carouselController = PageController(
+      initialPage: activeIndex,
+      viewportFraction: viewportFraction,
+    );
+
+    return _carouselController!;
   }
 
-  Alignment _carouselAlignment(int index, int activeIndex) {
-    if (index < activeIndex) {
-      return Alignment.centerRight;
-    }
+  void _syncCarouselController(PageController controller, int activeIndex) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted || !controller.hasClients) {
+        return;
+      }
 
-    if (index > activeIndex) {
-      return Alignment.centerLeft;
-    }
+      final page = controller.page;
+      if (page != null && (page - page.round()).abs() > 0.01) {
+        return;
+      }
 
-    return Alignment.center;
+      final currentPage = page?.round() ?? controller.initialPage;
+      if (currentPage != activeIndex) {
+        controller.jumpToPage(activeIndex);
+      }
+    });
   }
 }
 
