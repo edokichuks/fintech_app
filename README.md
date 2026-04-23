@@ -16,17 +16,19 @@ FinTrack is a Flutter fintech UI assessment project that implements a dashboard 
 
 The recordings below showcase the project running through the dashboard, transaction filters, profile drawer, card controls, virtual-card switch, card settings, and transaction-detail chart.
 
-### Android Emulator
+### IOS Physical Device
 
-<video src="docs/features/fintech_dashboard_cards/media/android-emulator-demo.mp4" controls width="320"></video>
+<video src="docs/features/fintech_dashboard_cards/media/physical_device_demo.mp4" poster="docs/features/fintech_dashboard_cards/images/dark/01-home-dashboard.png" controls preload="auto" width="320"></video>
 
-[Open Android emulator demo](docs/features/fintech_dashboard_cards/media/android-emulator-demo.mp4)
+[Open ios physical device demo](docs/features/fintech_dashboard_cards/media/physical_device_demo.mp4)
 
 ### iOS Simulator
 
-<video src="docs/features/fintech_dashboard_cards/media/ios-simulator-demo.mp4" controls width="320"></video>
+<video src="docs/features/fintech_dashboard_cards/media/ios-simulator-demo.mp4" poster="docs/features/fintech_dashboard_cards/images/dark/01-home-dashboard.png" controls preload="auto" width="320"></video>
 
 [Open iOS simulator demo](docs/features/fintech_dashboard_cards/media/ios-simulator-demo.mp4)
+
+![Demo](docs/features/fintech_dashboard_cards/media/ios_demo.gif)
 
 ## Screenshots
 
