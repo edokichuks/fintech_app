@@ -48,101 +48,102 @@ class _SpendChartCardState extends State<SpendChartCard> {
         1.4;
 
     return Container(
-      padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 14.h),
+      clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         color: FintechColors.surface(context),
         borderRadius: BorderRadius.circular(FintechRadius.panel.r),
       ),
       child: Column(
         children: <Widget>[
-          LayoutBuilder(
-            builder: (context, constraints) {
-              final isCompact = constraints.maxWidth < 340.w;
+          Padding(
+            padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 0),
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                final isCompact = constraints.maxWidth < 340.w;
 
-              final selector = PressableScale(
-                onTap: () => widget.onRangeChanged(
-                  widget.selectedRange == FintechSpendRange.weekly
-                      ? FintechSpendRange.monthly
-                      : FintechSpendRange.weekly,
-                ),
-                child: Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 12.w,
-                    vertical: 8.h,
+                final selector = PressableScale(
+                  onTap: () => widget.onRangeChanged(
+                    widget.selectedRange == FintechSpendRange.weekly
+                        ? FintechSpendRange.monthly
+                        : FintechSpendRange.weekly,
                   ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(FintechRadius.pill.r),
-                    border: Border.all(color: AppColors.fintechBlue),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      AppText(
-                        text: widget.selectedRange == FintechSpendRange.weekly
-                            ? 'Weekly'
-                            : 'Monthly',
-                        style: AppTextStyle.bodySmall.copyWith(
-                          color: FintechColors.textPrimary(context),
+                  child: Container(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 12.w,
+                      vertical: 8.h,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(FintechRadius.pill.r),
+                      border: Border.all(color: AppColors.fintechBlue),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        AppText(
+                          text: widget.selectedRange == FintechSpendRange.weekly
+                              ? 'Weekly'
+                              : 'Monthly',
+                          style: AppTextStyle.bodySmall.copyWith(
+                            color: FintechColors.textPrimary(context),
+                          ),
                         ),
-                      ),
-                      SizedBox(width: 4.w),
-                      Icon(
-                        LucideIcons.chevronDown400,
-                        color: FintechColors.textPrimary(context),
-                        size: 16.r,
-                      ),
-                    ],
-                  ),
-                ),
-              );
-
-              final summary = Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  AppText(
-                    text: 'Total Spend',
-                    style: AppTextStyle.bodyLarge.copyWith(
-                      color: FintechColors.textPrimary(context),
+                        SizedBox(width: 4.w),
+                        Icon(
+                          LucideIcons.chevronDown400,
+                          color: FintechColors.textPrimary(context),
+                          size: 16.r,
+                        ),
+                      ],
                     ),
                   ),
-                  SizedBox(height: 6.h),
-                  FittedBox(
-                    fit: BoxFit.scaleDown,
-                    alignment: Alignment.centerLeft,
-                    child: AnimatedCurrencyText(
-                      value: widget.totalSpend,
-                      suffix: '\$',
-                      style: AppTextStyle.titleLarge.copyWith(
-                        color: FintechColors.textPrimary(context),
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ),
-                ],
-              );
+                );
 
-              if (isCompact) {
-                return Column(
+                final summary = Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    summary,
-                    SizedBox(height: 12.h),
-                    Align(alignment: Alignment.centerRight, child: selector),
+                    AppText(
+                      text: 'Total Spend',
+                      style: AppTextStyle.bodyLarge.copyWith(
+                        color: FintechColors.textPrimary(context),
+                      ),
+                    ),
+                    SizedBox(height: 6.h),
+                    FittedBox(
+                      fit: BoxFit.scaleDown,
+                      alignment: Alignment.centerLeft,
+                      child: AnimatedCurrencyText(
+                        value: widget.totalSpend,
+                        suffix: '\$',
+                        style: AppTextStyle.titleLarge.copyWith(
+                          color: FintechColors.textPrimary(context),
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ),
                   ],
                 );
-              }
 
-              return Row(
-                children: <Widget>[
-                  Expanded(child: summary),
-                  SizedBox(width: 12.w),
-                  selector,
-                ],
-              );
-            },
+                if (isCompact) {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[summary, selector],
+                  );
+                }
+
+                return Row(
+                  children: <Widget>[
+                    Expanded(child: summary),
+                    SizedBox(width: 12.w),
+                    selector,
+                  ],
+                );
+              },
+            ),
           ),
           SizedBox(height: 12.h),
           SizedBox(
+            width: double.infinity,
             height: 220.h,
             child: LineChart(
               LineChartData(
@@ -166,10 +167,24 @@ class _SpendChartCardState extends State<SpendChartCard> {
                     sideTitles: SideTitles(
                       showTitles: true,
                       reservedSize: 30.h,
+                      interval: 1,
                       getTitlesWidget: (value, meta) {
-                        final title = chartPoints[value.toInt()].label;
+                        final index = value.round();
+                        final isWholePoint = (value - index).abs() < 0.01;
+                        if (!isWholePoint ||
+                            index < 0 ||
+                            index >= chartPoints.length) {
+                          return const SizedBox.shrink();
+                        }
+
+                        final title = chartPoints[index].label;
                         return SideTitleWidget(
                           meta: meta,
+                          space: 0,
+                          fitInside: SideTitleFitInsideData.fromTitleMeta(
+                            meta,
+                            distanceFromEdge: 0,
+                          ),
                           child: AppText(
                             text: title,
                             style: AppTextStyle.bodyMedium.copyWith(

@@ -120,15 +120,14 @@ class _CardTransactionBody extends ConsumerWidget {
                     text: 'Transaction History',
                     style: AppTextStyle.titleLarge.copyWith(
                       color: FintechColors.textPrimary(context),
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
                 ),
                 AppText(
                   text: 'See all',
                   style: AppTextStyle.bodySmall.copyWith(
-                    color: AppColors.fintechBlue,
-                    fontWeight: FontWeight.w700,
+                    color: AppColors.blue100,
                   ),
                 ),
               ],

@@ -33,7 +33,7 @@ class TransactionHistorySection extends StatelessWidget {
                 text: 'Transaction History',
                 style: AppTextStyle.titleLarge.copyWith(
                   color: FintechColors.textPrimary(context),
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
             ),
