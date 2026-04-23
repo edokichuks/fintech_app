@@ -22,6 +22,10 @@ Keeping those concerns in separate notifiers avoids rebuilding or mutating the m
 
 The same card visual appears in the cards tab and the transaction-detail view. A shared `FintechCardView` keeps the visual consistent while centralizing the reveal/freeze presentation logic and later responsive fixes.
 
-## Why default to dark mode while still shipping light mode?
+## Why support both system light and dark mode?
 
-The screenshots are dark-first, so dark mode is the default launch experience. At the same time, light-theme tokens and responsive fixes were implemented so the feature is not locked into a single appearance policy. Switching to another theme policy later is a notifier decision, not a redesign.
+The app follows the platform theme setting so reviewers can inspect both dark and light appearances without changing product code. The screenshots are dark-first, but light-theme tokens and responsive fixes were implemented so the feature is not locked into one appearance policy. Switching to another launch policy later is a notifier decision, not a redesign.
+
+## Why keep a deterministic demo flow?
+
+The README media is generated from a small integration flow that walks through the same feature states every time. This avoids manually tapping through screens during recording and keeps the videos, screenshots, and implementation notes aligned with the actual app behavior.

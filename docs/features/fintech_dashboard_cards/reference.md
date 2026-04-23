@@ -4,9 +4,9 @@
 
 ## Routes
 
+- `AppRouter.home`
 - `AppRouter.cardsScreen`
 - `AppRouter.cardTransactionScreen`
-- `AppRouter.bottomNavBar`
 
 ## Screens
 
@@ -71,6 +71,23 @@
 - `lucide_icons_flutter`
 - `fl_chart`
 - `cross_file`
+- `integration_test`
+
+## Media Assets
+
+- Android emulator video: `docs/features/fintech_dashboard_cards/media/android-emulator-demo.mp4`
+- iOS simulator video: `docs/features/fintech_dashboard_cards/media/ios-simulator-demo.mp4`
+- Dark screenshot set: `docs/features/fintech_dashboard_cards/images/dark/`
+- Light screenshot set: `docs/features/fintech_dashboard_cards/images/light/`
+- README dashboard preview: `docs/features/fintech_dashboard_cards/images/home.png`
+- README cards preview: `docs/features/fintech_dashboard_cards/images/cards.png`
+- README card transaction preview: `docs/features/fintech_dashboard_cards/images/card-transaction.png`
+- README profile drawer preview: `docs/features/fintech_dashboard_cards/images/profile-drawer.png`
+
+## Demo Capture Harness
+
+- `integration_test/fintech_demo_flow_test.dart`
+- `test_driver/integration_test.dart`
 
 ## Tests
 
@@ -83,3 +100,4 @@
 - `test/widget/features/home/views/home_screen_test.dart`
 - `test/widget/features/home/views/widgets/fintech_profile_drawer_test.dart`
 - `test/widget/features/cards/views/cards_flow_test.dart`
+- `integration_test/fintech_demo_flow_test.dart`

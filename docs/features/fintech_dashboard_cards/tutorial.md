@@ -60,6 +60,10 @@ The app navigates through `AppRouter.cardTransactionScreen` and shows:
 - the spend chart card
 - the card-specific transaction list
 
+## Step 5 — Review the Recorded Evidence
+
+The README includes Android emulator and iOS simulator recordings of this same flow. Dark and light screenshot sets are stored under `docs/features/fintech_dashboard_cards/images/` so reviewers can inspect both theme modes without rerunning the app.
+
 ## What to Do Next
 
 - See [How-To](how-to.md) for extending mock data or adjusting theme behavior.

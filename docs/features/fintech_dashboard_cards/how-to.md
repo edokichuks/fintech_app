@@ -15,6 +15,22 @@
 3. If you want system-following behavior, update the default to `ThemeMode.system`.
 4. Keep `AppTheme.lightTheme` and `AppTheme.darkTheme` in sync so both themes remain production-ready.
 
+## How to regenerate the demo flow
+
+1. Start an Android emulator or iOS simulator.
+2. Fetch dependencies with `flutter pub get`.
+3. Run the Android flow with `flutter test integration_test/fintech_demo_flow_test.dart -d <android-device-id>`.
+4. Run the iOS simulator flow with `flutter drive --driver=test_driver/integration_test.dart --target=integration_test/fintech_demo_flow_test.dart -d <ios-simulator-id>`.
+5. Capture videos with `adb shell screenrecord` on Android or `xcrun simctl io <device-id> recordVideo` on iOS simulator.
+
+## How to regenerate README screenshots
+
+1. Set Android dark mode with `adb shell cmd uimode night yes`, or light mode with `adb shell cmd uimode night no`.
+2. Run `integration_test/fintech_demo_flow_test.dart`.
+3. Capture device screenshots at the printed `DEMO_STATE:*` markers.
+4. Store dark captures under `docs/features/fintech_dashboard_cards/images/dark/`.
+5. Store light captures under `docs/features/fintech_dashboard_cards/images/light/`.
+
 ## How to add a new drawer action
 
 1. Open `lib/src/features/home/views/widgets/fintech_profile_drawer.dart`.

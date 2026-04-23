@@ -125,9 +125,20 @@ class _SpendChartCardState extends State<SpendChartCard> {
 
                 if (isCompact) {
                   return Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[summary, selector],
+                    children: <Widget>[
+                      Expanded(child: summary),
+                      SizedBox(width: 12.w),
+                      Flexible(
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: FittedBox(
+                            fit: BoxFit.scaleDown,
+                            child: selector,
+                          ),
+                        ),
+                      ),
+                    ],
                   );
                 }
 

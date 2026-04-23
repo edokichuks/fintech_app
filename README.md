@@ -1,6 +1,6 @@
-# Fintech Dashboard, Cards, and Profile Drawer
+# FinTrack Fintech Dashboard
 
-This project now ships a screenshot-driven fintech experience built inside the existing `lib/src/...` architecture. The implementation covers the dashboard home, cards tab, card-transaction detail, and the profile drawer, with mocked live data, Riverpod state, light/dark theme support, and verification coverage.
+FinTrack is a Flutter fintech UI assessment project that implements a dashboard home, profile drawer, cards management flow, and card-transaction analytics detail screen inside the existing `lib/src/...` architecture.
 
 ## Overview
 
@@ -12,20 +12,81 @@ This project now ships a screenshot-driven fintech experience built inside the e
 - Theme support includes light and dark palettes, with dark mode as the default launch theme.
 - Iconography for the new fintech surfaces uses `lucide_icons_flutter` for most actions and settings.
 
-## Screen Preview
+## Demo Recordings
 
-These are the screenshot references used to replicate the feature surfaces in this pass.
+The recordings below showcase the project running through the dashboard, transaction filters, profile drawer, card controls, virtual-card switch, card settings, and transaction-detail chart.
 
-![Dashboard](docs/features/fintech_dashboard_cards/images/home.png)
-![Cards](docs/features/fintech_dashboard_cards/images/cards.png)
-![Card Transaction](docs/features/fintech_dashboard_cards/images/card-transaction.png)
-![Profile Drawer](docs/features/fintech_dashboard_cards/images/profile-drawer.png)
+### Android Emulator
+
+<video src="docs/features/fintech_dashboard_cards/media/android-emulator-demo.mp4" controls width="320"></video>
+
+[Open Android emulator demo](docs/features/fintech_dashboard_cards/media/android-emulator-demo.mp4)
+
+### iOS Simulator
+
+<video src="docs/features/fintech_dashboard_cards/media/ios-simulator-demo.mp4" controls width="320"></video>
+
+[Open iOS simulator demo](docs/features/fintech_dashboard_cards/media/ios-simulator-demo.mp4)
+
+## Screenshots
+
+### Dark Mode
+
+<p>
+  <img src="docs/features/fintech_dashboard_cards/images/dark/01-home-dashboard.png" width="180" alt="Dark dashboard home" />
+  <img src="docs/features/fintech_dashboard_cards/images/dark/03-profile-drawer.png" width="180" alt="Dark profile drawer" />
+  <img src="docs/features/fintech_dashboard_cards/images/dark/04-cards-overview.png" width="180" alt="Dark cards overview" />
+  <img src="docs/features/fintech_dashboard_cards/images/dark/05-card-revealed.png" width="180" alt="Dark revealed card" />
+  <img src="docs/features/fintech_dashboard_cards/images/dark/06-card-settings.png" width="180" alt="Dark card settings" />
+  <img src="docs/features/fintech_dashboard_cards/images/dark/07-card-transaction-detail.png" width="180" alt="Dark card transaction detail" />
+</p>
+
+### Light Mode
+
+<p>
+  <img src="docs/features/fintech_dashboard_cards/images/light/01-home-dashboard.png" width="180" alt="Light dashboard home" />
+  <img src="docs/features/fintech_dashboard_cards/images/light/03-profile-drawer.png" width="180" alt="Light profile drawer" />
+  <img src="docs/features/fintech_dashboard_cards/images/light/04-cards-overview.png" width="180" alt="Light cards overview" />
+  <img src="docs/features/fintech_dashboard_cards/images/light/05-card-revealed.png" width="180" alt="Light revealed card" />
+  <img src="docs/features/fintech_dashboard_cards/images/light/06-card-settings.png" width="180" alt="Light card settings" />
+  <img src="docs/features/fintech_dashboard_cards/images/light/07-card-transaction-detail.png" width="180" alt="Light card transaction detail" />
+</p>
+
+More screenshots are available in:
+
+- `docs/features/fintech_dashboard_cards/images/dark/`
+- `docs/features/fintech_dashboard_cards/images/light/`
+
+## Features
+
+- Dashboard home with live mocked financial snapshot data.
+- Profile drawer with user summary, profile settings, notification toggle, and cards navigation.
+- Cards screen with physical/virtual card filters, carousel, freeze/reveal controls, and card settings toggles.
+- Card transaction detail with selected card preview, total spend chart, weekly/monthly range toggle, and transaction history.
+- Pull-to-refresh on dashboard, cards, and transaction-detail screens.
+- Staggered reveal animations, animated currency values, responsive layout fixes, and system light/dark theme support.
 
 ## Setup
 
+1. Install Flutter `3.38.5` or a compatible stable version with Dart `3.10.x`.
+2. Install iOS and Android platform tooling if you want to run both targets.
+3. Fetch dependencies:
+
 ```bash
 flutter pub get
+```
+
+4. Run the app:
+
+```bash
 flutter run
+```
+
+5. Run a specific device:
+
+```bash
+flutter devices
+flutter run -d <device-id>
 ```
 
 ## Verification
@@ -33,67 +94,30 @@ flutter run
 ```bash
 flutter analyze
 flutter test
+flutter test integration_test/fintech_demo_flow_test.dart -d emulator-5554
+flutter drive --driver=test_driver/integration_test.dart --target=integration_test/fintech_demo_flow_test.dart -d <ios-simulator-id>
 ```
 
-Current verification status:
+The integration flow is used to reproduce the README recordings and screenshots. It drives the app through the major user-facing feature states with deterministic mock data.
 
-- `flutter analyze`: passing
-- `flutter test`: passing
+## Implementation Notes
 
-## Architecture Notes
-
-- The implementation keeps the repo's current architecture instead of creating a parallel template structure.
 - Shared fintech data lives in `lib/src/application/model/fintech_dashboard_snapshot.dart`.
 - Mock live data and repository wiring live in `lib/src/application/repositories/fintech/`.
-- Feature UI state is split into small Riverpod notifiers:
-  - `dashboardUiProvider`
-  - `profileDrawerUiProvider`
-  - `cardsUiProvider`
-- Presentation stays feature-scoped:
-  - `lib/src/features/home/views/...`
-  - `lib/src/features/cards/views/...`
-- Reusable fintech widgets live under `lib/src/general_widgets/`.
-
-## Packages Used
-
-- `flutter_riverpod`: feature and screen state management
-- `fl_chart`: spend trend chart on card-transaction detail
-- `lucide_icons_flutter`: line icon system for most new screens
-- `google_fonts`: app-wide `Arimo` typography
-- `equatable`: immutable model equality for the shared fintech snapshot
-
-## Feature Highlights
-
-- Stream-driven mocked dashboard snapshot with 500-800ms initial delay, 3-second updates, and recoverable error simulation
-- Pull-to-refresh on dashboard, cards, and card-transaction detail
-- Staggered reveal animations and animated currency value updates
-- Shared bank-card component reused across home, cards, and detail views
-- Responsive layout fixes for narrower widths and shorter heights
-- Profile drawer notification toggle backed by Riverpod state
-
-## Testing Coverage
-
-The feature adds more than ten meaningful tests across unit and widget suites.
-
-- Unit coverage
-  - snapshot/mock/copyWith/serialization
-  - repository update and retry behavior
-  - theme defaults
-  - dashboard, drawer, and cards UI-state notifiers
-- Widget coverage
-  - loading, success, and error states on home
-  - profile drawer rendering and notification toggle
-  - cards screen rendering
-  - card-transaction detail rendering
-  - registered-route navigation into the detail screen
+- Riverpod UI state is split across `dashboardUiProvider`, `profileDrawerUiProvider`, and `cardsUiProvider`.
+- Feature UI stays under `lib/src/features/home/views/...` and `lib/src/features/cards/views/...`.
+- Shared fintech widgets live under `lib/src/general_widgets/`.
+- Theme mode follows the platform/system setting while both light and dark palettes are implemented.
+- Android media was captured on `sdk gphone64 arm64`; iOS media was captured on an `iPhone 16 Pro` simulator. The wireless physical iPhone was detected, but command-line video capture is available for simulators in this environment.
 
 ## Documentation
 
-- Human docs: `docs/features/fintech_dashboard_cards/`
+- Feature docs: `docs/features/fintech_dashboard_cards/`
+- Submission/media notes: `docs/features/fintech_dashboard_cards/submission.md`
 - Agent docs: `.ai/documentation/features/fintech_dashboard_cards/`
 
 ## Known Limitations
 
-- The README includes screenshot previews for the implemented surfaces, but it does not yet include a fresh simulator/device runtime recording GIF.
-- Drawer list actions other than switching to the cards tab are demo placeholders in this assessment pass.
-- The mock data layer simulates live updates and recoverable failures, but there is no backend integration in scope.
+- Drawer actions other than notification toggle and cards navigation are UI placeholders for the assessment scope.
+- The data layer intentionally uses mocked live updates and simulated recoverable failures; no backend integration is included.
+- Local video embeds may render as links on some Markdown viewers. The MP4 files are committed under `docs/features/fintech_dashboard_cards/media/` for direct playback.

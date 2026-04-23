@@ -12,8 +12,8 @@ import '../../../helpers/fintech_test_harness.dart';
 
 void main() {
   group('AppTheme', () {
-    test('defaults to dark mode', () {
-      expect(ThemeNotifierState.initialState().themeMode, ThemeMode.dark);
+    test('follows the system theme by default', () {
+      expect(ThemeNotifierState.initialState().themeMode, ThemeMode.system);
     });
 
     testWidgets('uses Arimo as the app-wide font family', (
