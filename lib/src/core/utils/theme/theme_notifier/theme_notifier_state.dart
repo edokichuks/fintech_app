@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 class ThemeNotifierState {
   final ThemeMode themeMode;
   const ThemeNotifierState({
-    this.themeMode = ThemeMode.dark,
+    this.themeMode = ThemeMode.system,
   });
 
   factory ThemeNotifierState.initialState() {
     return const ThemeNotifierState(
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.system,
     );
   }
 
